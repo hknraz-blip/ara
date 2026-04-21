@@ -252,8 +252,14 @@
 
     .areas-section { background: var(--bg-2); }
     .areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.75rem; }
-    .area-chip { background: var(--bg-3); border: 1px solid var(--border); border-radius: 100px; padding: 0.7rem 1.5rem; text-align: center; font-weight: 600; font-size: 0.875rem; transition: all 0.25s; cursor: default; }
+    .area-chip { display:block; background: var(--bg-3); border: 1px solid var(--border); border-radius: 100px; padding: 0.7rem 1.5rem; text-align: center; font-weight: 600; font-size: 0.875rem; transition: all 0.25s; }
     .area-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+
+    .landing-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; }
+    .landing-card { display:block; background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:1.25rem; transition:all .25s; }
+    .landing-card:hover { border-color:rgba(255,107,0,.35); transform:translateY(-3px); background:var(--bg-3); }
+    .landing-card strong { display:block; margin-bottom:.45rem; }
+    .landing-card span { color:var(--text-2); font-size:.92rem; }
 
     .seo-content { background: var(--bg-2); }
     .seo-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; }
@@ -368,11 +374,11 @@
         <h2 class="section-title reveal reveal-d1">Profesyonel Vinç Hizmetleri</h2>
         <p class="section-sub reveal reveal-d2">İnşaat, sanayi, fabrika taşımacılığı, ağır yük kaldırma, beton köşk montajı ve ticari projeleriniz için kapsamlı vinç kiralama çözümleri sunuyoruz.</p>
         <div class="services-grid-4">
-          <div class="service-card reveal">
+          <a class="service-card reveal" href="mobil-vinc-kiralama.html">
             <div class="service-icon">🚛</div>
             <h3>Mobil Vinç Kiralama</h3>
             <p>Farklı tonajlarda mobil vinç kiralama hizmetleri ile her türlü yükleme, indirme ve kaldırma işlemlerinizi güvenle gerçekleştiriyoruz.</p>
-          </div>
+          </a>
           <div class="service-card reveal reveal-d1">
             <div class="service-icon">🛡️</div>
             <h3>Güvenli Taşıma</h3>
@@ -431,14 +437,29 @@
         <h2 class="section-title reveal reveal-d1">Nerelerde Hizmet Veriyoruz?</h2>
         <p class="section-sub reveal reveal-d2">Salihli merkez başta olmak üzere Alaşehir, Kula, Demirci, Köprübaşı, Gördes, Selendi ve Sarıgöl bölgelerinde geniş bir hizmet ağı ile yanınızdayız.</p>
         <div class="areas-grid">
-          <div class="area-chip reveal">Salihli</div>
-          <div class="area-chip reveal reveal-d1">Alaşehir</div>
-          <div class="area-chip reveal reveal-d2">Kula</div>
-          <div class="area-chip reveal reveal-d3">Demirci</div>
+          <a class="area-chip reveal" href="salihli-vinc-kiralama.html">Salihli</a>
+          <a class="area-chip reveal reveal-d1" href="alasehir-vinc-kiralama.html">Alaşehir</a>
+          <a class="area-chip reveal reveal-d2" href="kula-vinc-kiralama.html">Kula</a>
+          <a class="area-chip reveal reveal-d3" href="demirci-vinc-kiralama.html">Demirci</a>
           <div class="area-chip reveal">Köprübaşı</div>
           <div class="area-chip reveal reveal-d1">Gördes</div>
           <div class="area-chip reveal reveal-d2">Selendi</div>
           <div class="area-chip reveal reveal-d3">Sarıgöl</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-label reveal">Öne Çıkan Sayfalar</div>
+        <h2 class="section-title reveal reveal-d1">Bölge ve hizmet bazlı vinç çözümleri</h2>
+        <p class="section-sub reveal reveal-d2">Google’ın ve ziyaretçilerin sizi daha hızlı bulabilmesi için hazırladığımız özel sayfalardan doğrudan ilgili hizmete geçebilirsiniz.</p>
+        <div class="landing-grid">
+          <a class="landing-card reveal" href="salihli-vinc-kiralama.html"><strong>Salihli Vinç Kiralama</strong><span>Salihli merkez ve çevresinde 7/24 vinç kiralama hizmetleri.</span></a>
+          <a class="landing-card reveal reveal-d1" href="alasehir-vinc-kiralama.html"><strong>Alaşehir Vinç Kiralama</strong><span>Alaşehir ve yakın bölgelerde hızlı ve güvenli vinç desteği.</span></a>
+          <a class="landing-card reveal reveal-d2" href="demirci-vinc-kiralama.html"><strong>Demirci Vinç Kiralama</strong><span>Montaj, makine taşıma ve ağır yük kaldırma çözümleri.</span></a>
+          <a class="landing-card reveal reveal-d3" href="kula-vinc-kiralama.html"><strong>Kula Vinç Kiralama</strong><span>Kula çevresinde vinç kiralama ve operasyon desteği.</span></a>
+          <a class="landing-card reveal" href="mobil-vinc-kiralama.html"><strong>Mobil Vinç Kiralama</strong><span>Hizmet bazlı en önemli sayfamızdan mobil vinç çözümlerini inceleyin.</span></a>
         </div>
       </div>
     </section>
