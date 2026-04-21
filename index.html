@@ -282,8 +282,12 @@
     .area-chip { display:block; background: var(--bg-3); border: 1px solid var(--border); border-radius: 100px; padding: 0.7rem 1.5rem; text-align: center; font-weight: 600; font-size: 0.875rem; transition: all 0.25s; }
     .area-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
 
-    .landing-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; }
-    .landing-card { display:block; background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:1.25rem; transition:all .25s; }
+    .landing-grid {
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:1rem;
+    }
+    .landing-card { display:block; background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-sm); padding:1.25rem; transition:all .25s; min-height: 152px; }
     .landing-card:hover { border-color:rgba(255,107,0,.35); transform:translateY(-3px); background:var(--bg-3); }
     .landing-card strong { display:block; margin-bottom:.45rem; }
     .landing-card span { color:var(--text-2); font-size:.92rem; }
@@ -344,12 +348,14 @@
       .hero-stats { grid-template-columns: 1fr; }
       .areas-grid { grid-template-columns: repeat(2, 1fr); }
       .gallery-preview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .landing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
       .services-grid-4 { grid-template-columns: 1fr; }
       .services-grid-2 { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.2rem; }
       .gallery-preview-grid { grid-template-columns: 1fr; }
+      .landing-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -484,8 +490,8 @@
     <section class="section">
       <div class="section-inner">
         <div class="section-label reveal">Öne Çıkan Sayfalar</div>
-        <h2 class="section-title reveal reveal-d1">Bölge ve hizmet bazlı çözümler</h2>
-        <p class="section-sub reveal reveal-d2">Google’ın ve ziyaretçilerin sizi daha hızlı bulabilmesi için hazırladığımız özel sayfalardan doğrudan ilgili hizmete geçebilirsiniz.</p>
+        <h2 class="section-title reveal reveal-d1">İhtiyacınıza uygun hizmet sayfaları</h2>
+        <p class="section-sub reveal reveal-d2">Bölgenize ve işinize en uygun vinç veya platform hizmetini seçip doğrudan ilgili sayfadan detay alabilirsiniz.</p>
         <div class="landing-grid">
           <a class="landing-card reveal" href="salihli-vinc-kiralama.html"><strong>Salihli Vinç Kiralama</strong><span>Salihli merkez ve çevresinde 7/24 vinç kiralama hizmetleri.</span></a>
           <a class="landing-card reveal reveal-d1" href="alasehir-vinc-kiralama.html"><strong>Alaşehir Vinç Kiralama</strong><span>Alaşehir ve yakın bölgelerde hızlı ve güvenli vinç desteği.</span></a>
