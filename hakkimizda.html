@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hakkımızda | Araz Vinç Salihli — Hiab & Mobil Vinç Kiralama</title>
+  <meta name="description" content="Araz Vinç Salihli hakkında. 15 yılı aşkın deneyimle Salihli ve çevresinde vinç kiralama hizmeti.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080810; --bg-2: #0e0e1a; --bg-3: #13131f;
+      --accent: #ff6b00; --accent-light: #ff8534; --accent-glow: rgba(255,107,0,0.12);
+      --text: #f5f5f7; --text-2: #9999b0; --text-3: #555570;
+      --border: #1c1c2e; --border-2: #252540; --green: #25d366;
+      --radius: 20px; --radius-sm: 12px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 76px;
+      display: flex; align-items: center;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      background: rgba(8,8,16,0.85); backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { max-width: 1280px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: -0.04em; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 0.3rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 600; color: var(--text-2); padding: 0.5rem 1.1rem; border-radius: 10px; transition: all 0.25s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--bg-3); }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .btn-wa { display: flex; align-items: center; gap: 0.5rem; background: var(--green); color: #fff; border-radius: 100px; padding: 0.55rem 1.3rem; font-size: 0.875rem; font-weight: 700; transition: all 0.3s; box-shadow: 0 4px 20px rgba(37,211,102,0.3); }
+    .btn-wa:hover { background: #20bd5a; transform: translateY(-2px); }
+    .btn-call { display: flex; align-items: center; gap: 0.5rem; background: var(--accent); color: #fff; border-radius: 100px; padding: 0.55rem 1.3rem; font-size: 0.875rem; font-weight: 700; transition: all 0.3s; box-shadow: 0 4px 20px rgba(255,107,0,0.3); }
+    .btn-call:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+    .page-header {
+      padding: 8rem clamp(1.5rem, 5vw, 4rem) 4rem;
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header-inner { max-width: 1280px; margin: 0 auto; }
+    .page-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; }
+    .page-title { font-family: 'Inter', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 1rem; }
+
+    .about-story {
+      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+      background: var(--bg-2);
+    }
+    .about-story-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-story-text h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
+    .about-story-text p { color: var(--text-2); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1rem; }
+    .about-story-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .about-stat { background: var(--bg-3); padding: 2rem; text-align: center; }
+    .about-stat-num { font-family: 'Inter', sans-serif; font-size: 2.5rem; font-weight: 900; color: var(--accent); display: block; }
+    .about-stat-label { font-size: 0.8rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem; }
+
+    .why-section { padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem); }
+    .why-section-inner { max-width: 1280px; margin: 0 auto; }
+    .why-title { font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 2.5rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; }
+    .why-card {
+      background: var(--bg-2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      transition: all 0.3s;
+    }
+    .why-card:hover { border-color: rgba(255,107,0,0.3); transform: translateY(-4px); }
+    .why-card-icon { width: 50px; height: 50px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.25rem; }
+    .why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .why-card p { color: var(--text-2); font-size: 0.9rem; line-height: 1.6; }
+
+    .cta-row { background: var(--bg-2); border-top: 1px solid var(--border); padding: 3rem clamp(1.5rem, 5vw, 4rem); }
+    .cta-row-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+    .cta-row h3 { font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; }
+    .cta-row p { color: var(--text-2); margin-top: 0.3rem; }
+    .cta-row-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-wa-lg { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--green); color: #fff; border-radius: 100px; padding: 0.9rem 1.8rem; font-weight: 700; transition: all 0.3s; box-shadow: 0 4px 20px rgba(37,211,102,0.3); }
+    .btn-wa-lg:hover { background: #20bd5a; transform: translateY(-2px); }
+    .btn-call-lg { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--accent); color: #fff; border-radius: 100px; padding: 0.9rem 1.8rem; font-weight: 700; transition: all 0.3s; box-shadow: 0 4px 20px rgba(255,107,0,0.3); }
+    .btn-call-lg:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+    .footer { border-top: 1px solid var(--border); padding: 2.5rem clamp(1.5rem, 5vw, 4rem); }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.15rem; }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { color: var(--text-3); font-size: 0.85rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-3); font-size: 0.85rem; transition: color 0.25s; }
+    .footer-links a:hover { color: var(--text); }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.15s; }
+    .reveal-d2 { transition-delay: 0.3s; }
+    .reveal-d3 { transition-delay: 0.45s; }
+
+    @media (max-width: 900px) { .nav-links { display: none; } .about-story-inner { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">ARAZ<span>VİNÇ</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="hizmetler.html">Hizmetler</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="hakkimizda.html" class="active">Hakkımızda</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://wa.me/905321234567" class="btn-wa" target="_blank">💬 WhatsApp</a>
+        <a href="tel:+905321234567" class="btn-call">📞 Ara</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-label">Hakkımızda</div>
+      <h1 class="page-title">Güvenilir Vinç Hizmeti</h1>
+    </div>
+  </div>
+
+  <section class="about-story">
+    <div class="about-story-inner">
+      <div class="about-story-text">
+        <h2>Salihli'nin Güvenilir Vinç Ortağı</h2>
+        <p>Araz Vinç Salihli olarak, 15 yılı aşkın deneyimimizle Salihli ve çevresinde vinç kiralama sektörünün öncülerinden biriyiz. Müşteri memnuniyetini her şeyin üstünde tutarak, güvenli ve hızlı vinç operasyonları sunuyoruz.</p>
+        <p>Filomuzdaki modern Hiab ve mobil vinçlerimizle her ölçekteki işinizi, küçük yükleme-boşaltma işlerinden büyük endüstriyel montaj projelerine kadar güvenle hallediyoruz. Deneyimli operatör kadromuz, iş güvenliği standartlarına tam uyumlu çalışarak projelerinizi zamanında ve sorunsuz tamamlıyor.</p>
+        <p>7/24 hizmet anlayışımızla, acil vinç ihtiyaçlarınızda da yanınızdayız. Gece gündüz demeden, hafta sonu bayram demeden tüm vinç operasyonlarınızda güvenilir çözüm ortağınızız.</p>
+      </div>
+      <div class="about-story-stats">
+        <div class="about-stat"><span class="about-stat-num">15+</span><span class="about-stat-label">Yıllık Deneyim</span></div>
+        <div class="about-stat"><span class="about-stat-num">500+</span><span class="about-stat-label">Başarılı İş</span></div>
+        <div class="about-stat"><span class="about-stat-num">7/24</span><span class="about-stat-label">Aktif Hizmet</span></div>
+        <div class="about-stat"><span class="about-stat-num">100%</span><span class="about-stat-label">Müşteri Memnuniyeti</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-section">
+    <div class="why-section-inner">
+      <h2 class="why-title">Neden Araz Vinç?</h2>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-card-icon">⏱️</div>
+          <h3>7/24 Hizmet</h3>
+          <p>Gece gündüz, hafta sonu veya bayram fark etmez. Her an ulaşılabilir ve hızlı müdahale garantisi.</p>
+        </div>
+        <div class="why-card reveal reveal-d1">
+          <div class="why-card-icon">🛡️</div>
+          <h3>Güvenli Operasyon</h3>
+          <p>İş güvenliği standartlarına tam uyumlu çalışma prensibi. Tüm operatörlerimiz sertifikalı ve deneyimli.</p>
+        </div>
+        <div class="why-card reveal reveal-d2">
+          <div class="why-card-icon">🔧</div>
+          <h3>Modern Ekipman</h3>
+          <p>Filomuzdaki tüm vinçler düzenli bakımdan geçer, en yüksek performans ve güvenlikle çalışır.</p>
+        </div>
+        <div class="why-card reveal reveal-d3">
+          <div class="why-card-icon">💰</div>
+          <h3>Rekabetçi Fiyat</h3>
+          <p>Kaliteden ödün vermeden, piyasa koşullarına uygun fiyatlarla hizmet sunuyoruz.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card-icon">📍</div>
+          <h3>Geniş Hizmet Ağı</h3>
+          <p>Salihli, Manisa, İzmir ve çevre illerde geniş bir hizmet alanı ile yanınızdayız.</p>
+        </div>
+        <div class="why-card reveal reveal-d1">
+          <div class="why-card-icon">🤝</div>
+          <h3>Profesyonel Yaklaşım</h3>
+          <p>Her projeye özen gösteriyor, zamanında teslimat ve müşteri odaklı çalışma prensibiyle ilerliyoruz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-row">
+    <div class="cta-row-inner">
+      <div>
+        <h3>Vinç İhtiyacınız mı Var?</h3>
+        <p>Hemen ulaşın, ücretsiz keşif ve teklif verelim.</p>
+      </div>
+      <div class="cta-row-buttons">
+        <a href="https://wa.me/905321234567?text=Merhaba,%20vin%C3%A7%20hizmeti%20almak%20istiyorum." class="btn-wa-lg" target="_blank">💬 WhatsApp</a>
+        <a href="tel:+905321234567" class="btn-call-lg">📞 Ara</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">ARAZ<span>VİNÇ</span></div>
+      <div class="footer-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="iletisim.html">İletişim</a>
+      </div>
+      <div class="footer-copy">© 2026 Araz Vinç Salihli. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

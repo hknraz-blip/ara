@@ -5,110 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Araz Vinç Salihli | Hiab & Mobil Vinç Kiralama – 7/24</title>
   <meta name="description" content="Salihli ve çevresinde Hiab ve mobil vinç kiralama hizmeti. 7/24 vinç operasyonları, makine yükleme, nakliye ve montaj işleri.">
-  <meta name="keywords" content="vinç kiralama, hiab, mobil vinç, salihli, izmir, manisa, vinç, kiralık vinç">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-      --bg: #0a0a0f;
-      --bg-2: #111118;
-      --bg-3: #18181f;
-      --accent: #f59e0b;
-      --accent-glow: rgba(245,158,11,0.15);
-      --accent-dim: rgba(245,158,11,0.6);
-      --text: #f0f0f5;
-      --text-2: #9090a0;
-      --text-3: #505068;
-      --border: #1f1f2e;
-      --border-2: #2a2a3a;
-      --radius: 16px;
-      --radius-sm: 10px;
+      --bg: #080810;
+      --bg-2: #0e0e1a;
+      --bg-3: #13131f;
+      --accent: #ff6b00;
+      --accent-light: #ff8534;
+      --accent-glow: rgba(255,107,0,0.12);
+      --text: #f5f5f7;
+      --text-2: #9999b0;
+      --text-3: #555570;
+      --border: #1c1c2e;
+      --border-2: #252540;
+      --green: #25d366;
+      --radius: 20px;
+      --radius-sm: 12px;
     }
-
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       overflow-x: hidden;
     }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
+    /* LOADER */
     #loader {
       position: fixed; inset: 0; z-index: 9999;
       background: var(--bg);
       display: flex; align-items: center; justify-content: center;
       flex-direction: column; gap: 1.5rem;
-      transition: opacity 0.6s, visibility 0.6s;
+      transition: opacity 0.5s, visibility 0.5s;
     }
     #loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
-    .loader-ring {
-      width: 52px; height: 52px;
-      border: 3px solid var(--border-2);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.9s linear infinite;
+    .loader-logo {
+      font-family: 'Inter', sans-serif; font-weight: 900; font-size: 2rem;
+      letter-spacing: -0.05em;
     }
-    .loader-text {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--text-3);
-      letter-spacing: 0.15em;
+    .loader-logo span { color: var(--accent); }
+    .loader-bar {
+      width: 120px; height: 2px;
+      background: var(--border-2);
+      border-radius: 2px; overflow: hidden;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    #cursor-glow {
-      position: fixed; width: 400px; height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%);
-      pointer-events: none; z-index: 1;
-      transform: translate(-50%, -50%);
-      transition: left 0.15s, top 0.15s;
+    .loader-bar::after {
+      content: ''; display: block;
+      width: 40%; height: 100%;
+      background: var(--accent);
+      border-radius: 2px;
+      animation: loadbar 1.2s ease-in-out infinite;
+    }
+    @keyframes loadbar {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(350%); }
     }
 
+    /* NAVBAR */
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 0 clamp(1.5rem, 4vw, 3rem);
-      height: 80px;
+      height: 76px;
       display: flex; align-items: center;
-      background: rgba(10,10,15,0.8);
-      backdrop-filter: blur(20px) saturate(180%);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      background: rgba(8,8,16,0.85);
+      backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
       transition: background 0.3s;
     }
-    .navbar.scrolled { background: rgba(10,10,15,0.95); }
     .nav-inner {
       max-width: 1280px; width: 100%; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo { font-weight: 900; font-size: 1.35rem; letter-spacing: -0.02em; color: var(--text); }
+    .nav-logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900; font-size: 1.4rem; letter-spacing: -0.04em;
+    }
     .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
-    .nav-links li a {
-      font-size: 0.875rem; font-weight: 500; color: var(--text-2);
-      padding: 0.5rem 1rem; border-radius: 8px;
-      transition: all 0.25s; position: relative;
+    .nav-links { display: flex; gap: 0.3rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 600; color: var(--text-2);
+      padding: 0.5rem 1.1rem; border-radius: 10px;
+      transition: all 0.25s;
     }
-    .nav-links li a::after {
-      content: ''; position: absolute; bottom: 4px; left: 50%;
-      width: 0; height: 2px; background: var(--accent);
-      border-radius: 2px; transition: all 0.25s;
-      transform: translateX(-50%);
-    }
-    .nav-links li a:hover { color: var(--text); }
-    .nav-links li a:hover::after { width: calc(100% - 2rem); }
-    .nav-phone {
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--bg-3); }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .btn-wa {
       display: flex; align-items: center; gap: 0.5rem;
-      background: var(--bg-3); border: 1px solid var(--border-2);
-      border-radius: 100px; padding: 0.55rem 1.25rem;
-      font-size: 0.875rem; font-weight: 600; color: var(--accent);
-      transition: all 0.25s; text-decoration: none;
+      background: var(--green); color: #fff;
+      border-radius: 100px; padding: 0.55rem 1.3rem;
+      font-size: 0.875rem; font-weight: 700;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
     }
-    .nav-phone:hover { border-color: var(--accent); background: var(--accent-glow); }
+    .btn-wa:hover { background: #20bd5a; transform: translateY(-2px); }
+    .btn-call {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: var(--accent); color: #fff;
+      border-radius: 100px; padding: 0.55rem 1.3rem;
+      font-size: 0.875rem; font-weight: 700;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(255,107,0,0.3);
+    }
+    .btn-call:hover { background: var(--accent-light); transform: translateY(-2px); }
+    .mobile-menu-btn {
+      display: none; background: var(--bg-3);
+      border: 1px solid var(--border-2);
+      border-radius: 10px; padding: 0.6rem;
+      color: var(--text); cursor: pointer; font-size: 1.2rem;
+    }
 
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex; align-items: center;
@@ -117,219 +129,253 @@
     .hero-bg {
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(245,158,11,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 10% 80%, rgba(245,158,11,0.04) 0%, transparent 50%);
+        radial-gradient(ellipse 70% 50% at 70% 50%, rgba(255,107,0,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 5% 90%, rgba(255,107,0,0.04) 0%, transparent 50%);
     }
     .hero-grid {
       position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(245,158,11,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245,158,11,0.025) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 70%);
+        linear-gradient(rgba(255,107,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,107,0,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 0%, transparent 70%);
     }
     .hero-inner {
       max-width: 1280px; width: 100%; margin: 0 auto;
-      padding: 8rem clamp(1.5rem, 4vw, 3rem) 5rem;
+      padding: 8rem clamp(1.5rem, 5vw, 4rem) 4rem;
       position: relative; z-index: 2;
     }
-    .hero-label {
+    .hero-badge {
       display: inline-flex; align-items: center; gap: 0.6rem;
-      background: rgba(245,158,11,0.08);
-      border: 1px solid rgba(245,158,11,0.2);
+      background: rgba(255,107,0,0.1);
+      border: 1px solid rgba(255,107,0,0.25);
       border-radius: 100px; padding: 0.45rem 1.1rem;
-      font-size: 0.8rem; font-weight: 600; color: var(--accent);
-      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
+      font-size: 0.8rem; font-weight: 700; color: var(--accent);
+      margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.1em;
     }
-    .hero-label::before {
-      content: ''; width: 7px; height: 7px;
+    .hero-badge::before {
+      content: ''; width: 8px; height: 8px;
       background: var(--accent); border-radius: 50%;
-      animation: pulse-dot 2s infinite;
+      animation: pulse 2s infinite;
     }
-    @keyframes pulse-dot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
     .hero h1 {
-      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
       font-weight: 900; line-height: 1.05;
-      letter-spacing: -0.03em; margin-bottom: 1.5rem; max-width: 750px;
+      letter-spacing: -0.04em; margin-bottom: 1.5rem; max-width: 700px;
     }
-    .hero h1 .highlight { color: var(--accent); position: relative; }
-    .hero h1 .highlight::after {
-      content: ''; position: absolute;
-      bottom: 4px; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-dim));
-      border-radius: 4px;
+    .hero h1 .accent { color: var(--accent); }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--text-2);
+      max-width: 500px; margin-bottom: 2.5rem;
     }
-    .hero-sub { font-size: 1.15rem; color: var(--text-2); max-width: 480px; margin-bottom: 2.5rem; line-height: 1.7; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.9rem 2rem; border-radius: 100px;
-      font-family: 'Inter', sans-serif; font-weight: 600;
-      font-size: 0.9rem; cursor: pointer; border: none;
-      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      text-decoration: none;
+    .btn-hero-wa {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--green); color: #fff;
+      border-radius: 100px; padding: 1rem 2rem;
+      font-weight: 700; font-size: 1rem;
+      transition: all 0.3s;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.35);
     }
-    .btn-primary { background: var(--accent); color: #000; box-shadow: 0 0 24px rgba(245,158,11,0.25); }
-    .btn-primary:hover { background: #fbbf24; transform: translateY(-3px); box-shadow: 0 8px 32px rgba(245,158,11,0.4); }
-    .btn-outline { background: transparent; border: 1.5px solid var(--border-2); color: var(--text); }
-    .btn-outline:hover { border-color: var(--text-3); color: var(--accent); background: var(--accent-glow); transform: translateY(-3px); }
+    .btn-hero-wa:hover { background: #20bd5a; transform: translateY(-3px); }
+    .btn-hero-call {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--accent); color: #fff;
+      border-radius: 100px; padding: 1rem 2rem;
+      font-weight: 700; font-size: 1rem;
+      transition: all 0.3s;
+      box-shadow: 0 6px 28px rgba(255,107,0,0.35);
+    }
+    .btn-hero-call:hover { background: var(--accent-light); transform: translateY(-3px); }
+
+    /* STATS */
     .hero-stats {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; margin-top: 5rem;
       background: var(--border); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden; max-width: 640px;
+      border-radius: var(--radius); overflow: hidden; max-width: 620px;
     }
-    .stat { background: var(--bg-2); padding: 1.75rem 2rem; text-align: center; }
-    .stat-num { font-size: 2.2rem; font-weight: 900; color: var(--accent); display: block; letter-spacing: -0.03em; }
-    .stat-label { font-size: 0.78rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.25rem; }
+    .stat { background: var(--bg-2); padding: 2rem; text-align: center; }
+    .stat-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 2.5rem; font-weight: 900;
+      color: var(--accent); letter-spacing: -0.04em; display: block;
+    }
+    .stat-label {
+      font-size: 0.8rem; color: var(--text-3);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-top: 0.3rem;
+    }
 
-    .section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem); }
+    /* SECTIONS */
+    .section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem); }
     .section-inner { max-width: 1280px; margin: 0 auto; }
-    .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; }
-    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .section-sub { color: var(--text-2); max-width: 480px; margin-bottom: 3.5rem; line-height: 1.7; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1rem;
+    }
+    .section-sub { color: var(--text-2); max-width: 500px; margin-bottom: 3rem; }
 
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s, transform 0.7s; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-    .reveal-delay-5 { transition-delay: 0.5s; }
-
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem;
+    }
     .service-card {
       background: var(--bg-2); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 2rem;
       transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       position: relative; overflow: hidden;
     }
-    .service-card::before {
-      content: ''; position: absolute; top: 0; left: 0;
-      width: 100%; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0; transition: opacity 0.35s;
-    }
-    .service-card:hover { border-color: var(--accent); background: var(--bg-3); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(245,158,11,0.1); }
-    .service-card:hover::before { opacity: 1; }
+    .service-card:hover { border-color: rgba(255,107,0,0.3); background: var(--bg-3); transform: translateY(-5px); }
     .service-icon {
-      width: 54px; height: 54px; background: var(--accent-glow);
-      border: 1px solid rgba(245,158,11,0.15); border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
+      width: 56px; height: 56px;
+      background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.15);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
       font-size: 1.5rem; margin-bottom: 1.5rem;
     }
     .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
     .service-card p { color: var(--text-2); font-size: 0.9rem; line-height: 1.6; }
+    .service-card .card-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--accent); font-size: 0.85rem; font-weight: 600;
+      margin-top: 1rem; opacity: 0; transition: opacity 0.3s;
+    }
+    .service-card:hover .card-link { opacity: 1; }
 
-    .gallery-section { background: var(--bg-2); }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    .gallery-item {
-      border-radius: var(--radius);
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      background: var(--bg-3);
-      border: 1px solid var(--border);
-    }
-    .gallery-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s, filter 0.4s;
-      filter: brightness(0.9);
-    }
-    .gallery-item:hover img { transform: scale(1.06); filter: brightness(1); }
-
-    .areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; }
+    /* AREAS */
+    .areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.75rem; }
     .area-chip {
       background: var(--bg-2); border: 1px solid var(--border);
-      border-radius: 100px; padding: 0.75rem 1.5rem;
+      border-radius: 100px; padding: 0.7rem 1.5rem;
       text-align: center; font-weight: 600; font-size: 0.875rem;
       transition: all 0.25s; cursor: default;
     }
     .area-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
 
-    .contact-section { background: var(--bg-2); }
-    .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; }
-    .contact-item { display: flex; gap: 1.25rem; margin-bottom: 1.75rem; align-items: flex-start; }
-    .contact-item .icon {
-      width: 50px; height: 50px; flex-shrink: 0;
-      background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.12);
-      border-radius: 14px; display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-    }
-    .contact-item strong { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-3); margin-bottom: 0.25rem; }
-    .contact-item span { font-size: 1.05rem; font-weight: 500; }
-    .contact-form {
-      display: flex; flex-direction: column; gap: 1rem;
-      background: var(--bg-3); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2rem;
-    }
-    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-    .form-group label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-2); }
-    .form-group input, .form-group textarea, .form-group select {
-      background: var(--bg-2); border: 1px solid var(--border-2);
-      border-radius: var(--radius-sm); padding: 0.85rem 1rem;
-      color: var(--text); font-family: 'Inter', sans-serif;
-      font-size: 0.95rem; transition: border-color 0.25s, box-shadow 0.25s;
-      resize: vertical; -webkit-appearance: none;
-    }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
-    }
-    .form-group textarea { min-height: 110px; }
-    .form-submit {
-      background: var(--accent); color: #000; font-weight: 700;
-      border: none; border-radius: 100px; padding: 1rem 2rem;
-      font-size: 0.95rem; cursor: pointer; width: 100%;
-      transition: all 0.3s; box-shadow: 0 0 24px rgba(245,158,11,0.2);
-    }
-    .form-submit:hover { background: #fbbf24; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(245,158,11,0.35); }
+    /* AREAS SECTION DARK */
+    .areas-section { background: var(--bg-2); }
 
-    .footer { border-top: 1px solid var(--border); padding: 2.5rem clamp(1.5rem, 4vw, 3rem); }
-    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo { font-weight: 900; font-size: 1.15rem; }
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .cta-inner {
+      max-width: 1280px; margin: 0 auto;
+      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+      display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem;
+      align-items: center;
+    }
+    .cta-text h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 900; letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .cta-text p { color: var(--text-2); }
+    .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-wa-lg {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--green); color: #fff;
+      border-radius: 100px; padding: 1rem 2rem;
+      font-weight: 700; font-size: 1rem;
+      transition: all 0.3s;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.35);
+    }
+    .btn-wa-lg:hover { background: #20bd5a; transform: translateY(-3px); }
+    .btn-call-lg {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--accent); color: #fff;
+      border-radius: 100px; padding: 1rem 2rem;
+      font-weight: 700; font-size: 1rem;
+      transition: all 0.3s;
+      box-shadow: 0 6px 28px rgba(255,107,0,0.35);
+    }
+    .btn-call-lg:hover { background: var(--accent-light); transform: translateY(-3px); }
+
+    /* FOOTER */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem clamp(1.5rem, 5vw, 4rem);
+    }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.15rem; }
     .footer-logo span { color: var(--accent); }
     .footer-copy { color: var(--text-3); font-size: 0.85rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-3); font-size: 0.85rem; transition: color 0.25s; }
+    .footer-links a:hover { color: var(--text); }
 
-    @media (max-width: 900px) { .nav-links { display: none; } .contact-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 640px) { .hero-stats { grid-template-columns: 1fr; } .hero h1 { font-size: 2.4rem; } }
-    @media (max-width: 480px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .cta-inner { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2.2rem; }
+    }
   </style>
 </head>
 <body>
-
   <div id="loader">
-    <div class="loader-ring"></div>
-    <div class="loader-text">ARAZ VİNÇ</div>
+    <div class="loader-logo">ARAZ<span>VİNÇ</span></div>
+    <div class="loader-bar"></div>
   </div>
-  <div id="cursor-glow"></div>
 
-  <nav class="navbar" id="navbar">
+  <nav class="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">ARAZ<span>VİNÇ</span></a>
+      <a href="index.html" class="nav-logo">ARAZ<span>VİNÇ</span></a>
       <ul class="nav-links">
-        <li><a href="#hizmetler">Hizmetler</a></li>
-        <li><a href="#galeri">Galeri</a></li>
-        <li><a href="#hizmet-alani">Hizmet Alanı</a></li>
-        <li><a href="#iletisim">İletişim</a></li>
+        <li><a href="index.html" class="active">Ana Sayfa</a></li>
+        <li><a href="hizmetler.html">Hizmetler</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
       </ul>
-      <a href="tel:+905321234567" class="nav-phone">📞 0532 123 45 67</a>
+      <div class="nav-actions">
+        <a href="https://wa.me/905321234567?text=Merhaba,%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-wa" target="_blank">
+          <span>💬</span> WhatsApp
+        </a>
+        <a href="tel:+905321234567" class="btn-call">📞</span> Ara</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">☰</button>
     </div>
   </nav>
 
-  <section class="hero" id="hero">
+  <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-inner">
-      <div class="hero-label">7 / 24 Aktif Hizmetinizdeyiz</div>
-      <h1>Güçlü Vinç Gücü,<br><span class="highlight">Güvenilir Hizmet</span></h1>
+      <div class="hero-badge">7 / 24 Hizmetinizdeyiz</div>
+      <h1>Güçlü Vinç Gücü,<br><span class="accent">Güvenilir Hizmet</span></h1>
       <p class="hero-sub">Salihli ve çevresinde Hiab ve mobil vinç kiralama. Yükleme, nakliye, montaj ve tüm ağır işleriniz için 7/24 yanınızdayız.</p>
       <div class="hero-actions">
-        <a href="tel:+905321234567" class="btn btn-primary">Hemen Ara</a>
-        <a href="#iletisim" class="btn btn-outline">Teklif Al</a>
+        <a href="https://wa.me/905321234567?text=Merhaba,%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-hero-wa" target="_blank">
+          💬 WhatsApp ile Ulaşın
+        </a>
+        <a href="tel:+905321234567" class="btn-hero-call">
+          📞 Hemen Ara
+        </a>
       </div>
       <div class="hero-stats">
         <div class="stat"><span class="stat-num">7/24</span><span class="stat-label">Aktif Hizmet</span></div>
@@ -339,150 +385,87 @@
     </div>
   </section>
 
-  <section class="section" id="hizmetler">
+  <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">Hizmetlerimiz</div>
-      <h2 class="section-title reveal reveal-delay-1">Neler Yapıyoruz?</h2>
-      <p class="section-sub reveal reveal-delay-2">Her türlü ağır yük ve vinç ihtiyacınız için profesyonel çözümler sunuyoruz.</p>
+      <h2 class="section-title reveal reveal-d1">Neler Yapıyoruz?</h2>
+      <p class="section-sub reveal reveal-d2">Her türlü ağır yük ve vinç ihtiyacınız için profesyonel çözümler sunuyoruz.</p>
       <div class="services-grid">
-        <div class="service-card reveal reveal-delay-1">
+        <div class="service-card reveal">
           <div class="service-icon">🚛</div>
           <h3>Hiab Vinç Kiralama</h3>
           <p>Şantiye, fabrika ve açık alanlarda kamyon üstü Hiab vinç ile yükleme ve boşaltma işlemleri.</p>
+          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
         </div>
-        <div class="service-card reveal reveal-delay-2">
+        <div class="service-card reveal reveal-d1">
           <div class="service-icon">🏗️</div>
           <h3>Mobil Vinç Kiralama</h3>
           <p>50 tona kadar yük kaldırma kapasiteli mobil vinçlerimizle montaj ve nakliye işleriniz.</p>
+          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
         </div>
-        <div class="service-card reveal reveal-delay-3">
+        <div class="service-card reveal reveal-d2">
           <div class="service-icon">📦</div>
           <h3>Yükleme & Boşaltma</h3>
           <p>Makine, malzeme ve ekipmanların hızlı ve güvenli yükleme-boşaltma işlemleri.</p>
+          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
         </div>
-        <div class="service-card reveal reveal-delay-4">
+        <div class="service-card reveal">
           <div class="service-icon">🏭</div>
           <h3>Montaj İşleri</h3>
           <p>Prefabrik yapı, makine montajı ve endüstriyel ekipman kurulumları.</p>
+          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
         </div>
-        <div class="service-card reveal reveal-delay-5">
+        <div class="service-card reveal reveal-d1">
           <div class="service-icon">🚚</div>
           <h3>Nakliye Hizmeti</h3>
           <p>Ağır ve boyutlu yüklerin güvenli taşınması ve nakliyesi.</p>
+          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
         </div>
-        <div class="service-card reveal">
+        <div class="service-card reveal reveal-d2">
           <div class="service-icon">⚡</div>
           <h3>Acil Vinç Hizmeti</h3>
           <p>7/24 acil durumlar için hızlı müdahale ve vinç operasyonu.</p>
+          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section gallery-section" id="galeri">
-    <div class="section-inner">
-      <div class="section-label reveal">Referanslarımız</div>
-      <h2 class="section-title reveal reveal-delay-1">Yaptığımız İşler</h2>
-      <p class="section-sub reveal reveal-delay-2">Saha çalışmalarımızdan kareler.</p>
-      <div class="gallery-grid">
-        <div class="gallery-item reveal reveal-delay-1"><img src="assets/beton-kosk-indirme.jpg" alt="Beton köşk indirme" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-2"><img src="assets/beton-kosk-montaj-1.jpg" alt="Beton köşk montaj" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-3"><img src="assets/beton-kosk-montaj-2.jpg" alt="Beton köşk montaj" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-1"><img src="assets/beton-kosk-montaj-3.jpg" alt="Beton köşk montaj" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-2"><img src="assets/cati-malzemesi-cikarma-1.jpg" alt="Çatı malzemesi çıkarma" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-3"><img src="assets/cati-malzemesi-cikarma-2.jpg" alt="Çatı malzemesi çıkarma" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-1"><img src="assets/celik-konstruksiyon-1.jpg" alt="Çelik konstrüksiyon" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-2"><img src="assets/celik-konstruksiyon-2.jpg" alt="Çelik konstrüksiyon" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-3"><img src="assets/damperli-kamyon-kurtarma-1.jpg" alt="Damperli kamyon kurtarma" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-1"><img src="assets/damperli-kamyon-kurtarma-2.jpg" alt="Damperli kamyon kurtarma" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-2"><img src="assets/dorse-kurtarma.jpg" alt="Dorse kurtarma" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-3"><img src="assets/enjeksiyon-makinasi-indirme.jpg" alt="Enjeksiyon makinası indirme" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-1"><img src="assets/foseptik-deposu-1.jpg" alt="Foseptik deposu" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-2"><img src="assets/foseptik-deposu-2.jpg" alt="Foseptik deposu" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-3"><img src="assets/grayder-kurtarma-1.jpg" alt="Grayder kurtarma" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-1"><img src="assets/grayder-kurtarma-2.jpg" alt="Grayder kurtarma" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-2"><img src="assets/prefabrik-beton-kosk.jpeg" alt="Prefabrik beton köşk" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-3"><img src="assets/tunel-beton-mikseri-1.jpg" alt="Tünel beton mikseri" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-1"><img src="assets/tunel-beton-mikseri-2.jpg" alt="Tünel beton mikseri" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-2"><img src="assets/tunel-makina-montaji-1.jpg" alt="Tünel makina montajı" loading="lazy"></div>
-        <div class="gallery-item reveal reveal-delay-3"><img src="assets/tunel-makina-montaji-2.jpg" alt="Tünel makina montajı" loading="lazy"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="hizmet-alani">
+  <section class="section areas-section">
     <div class="section-inner">
       <div class="section-label reveal">Hizmet Bölgemiz</div>
-      <h2 class="section-title reveal reveal-delay-1">Nerelerde Hizmet Veriyoruz?</h2>
-      <p class="section-sub reveal reveal-delay-2">Salihli başta olmak üzere geniş bir bölgede 7/24 vinç hizmeti sunuyoruz.</p>
+      <h2 class="section-title reveal reveal-d1">Nerelerde Hizmet Veriyoruz?</h2>
+      <p class="section-sub reveal reveal-d2">Salihli başta olmak üzere geniş bir bölgede 7/24 vinç hizmeti sunuyoruz.</p>
       <div class="areas-grid">
         <div class="area-chip reveal">Salihli</div>
-        <div class="area-chip reveal reveal-delay-1">İzmir</div>
-        <div class="area-chip reveal reveal-delay-2">Manisa</div>
-        <div class="area-chip reveal reveal-delay-3">Alaşehir</div>
-        <div class="area-chip reveal">Kırkağaç</div>
-        <div class="area-chip reveal reveal-delay-1">Gördes</div>
-        <div class="area-chip reveal reveal-delay-2">Ahmetli</div>
-        <div class="area-chip reveal reveal-delay-3">Turgutlu</div>
-        <div class="area-chip reveal">Saruhanlı</div>
-        <div class="area-chip reveal reveal-delay-1">Selendi</div>
-        <div class="area-chip reveal reveal-delay-2">Demirci</div>
-        <div class="area-chip reveal reveal-delay-3">Soma</div>
+        <div class="area-chip reveal reveal-d1">İzmir</div>
+        <div class="area-chip reveal reveal-d2">Manisa</div>
+        <div class="area-chip reveal">Alaşehir</div>
+        <div class="area-chip reveal reveal-d1">Kırkağaç</div>
+        <div class="area-chip reveal reveal-d2">Gördes</div>
+        <div class="area-chip reveal">Ahmetli</div>
+        <div class="area-chip reveal reveal-d1">Turgutlu</div>
+        <div class="area-chip reveal reveal-d2">Saruhanlı</div>
+        <div class="area-chip reveal">Selendi</div>
+        <div class="area-chip reveal reveal-d1">Demirci</div>
+        <div class="area-chip reveal reveal-d2">Soma</div>
       </div>
     </div>
   </section>
 
-  <section class="section contact-section" id="iletisim">
-    <div class="section-inner">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="section-label reveal">İletişim</div>
-          <h2 class="section-title reveal reveal-delay-1">Bizimle İletişime Geçin</h2>
-          <div class="contact-item reveal reveal-delay-2">
-            <div class="icon">📞</div>
-            <div><strong>Telefon</strong><span>0532 123 45 67</span></div>
-          </div>
-          <div class="contact-item reveal reveal-delay-3">
-            <div class="icon">📧</div>
-            <div><strong>E-posta</strong><span>info@arazvincsalihli.com</span></div>
-          </div>
-          <div class="contact-item reveal reveal-delay-4">
-            <div class="icon">📍</div>
-            <div><strong>Adres</strong><span>Salihli, Manisa</span></div>
-          </div>
-          <div class="contact-item reveal">
-            <div class="icon">🕐</div>
-            <div><strong>Çalışma Saatleri</strong><span>7/24 — Her gün</span></div>
-          </div>
-        </div>
-        <form class="contact-form reveal reveal-delay-2" action="https://formspree.io/f/XXXXX" method="POST">
-          <div class="form-group">
-            <label for="name">Adınız Soyadınız</label>
-            <input type="text" id="name" name="name" placeholder="Adınızı girin" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">Telefon</label>
-            <input type="tel" id="phone" name="phone" placeholder="0500 000 00 00" required>
-          </div>
-          <div class="form-group">
-            <label for="service">Hizmet Türü</label>
-            <select id="service" name="service">
-              <option value="">Seçiniz</option>
-              <option value="hiab">Hiab Vinç Kiralama</option>
-              <option value="mobil">Mobil Vinç Kiralama</option>
-              <option value="yukleme">Yükleme / Boşaltma</option>
-              <option value="montaj">Montaj İşleri</option>
-              <option value="nakliye">Nakliye Hizmeti</option>
-              <option value="acil">Acil Vinç Hizmeti</option>
-              <option value="diger">Diğer</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" placeholder="İşinizi kısaca anlatın..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">Gönder</button>
-        </form>
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h2>Hemen Ulaşın, İşinizi Hallederiz!</h2>
+        <p>Vinç ihtiyacınız mı var? 7/24 bizi arayabilir veya WhatsApp'tan yazabilirsiniz.</p>
+      </div>
+      <div class="cta-buttons">
+        <a href="https://wa.me/905321234567?text=Merhaba,%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-wa-lg" target="_blank">
+          💬 WhatsApp
+        </a>
+        <a href="tel:+905321234567" class="btn-call-lg">
+          📞 Ara
+        </a>
       </div>
     </div>
   </section>
@@ -490,21 +473,24 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">ARAZ<span>VİNÇ</span></div>
+      <div class="footer-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="iletisim.html">İletişim</a>
+      </div>
       <div class="footer-copy">© 2026 Araz Vinç Salihli. Tüm hakları saklıdır.</div>
     </div>
   </footer>
 
   <script>
-    window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').classList.add('done'); }, 600); });
-    const glow = document.getElementById('cursor-glow');
-    document.addEventListener('mousemove', (e) => { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; });
+    window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').classList.add('done'); }, 800); });
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     reveals.forEach(el => io.observe(el));
-    const nav = document.getElementById('navbar');
-    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
   </script>
 </body>
 </html>
