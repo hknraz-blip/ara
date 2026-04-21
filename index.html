@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Araz VinÃ§ Salihli | Hiab & Mobil VinÃ§ Kiralama â€“ 7/24</title>
+  <meta name="description" content="Salihli ve Ã§evresinde Hiab ve mobil vinÃ§ kiralama hizmeti. 7/24 vinÃ§ operasyonlarÄ±, makine yÃ¼kleme, nakliye ve montaj iÅŸleri.">
+  <meta name="keywords" content="vinÃ§ kiralama, hiab, mobil vinÃ§, salihli, izmir, manisa, vinÃ§, kiralÄ±k vinÃ§">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0d0d0d;
+      --bg-card: #1a1a1a;
+      --accent: #f59e0b;
+      --accent-dark: #d97706;
+      --text: #f5f5f5;
+      --text-muted: #a3a3a3;
+      --border: #2a2a2a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* â”€â”€â”€ NAVBAR â”€â”€â”€ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--text);
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-phone {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    .nav-phone:hover {
+      color: var(--accent-dark);
+    }
+
+    /* â”€â”€â”€ HERO â”€â”€â”€ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 70% 50%, rgba(245,158,11,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(245,158,11,0.05) 0%, transparent 50%);
+    }
+
+    .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,158,11,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,158,11,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+    }
+
+    .hero h1 .highlight {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* â”€â”€â”€ STATS â”€â”€â”€ */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 5rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .stat {
+      background: var(--bg-card);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.3rem;
+    }
+
+    /* â”€â”€â”€ SECTION BASE â”€â”€â”€ */
+    .section {
+      padding: 5rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin-bottom: 3rem;
+    }
+
+    /* â”€â”€â”€ SERVICES â”€â”€â”€ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(245,158,11,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* â”€â”€â”€ FLEET â”€â”€â”€ */
+    .fleet-section {
+      background: var(--bg-card);
+    }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .fleet-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .fleet-card:hover {
+      border-color: var(--accent);
+    }
+
+    .fleet-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .fleet-body {
+      padding: 1.5rem;
+    }
+
+    .fleet-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .fleet-body p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .fleet-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.2);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* â”€â”€â”€ AREAS â”€â”€â”€ */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .area-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.7rem 1.5rem;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .area-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* â”€â”€â”€ CONTACT â”€â”€â”€ */
+    .contact-section {
+      background: var(--bg-card);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .contact-item .icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(245,158,11,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-item span {
+      font-size: 1rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--bg-dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      color: var(--text);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+    }
+
+    /* â”€â”€â”€ FOOTER â”€â”€â”€ */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .footer-logo span {
+      color: var(--accent);
+    }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* â”€â”€â”€ RESPONSIVE â”€â”€â”€ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">ARAZ<span>VÄ°NÃ‡</span></a>
+      <ul class="nav-links">
+        <li><a href="#hizmetler">Hizmetler</a></li>
+        <li><a href="#filo">Filo</a></li>
+        <li><a href="#hizmet-alani">Hizmet AlanÄ±</a></li>
+        <li><a href="#iletisim">Ä°letiÅŸim</a></li>
+      </ul>
+      <a href="tel:+905321234567" class="nav-phone">ğŸ“ 0532 123 45 67</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">7 / 24 Hizmetinizdeyiz</div>
+      <h1>GÃ¼Ã§lÃ¼ VinÃ§ GÃ¼cÃ¼,<br><span class="highlight">GÃ¼venilir Hizmet</span></h1>
+      <p class="hero-sub">Salihli ve Ã§evresinde Hiab ve mobil vinÃ§ kiralama. YÃ¼kleme, nakliye, montaj ve tÃ¼m aÄŸÄ±r iÅŸleriniz iÃ§in 7/24 yanÄ±nÄ±zdayÄ±z.</p>
+      <div class="hero-actions">
+        <a href="tel:+905321234567" class="btn btn-primary">Hemen Ara</a>
+        <a href="#iletisim" class="btn btn-outline">Teklif Al</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">7/24</span>
+          <span class="stat-label">Aktif Hizmet</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">BaÅŸarÄ±lÄ± Ä°ÅŸ</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">15+</span>
+          <span class="stat-label">YÄ±llÄ±k Deneyim</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="hizmetler">
+    <div class="section-inner">
+      <div class="section-label">Hizmetlerimiz</div>
+      <h2 class="section-title">Neler YapÄ±yoruz?</h2>
+      <p class="section-sub">Her tÃ¼rlÃ¼ aÄŸÄ±r yÃ¼k ve vinÃ§ ihtiyacÄ±nÄ±z iÃ§in profesyonel Ã§Ã¶zÃ¼mler sunuyoruz.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">ğŸš›</div>
+          <h3>Hiab VinÃ§ Kiralama</h3>
+          <p>Åantiye, fabrika ve aÃ§Ä±k alanlarda kamyon Ã¼stÃ¼ Hiab vinÃ§ ile yÃ¼kleme ve boÅŸaltma iÅŸlemleri.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">ğŸ—ï¸</div>
+          <h3>Mobil VinÃ§ Kiralama</h3>
+          <p>50 tona kadar yÃ¼k kaldÄ±rma kapasiteli mobil vinÃ§lerimizle montaj ve nakliye iÅŸleriniz.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">ğŸ“¦</div>
+          <h3>YÃ¼kleme & BoÅŸaltma</h3>
+          <p>Makine, malzeme ve ekipmanlarÄ±n hÄ±zlÄ± ve gÃ¼venli yÃ¼kleme-boÅŸaltma iÅŸlemleri.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">ğŸ­</div>
+          <h3>Montaj Ä°ÅŸleri</h3>
+          <p>Prefabrik yapÄ±, makine montajÄ± ve endÃ¼striyel ekipman kurulumlarÄ±.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">ğŸšš</div>
+          <h3>Nakliye Hizmeti</h3>
+          <p>AÄŸÄ±r ve boyutlu yÃ¼klerin gÃ¼venli taÅŸÄ±nmasÄ± ve nakliyesi.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">âš¡</div>
+          <h3>Acil VinÃ§ Hizmeti</h3>
+          <p>7/24 acil durumlar iÃ§in hÄ±zlÄ± mÃ¼dahale ve vinÃ§ operasyonu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET -->
+  <section class="section fleet-section" id="filo">
+    <div class="section-inner">
+      <div class="section-label">VinÃ§ Filomuz</div>
+      <h2 class="section-title">EkipmanlarÄ±mÄ±z</h2>
+      <p class="section-sub">FarklÄ± kapasitelerde araÃ§ ve vinÃ§lerimizle her Ã¶lÃ§ekte iÅŸinizi Ã§Ã¶zÃ¼yoruz.</p>
+      <div class="fleet-grid">
+        <div class="fleet-card">
+          <div class="fleet-img">ğŸš›</div>
+          <div class="fleet-body">
+            <h3>Hiab VinÃ§ 5 Ton</h3>
+            <p>Kompakt alanlarda yÃ¼kleme ve kaldÄ±rma iÅŸleri iÃ§in ideal. Åehir iÃ§i kullanÄ±ma uygun.</p>
+            <div class="fleet-tags">
+              <span class="tag">5 Ton</span>
+              <span class="tag">Hiab</span>
+              <span class="tag">Åehir Ä°Ã§i</span>
+            </div>
+          </div>
+        </div>
+        <div class="fleet-card">
+          <div class="fleet-img">ğŸš›</div>
+          <div class="fleet-body">
+            <h3>Mobil VinÃ§ 25 Ton</h3>
+            <p>Orta Ã¶lÃ§ekli montaj ve nakliye iÅŸleri iÃ§in gÃ¼Ã§lÃ¼ mobil vinÃ§. 25 ton kapasite.</p>
+            <div class="fleet-tags">
+              <span class="tag">25 Ton</span>
+              <span class="tag">Mobil</span>
+              <span class="tag">Montaj</span>
+            </div>
+          </div>
+        </div>
+        <div class="fleet-card">
+          <div class="fleet-img">ğŸš›</div>
+          <div class="fleet-body">
+            <h3>Mobil VinÃ§ 50 Ton</h3>
+            <p>AÄŸÄ±r sanayi ve bÃ¼yÃ¼k montaj iÅŸleri iÃ§in yÃ¼ksek kapasiteli vinÃ§.</p>
+            <div class="fleet-tags">
+              <span class="tag">50 Ton</span>
+              <span class="tag">Mobil</span>
+              <span class="tag">AÄŸÄ±r Ä°ÅŸ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="section" id="hizmet-alani">
+    <div class="section-inner">
+      <div class="section-label">Hizmet BÃ¶lgemiz</div>
+      <h2 class="section-title">Nerelerde Hizmet Veriyoruz?</h2>
+      <p class="section-sub">Salihli baÅŸta olmak Ã¼zere geniÅŸ bir bÃ¶lgede 7/24 vinÃ§ hizmeti sunuyoruz.</p>
+      <div class="areas-grid">
+        <div class="area-chip">Salihli</div>
+        <div class="area-chip">Ä°zmir</div>
+        <div class="area-chip">Manisa</div>
+        <div class="area-chip">AlaÅŸehir</div>
+        <div class="area-chip">KÄ±rkaÄŸaÃ§</div>
+        <div class="area-chip">GÃ¶rdes</div>
+        <div class="area-chip">Ahmetli</div>
+        <div class="area-chip">Turgutlu</div>
+        <div class="area-chip">SaruhanlÄ±</div>
+        <div class="area-chip">Selendi</div>
+        <div class="area-chip">Demirci</div>
+        <div class="area-chip">Soma</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="iletisim">
+    <div class="section-inner">
+      <div class="section-label">Ä°letiÅŸim</div>
+      <h2 class="section-title">Bizimle Ä°letiÅŸime GeÃ§in</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Ä°letiÅŸim Bilgileri</h3>
+          <div class="contact-item">
+            <div class="icon">ğŸ“</div>
+            <div>
+              <strong>Telefon</strong>
+              <span>0532 123 45 67</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">ğŸ“§</div>
+            <div>
+              <strong>E-posta</strong>
+              <span>info@arazvincsalihli.com</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">ğŸ“</div>
+            <div>
+              <strong>Adres</strong>
+              <span>Salihli, Manisa</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">ğŸ•</div>
+            <div>
+              <strong>Ã‡alÄ±ÅŸma Saatleri</strong>
+              <span>7/24 â€” Her gÃ¼n</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" action="https://formspree.io/f/XXXXX" method="POST">
+          <div class="form-group">
+            <label for="name">AdÄ±nÄ±z SoyadÄ±nÄ±z</label>
+            <input type="text" id="name" name="name" placeholder="AdÄ±nÄ±zÄ± girin" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" placeholder="0500 000 00 00" required>
+          </div>
+          <div class="form-group">
+            <label for="service">Hizmet TÃ¼rÃ¼</label>
+            <select id="service" name="service">
+              <option value="">SeÃ§iniz</option>
+              <option value="hiab">Hiab VinÃ§ Kiralama</option>
+              <option value="mobil">Mobil VinÃ§ Kiralama</option>
+              <option value="yukleme">YÃ¼kleme / BoÅŸaltma</option>
+              <option value="montaj">Montaj Ä°ÅŸleri</option>
+              <option value="nakliye">Nakliye Hizmeti</option>
+              <option value="acil">Acil VinÃ§ Hizmeti</option>
+              <option value="diger">DiÄŸer</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">MesajÄ±nÄ±z</label>
+            <textarea id="message" name="message" placeholder="Ä°ÅŸinizi kÄ±saca anlatÄ±n..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">GÃ¶nder</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">ARAZ<span>VÄ°NÃ‡</span></div>
+      <div class="footer-copy">Â© 2026 Araz VinÃ§ Salihli. TÃ¼m haklarÄ± saklÄ±dÄ±r.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
