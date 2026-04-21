@@ -3,616 +3,512 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Araz VinÃ§ Salihli | Hiab & Mobil VinÃ§ Kiralama â€“ 7/24</title>
-  <meta name="description" content="Salihli ve Ã§evresinde Hiab ve mobil vinÃ§ kiralama hizmeti. 7/24 vinÃ§ operasyonlarÄ±, makine yÃ¼kleme, nakliye ve montaj iÅŸleri.">
-  <meta name="keywords" content="vinÃ§ kiralama, hiab, mobil vinÃ§, salihli, izmir, manisa, vinÃ§, kiralÄ±k vinÃ§">
+  <title>Araz Vinç Salihli | Hiab & Mobil Vinç Kiralama – 7/24</title>
+  <meta name="description" content="Salihli ve çevresinde Hiab ve mobil vinç kiralama hizmeti. 7/24 vinç operasyonları, makine yükleme, nakliye ve montaj işleri.">
+  <meta name="keywords" content="vinç kiralama, hiab, mobil vinç, salihli, izmir, manisa, vinç, kiralık vinç">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
     :root {
-      --bg-dark: #0d0d0d;
-      --bg-card: #1a1a1a;
+      --bg: #0a0a0f;
+      --bg-2: #111118;
+      --bg-3: #18181f;
       --accent: #f59e0b;
-      --accent-dark: #d97706;
-      --text: #f5f5f5;
-      --text-muted: #a3a3a3;
-      --border: #2a2a2a;
+      --accent-glow: rgba(245,158,11,0.15);
+      --accent-dim: rgba(245,158,11,0.6);
+      --text: #f0f0f5;
+      --text-2: #9090a0;
+      --text-3: #505068;
+      --border: #1f1f2e;
+      --border-2: #2a2a3a;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 8px 32px rgba(0,0,0,0.4);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Open Sans', sans-serif;
-      background: var(--bg-dark);
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    h1, h2, h3, h4 {
-      font-family: 'Montserrat', sans-serif;
+    /* ─── LOADER ─── */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1.5rem;
+      transition: opacity 0.6s, visibility 0.6s;
+    }
+    #loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-ring {
+      width: 52px; height: 52px;
+      border: 3px solid var(--border-2);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    .loader-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-3);
+      letter-spacing: 0.15em;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ─── CURSOR GLOW ─── */
+    #cursor-glow {
+      position: fixed; width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%);
+      pointer-events: none; z-index: 1;
+      transform: translate(-50%, -50%);
+      transition: left 0.15s, top 0.15s;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* â”€â”€â”€ NAVBAR â”€â”€â”€ */
+    /* ─── NAVBAR ─── */
     .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(13,13,13,0.95);
-      backdrop-filter: blur(10px);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      height: 80px;
+      display: flex; align-items: center;
+      background: rgba(10,10,15,0.8);
+      backdrop-filter: blur(20px) saturate(180%);
       border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
+      transition: background 0.3s;
     }
-
+    .navbar.scrolled { background: rgba(10,10,15,0.95); }
     .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
+      max-width: 1280px; width: 100%; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
     }
-
     .nav-logo {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.4rem;
+      font-weight: 900; font-size: 1.35rem; letter-spacing: -0.02em;
       color: var(--text);
     }
-
-    .nav-logo span {
-      color: var(--accent);
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-links li a {
+      font-size: 0.875rem; font-weight: 500; color: var(--text-2);
+      padding: 0.5rem 1rem; border-radius: 8px;
+      transition: all 0.25s; position: relative;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
+    .nav-links li a::after {
+      content: ''; position: absolute; bottom: 4px; left: 50%;
+      width: 0; height: 2px; background: var(--accent);
+      border-radius: 2px; transition: all 0.25s;
+      transform: translateX(-50%);
     }
-
-    .nav-links a {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      transition: color 0.3s;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
+    .nav-links li a:hover { color: var(--text); }
+    .nav-links li a:hover::after { width: calc(100% - 2rem); }
     .nav-phone {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      color: var(--accent);
-      font-size: 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      background: var(--bg-3); border: 1px solid var(--border-2);
+      border-radius: 100px; padding: 0.55rem 1.25rem;
+      font-size: 0.875rem; font-weight: 600; color: var(--accent);
+      transition: all 0.25s;
     }
+    .nav-phone:hover { border-color: var(--accent); background: var(--accent-glow); }
 
-    .nav-phone:hover {
-      color: var(--accent-dark);
-    }
-
-    /* â”€â”€â”€ HERO â”€â”€â”€ */
+    /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(ellipse at 70% 50%, rgba(245,158,11,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse at 20% 80%, rgba(245,158,11,0.05) 0%, transparent 50%);
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(245,158,11,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 10% 80%, rgba(245,158,11,0.04) 0%, transparent 50%);
     }
-
-    .hero-bg-grid {
-      position: absolute;
-      inset: 0;
+    .hero-grid {
+      position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(245,158,11,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245,158,11,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
+        linear-gradient(rgba(245,158,11,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,158,11,0.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 0%, transparent 70%);
     }
-
     .hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 8rem 2rem 4rem;
-      position: relative;
-      z-index: 2;
+      max-width: 1280px; width: 100%; margin: 0 auto;
+      padding: 8rem clamp(1.5rem, 4vw, 3rem) 5rem;
+      position: relative; z-index: 2;
     }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(245,158,11,0.1);
-      border: 1px solid rgba(245,158,11,0.3);
-      border-radius: 100px;
-      padding: 0.4rem 1rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 100px; padding: 0.45rem 1.1rem;
+      font-size: 0.8rem; font-weight: 600; color: var(--accent);
+      margin-bottom: 2rem; letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
     }
-
-    .hero-badge::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
+    .hero-label::before {
+      content: ''; width: 7px; height: 7px;
+      background: var(--accent); border-radius: 50%;
+      animation: pulse-dot 2s infinite;
     }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
     }
-
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      max-width: 700px;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -0.03em; margin-bottom: 1.5rem;
+      max-width: 750px;
     }
-
-    .hero h1 .highlight {
-      color: var(--accent);
+    .hero h1 .highlight { color: var(--accent); position: relative; }
+    .hero h1 .highlight::after {
+      content: ''; position: absolute;
+      bottom: 4px; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dim));
+      border-radius: 4px;
     }
-
     .hero-sub {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      max-width: 500px;
-      margin-bottom: 2.5rem;
+      font-size: 1.15rem; color: var(--text-2);
+      max-width: 480px; margin-bottom: 2.5rem;
+      line-height: 1.7;
     }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: all 0.3s;
-      cursor: pointer;
-      border: none;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 2rem; border-radius: 100px;
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.9rem; cursor: pointer; border: none;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      text-decoration: none;
     }
-
     .btn-primary {
-      background: var(--accent);
-      color: #000;
+      background: var(--accent); color: #000;
+      box-shadow: 0 0 24px rgba(245,158,11,0.25);
     }
-
     .btn-primary:hover {
-      background: var(--accent-dark);
-      transform: translateY(-2px);
+      background: #fbbf24;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(245,158,11,0.4);
     }
-
     .btn-outline {
       background: transparent;
-      border: 2px solid var(--border);
+      border: 1.5px solid var(--border-2);
       color: var(--text);
     }
-
     .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--text-3); color: var(--accent);
+      background: var(--accent-glow);
+      transform: translateY(-3px);
     }
-
-    /* â”€â”€â”€ STATS â”€â”€â”€ */
     .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; margin-top: 5rem;
       background: var(--border);
-      margin-top: 5rem;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
+      border-radius: var(--radius);
+      overflow: hidden; max-width: 640px;
     }
-
     .stat {
-      background: var(--bg-card);
-      padding: 2rem;
+      background: var(--bg-2); padding: 1.75rem 2rem;
       text-align: center;
     }
-
     .stat-num {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--accent);
-      display: block;
+      font-size: 2.2rem; font-weight: 900; color: var(--accent);
+      display: block; letter-spacing: -0.03em;
+      font-family: 'Inter', sans-serif;
     }
-
     .stat-label {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: 0.3rem;
+      font-size: 0.78rem; color: var(--text-3);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-top: 0.25rem;
     }
 
-    /* â”€â”€â”€ SECTION BASE â”€â”€â”€ */
+    /* ─── SECTIONS ─── */
     .section {
-      padding: 5rem 2rem;
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem);
     }
-
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
+    .section-inner { max-width: 1280px; margin: 0 auto; }
     .section-label {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.2em; color: var(--accent);
+      margin-bottom: 1rem;
     }
-
     .section-title {
       font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
+      font-weight: 900; letter-spacing: -0.02em;
       margin-bottom: 1rem;
     }
-
     .section-sub {
-      color: var(--text-muted);
-      max-width: 500px;
-      margin-bottom: 3rem;
+      color: var(--text-2); max-width: 480px;
+      margin-bottom: 3.5rem; line-height: 1.7;
     }
 
-    /* â”€â”€â”€ SERVICES â”€â”€â”€ */
+    /* ─── REVEAL ANIMATION ─── */
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ─── SERVICES ─── */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
     }
-
     .service-card {
-      background: var(--bg-card);
+      background: var(--bg-2);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: var(--radius);
       padding: 2rem;
-      transition: all 0.3s;
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative; overflow: hidden;
     }
-
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0; transition: opacity 0.35s;
+    }
     .service-card:hover {
       border-color: var(--accent);
-      transform: translateY(-4px);
+      background: var(--bg-3);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(245,158,11,0.1);
     }
-
+    .service-card:hover::before { opacity: 1; }
     .service-icon {
-      width: 52px;
-      height: 52px;
-      background: rgba(245,158,11,0.1);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 1.2rem;
+      width: 54px; height: 54px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(245,158,11,0.15);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1.5rem;
     }
-
     .service-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
+      font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem;
     }
+    .service-card p { color: var(--text-2); font-size: 0.9rem; line-height: 1.6; }
 
-    .service-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* â”€â”€â”€ FLEET â”€â”€â”€ */
-    .fleet-section {
-      background: var(--bg-card);
-    }
-
+    /* ─── FLEET ─── */
+    .fleet-section { background: var(--bg-2); }
     .fleet-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
     }
-
     .fleet-card {
-      background: var(--bg-dark);
+      background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: var(--radius);
       overflow: hidden;
-      transition: all 0.3s;
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-
-    .fleet-card:hover {
-      border-color: var(--accent);
-    }
-
-    .fleet-img {
-      width: 100%;
+    .fleet-card:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-4px); }
+    .fleet-visual {
       height: 200px;
-      object-fit: cover;
-      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
+      background: linear-gradient(135deg, var(--bg-3) 0%, var(--bg-2) 100%);
+      position: relative; overflow: hidden;
     }
-
-    .fleet-body {
-      padding: 1.5rem;
+    .fleet-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, var(--bg) 100%);
     }
-
-    .fleet-body h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+    .fleet-illustration {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4.5rem;
+      filter: drop-shadow(0 4px 16px rgba(245,158,11,0.15));
     }
-
-    .fleet-body p {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-    }
-
-    .fleet-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
+    .fleet-body { padding: 1.75rem; }
+    .fleet-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .fleet-body p { color: var(--text-2); font-size: 0.875rem; margin-bottom: 1.25rem; }
+    .fleet-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .tag {
-      background: rgba(245,158,11,0.1);
-      border: 1px solid rgba(245,158,11,0.2);
+      background: rgba(245,158,11,0.07);
+      border: 1px solid rgba(245,158,11,0.15);
       color: var(--accent);
-      font-size: 0.75rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      padding: 0.3rem 0.7rem;
+      font-size: 0.72rem; font-weight: 600;
+      padding: 0.3rem 0.75rem;
       border-radius: 100px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      text-transform: uppercase; letter-spacing: 0.06em;
     }
 
-    /* â”€â”€â”€ AREAS â”€â”€â”€ */
+    /* ─── AREAS ─── */
     .areas-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.75rem;
     }
-
     .area-chip {
-      background: var(--bg-card);
+      background: var(--bg-2);
       border: 1px solid var(--border);
       border-radius: 100px;
-      padding: 0.7rem 1.5rem;
+      padding: 0.75rem 1.5rem;
       text-align: center;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.3s;
+      font-weight: 600; font-size: 0.875rem;
+      transition: all 0.25s;
+      cursor: default;
     }
-
     .area-chip:hover {
       border-color: var(--accent);
       color: var(--accent);
+      background: var(--accent-glow);
     }
 
-    /* â”€â”€â”€ CONTACT â”€â”€â”€ */
-    .contact-section {
-      background: var(--bg-card);
-    }
-
+    /* ─── CONTACT ─── */
+    .contact-section { background: var(--bg-2); }
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
     }
-
-    .contact-info h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
     .contact-item {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.2rem;
-      align-items: flex-start;
+      display: flex; gap: 1.25rem;
+      margin-bottom: 1.75rem; align-items: flex-start;
     }
-
     .contact-item .icon {
-      width: 44px;
-      height: 44px;
-      background: rgba(245,158,11,0.1);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 1.2rem;
+      width: 50px; height: 50px; flex-shrink: 0;
+      background: rgba(245,158,11,0.07);
+      border: 1px solid rgba(245,158,11,0.12);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
     }
-
     .contact-item strong {
       display: block;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 0.2rem;
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--text-3); margin-bottom: 0.25rem;
     }
-
-    .contact-item span {
-      font-size: 1rem;
-    }
+    .contact-item span { font-size: 1.05rem; font-weight: 500; }
 
     .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
     }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
     .form-group label {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      font-size: 0.8rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-2);
     }
-
     .form-group input,
     .form-group textarea,
     .form-group select {
-      background: var(--bg-dark);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.9rem 1rem;
+      background: var(--bg-2);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
       color: var(--text);
-      font-family: 'Open Sans', sans-serif;
-      font-size: 1rem;
-      transition: border-color 0.3s;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.25s, box-shadow 0.25s;
       resize: vertical;
+      -webkit-appearance: none;
     }
-
     .form-group input:focus,
     .form-group textarea:focus,
     .form-group select:focus {
       outline: none;
       border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
+    }
+    .form-group textarea { min-height: 110px; }
+    .form-submit {
+      background: var(--accent);
+      color: #000; font-weight: 700;
+      border: none; border-radius: 100px;
+      padding: 1rem 2rem;
+      font-size: 0.95rem; cursor: pointer;
+      width: 100%;
+      transition: all 0.3s;
+      box-shadow: 0 0 24px rgba(245,158,11,0.2);
+    }
+    .form-submit:hover {
+      background: #fbbf24;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(245,158,11,0.35);
     }
 
-    .form-group textarea {
-      min-height: 120px;
-    }
-
-    /* â”€â”€â”€ FOOTER â”€â”€â”€ */
+    /* ─── FOOTER ─── */
     .footer {
       border-top: 1px solid var(--border);
-      padding: 2rem;
+      padding: 2.5rem clamp(1.5rem, 4vw, 3rem);
     }
-
     .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+      max-width: 1280px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
     }
+    .footer-logo { font-weight: 900; font-size: 1.15rem; }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { color: var(--text-3); font-size: 0.85rem; }
 
-    .footer-logo {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
-
-    .footer-logo span {
-      color: var(--accent);
-    }
-
-    .footer-copy {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    /* â”€â”€â”€ RESPONSIVE â”€â”€â”€ */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
+    @media (max-width: 640px) {
+      .hero-stats { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.4rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-ring"></div>
+    <div class="loader-text">ARAZ VİNÇ</div>
+  </div>
+
+  <!-- CURSOR GLOW -->
+  <div id="cursor-glow"></div>
+
   <!-- NAVBAR -->
-  <nav class="navbar">
+  <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">ARAZ<span>VÄ°NÃ‡</span></a>
+      <a href="#" class="nav-logo">ARAZ<span>VİNÇ</span></a>
       <ul class="nav-links">
         <li><a href="#hizmetler">Hizmetler</a></li>
         <li><a href="#filo">Filo</a></li>
-        <li><a href="#hizmet-alani">Hizmet AlanÄ±</a></li>
-        <li><a href="#iletisim">Ä°letiÅŸim</a></li>
+        <li><a href="#hizmet-alani">Hizmet Alanı</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
       </ul>
-      <a href="tel:+905321234567" class="nav-phone">ğŸ“ 0532 123 45 67</a>
+      <a href="tel:+905321234567" class="nav-phone">
+        <span>📞</span> 0532 123 45 67
+      </a>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero-bg-grid"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
     <div class="hero-inner">
-      <div class="hero-badge">7 / 24 Hizmetinizdeyiz</div>
-      <h1>GÃ¼Ã§lÃ¼ VinÃ§ GÃ¼cÃ¼,<br><span class="highlight">GÃ¼venilir Hizmet</span></h1>
-      <p class="hero-sub">Salihli ve Ã§evresinde Hiab ve mobil vinÃ§ kiralama. YÃ¼kleme, nakliye, montaj ve tÃ¼m aÄŸÄ±r iÅŸleriniz iÃ§in 7/24 yanÄ±nÄ±zdayÄ±z.</p>
+      <div class="hero-label">7 / 24 Aktif Hizmetinizdeyiz</div>
+      <h1>Güçlü Vinç Gücü,<br><span class="highlight">Güvenilir Hizmet</span></h1>
+      <p class="hero-sub">Salihli ve çevresinde Hiab ve mobil vinç kiralama. Yükleme, nakliye, montaj ve tüm ağır işleriniz için 7/24 yanınızdayız.</p>
       <div class="hero-actions">
         <a href="tel:+905321234567" class="btn btn-primary">Hemen Ara</a>
         <a href="#iletisim" class="btn btn-outline">Teklif Al</a>
       </div>
-
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-num">7/24</span>
@@ -620,11 +516,11 @@
         </div>
         <div class="stat">
           <span class="stat-num">500+</span>
-          <span class="stat-label">BaÅŸarÄ±lÄ± Ä°ÅŸ</span>
+          <span class="stat-label">Başarılı İş</span>
         </div>
         <div class="stat">
           <span class="stat-num">15+</span>
-          <span class="stat-label">YÄ±llÄ±k Deneyim</span>
+          <span class="stat-label">Yıllık Deneyim</span>
         </div>
       </div>
     </div>
@@ -633,39 +529,39 @@
   <!-- SERVICES -->
   <section class="section" id="hizmetler">
     <div class="section-inner">
-      <div class="section-label">Hizmetlerimiz</div>
-      <h2 class="section-title">Neler YapÄ±yoruz?</h2>
-      <p class="section-sub">Her tÃ¼rlÃ¼ aÄŸÄ±r yÃ¼k ve vinÃ§ ihtiyacÄ±nÄ±z iÃ§in profesyonel Ã§Ã¶zÃ¼mler sunuyoruz.</p>
+      <div class="section-label reveal">Hizmetlerimiz</div>
+      <h2 class="section-title reveal reveal-delay-1">Neler Yapıyoruz?</h2>
+      <p class="section-sub reveal reveal-delay-2">Her türlü ağır yük ve vinç ihtiyacınız için profesyonel çözümler sunuyoruz.</p>
       <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">ğŸš›</div>
-          <h3>Hiab VinÃ§ Kiralama</h3>
-          <p>Åantiye, fabrika ve aÃ§Ä±k alanlarda kamyon Ã¼stÃ¼ Hiab vinÃ§ ile yÃ¼kleme ve boÅŸaltma iÅŸlemleri.</p>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">🚛</div>
+          <h3>Hiab Vinç Kiralama</h3>
+          <p>Şantiye, fabrika ve açık alanlarda kamyon üstü Hiab vinç ile yükleme ve boşaltma işlemleri.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">ğŸ—ï¸</div>
-          <h3>Mobil VinÃ§ Kiralama</h3>
-          <p>50 tona kadar yÃ¼k kaldÄ±rma kapasiteli mobil vinÃ§lerimizle montaj ve nakliye iÅŸleriniz.</p>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">🏗️</div>
+          <h3>Mobil Vinç Kiralama</h3>
+          <p>50 tona kadar yük kaldırma kapasiteli mobil vinçlerimizle montaj ve nakliye işleriniz.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">ğŸ“¦</div>
-          <h3>YÃ¼kleme & BoÅŸaltma</h3>
-          <p>Makine, malzeme ve ekipmanlarÄ±n hÄ±zlÄ± ve gÃ¼venli yÃ¼kleme-boÅŸaltma iÅŸlemleri.</p>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon">📦</div>
+          <h3>Yükleme & Boşaltma</h3>
+          <p>Makine, malzeme ve ekipmanların hızlı ve güvenli yükleme-boşaltma işlemleri.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">ğŸ­</div>
-          <h3>Montaj Ä°ÅŸleri</h3>
-          <p>Prefabrik yapÄ±, makine montajÄ± ve endÃ¼striyel ekipman kurulumlarÄ±.</p>
+        <div class="service-card reveal reveal-delay-4">
+          <div class="service-icon">🏭</div>
+          <h3>Montaj İşleri</h3>
+          <p>Prefabrik yapı, makine montajı ve endüstriyel ekipman kurulumları.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">ğŸšš</div>
+        <div class="service-card reveal reveal-delay-5">
+          <div class="service-icon">🚚</div>
           <h3>Nakliye Hizmeti</h3>
-          <p>AÄŸÄ±r ve boyutlu yÃ¼klerin gÃ¼venli taÅŸÄ±nmasÄ± ve nakliyesi.</p>
+          <p>Ağır ve boyutlu yüklerin güvenli taşınması ve nakliyesi.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">âš¡</div>
-          <h3>Acil VinÃ§ Hizmeti</h3>
-          <p>7/24 acil durumlar iÃ§in hÄ±zlÄ± mÃ¼dahale ve vinÃ§ operasyonu.</p>
+        <div class="service-card reveal">
+          <div class="service-icon">⚡</div>
+          <h3>Acil Vinç Hizmeti</h3>
+          <p>7/24 acil durumlar için hızlı müdahale ve vinç operasyonu.</p>
         </div>
       </div>
     </div>
@@ -674,27 +570,31 @@
   <!-- FLEET -->
   <section class="section fleet-section" id="filo">
     <div class="section-inner">
-      <div class="section-label">VinÃ§ Filomuz</div>
-      <h2 class="section-title">EkipmanlarÄ±mÄ±z</h2>
-      <p class="section-sub">FarklÄ± kapasitelerde araÃ§ ve vinÃ§lerimizle her Ã¶lÃ§ekte iÅŸinizi Ã§Ã¶zÃ¼yoruz.</p>
+      <div class="section-label reveal">Vinç Filomuz</div>
+      <h2 class="section-title reveal reveal-delay-1">Ekipmanlarımız</h2>
+      <p class="section-sub reveal reveal-delay-2">Farklı kapasitelerde araç ve vinçlerimizle her ölçekte işinizi çözüyoruz.</p>
       <div class="fleet-grid">
-        <div class="fleet-card">
-          <div class="fleet-img">ğŸš›</div>
+        <div class="fleet-card reveal reveal-delay-1">
+          <div class="fleet-visual">
+            <div class="fleet-illustration">🚛</div>
+          </div>
           <div class="fleet-body">
-            <h3>Hiab VinÃ§ 5 Ton</h3>
-            <p>Kompakt alanlarda yÃ¼kleme ve kaldÄ±rma iÅŸleri iÃ§in ideal. Åehir iÃ§i kullanÄ±ma uygun.</p>
+            <h3>Hiab Vinç 5 Ton</h3>
+            <p>Kompakt alanlarda yükleme ve kaldırma işleri için ideal. Şehir içi kullanıma uygun.</p>
             <div class="fleet-tags">
               <span class="tag">5 Ton</span>
               <span class="tag">Hiab</span>
-              <span class="tag">Åehir Ä°Ã§i</span>
+              <span class="tag">Şehir İçi</span>
             </div>
           </div>
         </div>
-        <div class="fleet-card">
-          <div class="fleet-img">ğŸš›</div>
+        <div class="fleet-card reveal reveal-delay-2">
+          <div class="fleet-visual">
+            <div class="fleet-illustration">🏗️</div>
+          </div>
           <div class="fleet-body">
-            <h3>Mobil VinÃ§ 25 Ton</h3>
-            <p>Orta Ã¶lÃ§ekli montaj ve nakliye iÅŸleri iÃ§in gÃ¼Ã§lÃ¼ mobil vinÃ§. 25 ton kapasite.</p>
+            <h3>Mobil Vinç 25 Ton</h3>
+            <p>Orta ölçekli montaj ve nakliye işleri için güçlü mobil vinç. 25 ton kapasite.</p>
             <div class="fleet-tags">
               <span class="tag">25 Ton</span>
               <span class="tag">Mobil</span>
@@ -702,15 +602,17 @@
             </div>
           </div>
         </div>
-        <div class="fleet-card">
-          <div class="fleet-img">ğŸš›</div>
+        <div class="fleet-card reveal reveal-delay-3">
+          <div class="fleet-visual">
+            <div class="fleet-illustration">🏭</div>
+          </div>
           <div class="fleet-body">
-            <h3>Mobil VinÃ§ 50 Ton</h3>
-            <p>AÄŸÄ±r sanayi ve bÃ¼yÃ¼k montaj iÅŸleri iÃ§in yÃ¼ksek kapasiteli vinÃ§.</p>
+            <h3>Mobil Vinç 50 Ton</h3>
+            <p>Ağır sanayi ve büyük montaj işleri için yüksek kapasiteli vinç.</p>
             <div class="fleet-tags">
               <span class="tag">50 Ton</span>
               <span class="tag">Mobil</span>
-              <span class="tag">AÄŸÄ±r Ä°ÅŸ</span>
+              <span class="tag">Ağır İş</span>
             </div>
           </div>
         </div>
@@ -721,19 +623,19 @@
   <!-- SERVICE AREAS -->
   <section class="section" id="hizmet-alani">
     <div class="section-inner">
-      <div class="section-label">Hizmet BÃ¶lgemiz</div>
-      <h2 class="section-title">Nerelerde Hizmet Veriyoruz?</h2>
-      <p class="section-sub">Salihli baÅŸta olmak Ã¼zere geniÅŸ bir bÃ¶lgede 7/24 vinÃ§ hizmeti sunuyoruz.</p>
-      <div class="areas-grid">
+      <div class="section-label reveal">Hizmet Bölgemiz</div>
+      <h2 class="section-title reveal reveal-delay-1">Nerelerde Hizmet Veriyoruz?</h2>
+      <p class="section-sub reveal reveal-delay-2">Salihli başta olmak üzere geniş bir bölgede 7/24 vinç hizmeti sunuyoruz.</p>
+      <div class="areas-grid reveal reveal-delay-3">
         <div class="area-chip">Salihli</div>
-        <div class="area-chip">Ä°zmir</div>
+        <div class="area-chip">İzmir</div>
         <div class="area-chip">Manisa</div>
-        <div class="area-chip">AlaÅŸehir</div>
-        <div class="area-chip">KÄ±rkaÄŸaÃ§</div>
-        <div class="area-chip">GÃ¶rdes</div>
+        <div class="area-chip">Alaşehir</div>
+        <div class="area-chip">Kırkağaç</div>
+        <div class="area-chip">Gördes</div>
         <div class="area-chip">Ahmetli</div>
         <div class="area-chip">Turgutlu</div>
-        <div class="area-chip">SaruhanlÄ±</div>
+        <div class="area-chip">Saruhanlı</div>
         <div class="area-chip">Selendi</div>
         <div class="area-chip">Demirci</div>
         <div class="area-chip">Soma</div>
@@ -744,67 +646,66 @@
   <!-- CONTACT -->
   <section class="section contact-section" id="iletisim">
     <div class="section-inner">
-      <div class="section-label">Ä°letiÅŸim</div>
-      <h2 class="section-title">Bizimle Ä°letiÅŸime GeÃ§in</h2>
       <div class="contact-grid">
         <div class="contact-info">
-          <h3>Ä°letiÅŸim Bilgileri</h3>
-          <div class="contact-item">
-            <div class="icon">ğŸ“</div>
+          <div class="section-label reveal">İletişim</div>
+          <h2 class="section-title reveal reveal-delay-1">Bizimle İletişime Geçin</h2>
+          <div class="contact-item reveal reveal-delay-2">
+            <div class="icon">📞</div>
             <div>
               <strong>Telefon</strong>
               <span>0532 123 45 67</span>
             </div>
           </div>
-          <div class="contact-item">
-            <div class="icon">ğŸ“§</div>
+          <div class="contact-item reveal reveal-delay-3">
+            <div class="icon">📧</div>
             <div>
               <strong>E-posta</strong>
               <span>info@arazvincsalihli.com</span>
             </div>
           </div>
-          <div class="contact-item">
-            <div class="icon">ğŸ“</div>
+          <div class="contact-item reveal reveal-delay-4">
+            <div class="icon">📍</div>
             <div>
               <strong>Adres</strong>
               <span>Salihli, Manisa</span>
             </div>
           </div>
-          <div class="contact-item">
-            <div class="icon">ğŸ•</div>
+          <div class="contact-item reveal">
+            <div class="icon">🕐</div>
             <div>
-              <strong>Ã‡alÄ±ÅŸma Saatleri</strong>
-              <span>7/24 â€” Her gÃ¼n</span>
+              <strong>Çalışma Saatleri</strong>
+              <span>7/24 — Her gün</span>
             </div>
           </div>
         </div>
-        <form class="contact-form" action="https://formspree.io/f/XXXXX" method="POST">
+        <form class="contact-form reveal reveal-delay-2" action="https://formspree.io/f/XXXXX" method="POST">
           <div class="form-group">
-            <label for="name">AdÄ±nÄ±z SoyadÄ±nÄ±z</label>
-            <input type="text" id="name" name="name" placeholder="AdÄ±nÄ±zÄ± girin" required>
+            <label for="name">Adınız Soyadınız</label>
+            <input type="text" id="name" name="name" placeholder="Adınızı girin" required>
           </div>
           <div class="form-group">
             <label for="phone">Telefon</label>
             <input type="tel" id="phone" name="phone" placeholder="0500 000 00 00" required>
           </div>
           <div class="form-group">
-            <label for="service">Hizmet TÃ¼rÃ¼</label>
+            <label for="service">Hizmet Türü</label>
             <select id="service" name="service">
-              <option value="">SeÃ§iniz</option>
-              <option value="hiab">Hiab VinÃ§ Kiralama</option>
-              <option value="mobil">Mobil VinÃ§ Kiralama</option>
-              <option value="yukleme">YÃ¼kleme / BoÅŸaltma</option>
-              <option value="montaj">Montaj Ä°ÅŸleri</option>
+              <option value="">Seçiniz</option>
+              <option value="hiab">Hiab Vinç Kiralama</option>
+              <option value="mobil">Mobil Vinç Kiralama</option>
+              <option value="yukleme">Yükleme / Boşaltma</option>
+              <option value="montaj">Montaj İşleri</option>
               <option value="nakliye">Nakliye Hizmeti</option>
-              <option value="acil">Acil VinÃ§ Hizmeti</option>
-              <option value="diger">DiÄŸer</option>
+              <option value="acil">Acil Vinç Hizmeti</option>
+              <option value="diger">Diğer</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="message">MesajÄ±nÄ±z</label>
-            <textarea id="message" name="message" placeholder="Ä°ÅŸinizi kÄ±saca anlatÄ±n..."></textarea>
+            <label for="message">Mesajınız</label>
+            <textarea id="message" name="message" placeholder="İşinizi kısaca anlatın..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%">GÃ¶nder</button>
+          <button type="submit" class="form-submit">Gönder</button>
         </form>
       </div>
     </div>
@@ -813,10 +714,43 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-logo">ARAZ<span>VÄ°NÃ‡</span></div>
-      <div class="footer-copy">Â© 2026 Araz VinÃ§ Salihli. TÃ¼m haklarÄ± saklÄ±dÄ±r.</div>
+      <div class="footer-logo">ARAZ<span>VİNÇ</span></div>
+      <div class="footer-copy">© 2026 Araz Vinç Salihli. Tüm hakları saklıdır.</div>
     </div>
   </footer>
 
+  <script>
+    // ─── LOADER ───
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('done');
+      }, 600);
+    });
+
+    // ─── CURSOR GLOW ───
+    const glow = document.getElementById('cursor-glow');
+    document.addEventListener('mousemove', (e) => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+
+    // ─── SCROLL REVEAL ───
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    reveals.forEach(el => io.observe(el));
+
+    // ─── NAVBAR SCROLL ───
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  </script>
 </body>
 </html>
