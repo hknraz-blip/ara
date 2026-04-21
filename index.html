@@ -170,7 +170,8 @@
     .section-title { font-family: 'Inter', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1rem; }
     .section-sub { color: var(--text-2); max-width: 520px; margin-bottom: 3rem; }
 
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+    .services-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 1.25rem; }
+    .services-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(280px, 400px)); gap: 1.25rem; justify-content: center; }
     .service-card {
       background: var(--bg-2); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 2rem;
@@ -217,8 +218,10 @@
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
 
+    @media (max-width: 1100px) { .services-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .services-grid-4 { grid-template-columns: 1fr; } .services-grid-2 { grid-template-columns: 1fr; } .hero h1 { font-size: 2.2rem; } }
+
     @media (max-width: 900px) { .nav-links { display: none; } .mobile-menu-btn { display: block; } .cta-inner { grid-template-columns: 1fr; } .hero-stats { grid-template-columns: 1fr; } }
-    @media (max-width: 640px) { .hero h1 { font-size: 2.2rem; } }
   </style>
 </head>
 <body>
@@ -270,7 +273,7 @@
       <div class="section-label reveal">Hizmetlerimiz</div>
       <h2 class="section-title reveal reveal-d1">Profesyonel Vinç Hizmetleri</h2>
       <p class="section-sub reveal reveal-d2">İnşaat, sanayi ve ticari projeleriniz için kapsamlı vinç kiralama çözümleri.</p>
-      <div class="services-grid">
+      <div class="services-grid-4">
         <div class="service-card reveal">
           <div class="service-icon">🚛</div>
           <h3>Mobil Vinç Kiralama</h3>
@@ -291,6 +294,8 @@
           <h3>İnşaat Projeleri</h3>
           <p>İnşaat sahalarında malzeme taşıma, montaj ve demonte işlemleriniz için özel çözümler sunuyoruz.</p>
         </div>
+      </div>
+      <div class="services-grid-2">
         <div class="service-card reveal reveal-d1">
           <div class="service-icon">🏭</div>
           <h3>Sanayi Taşımacılığı</h3>
