@@ -25,7 +25,6 @@
       --border-2: #2a2a3a;
       --radius: 16px;
       --radius-sm: 10px;
-      --shadow: 0 8px 32px rgba(0,0,0,0.4);
     }
 
     html { scroll-behavior: smooth; }
@@ -38,7 +37,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── LOADER ─── */
     #loader {
       position: fixed; inset: 0; z-index: 9999;
       background: var(--bg);
@@ -62,7 +60,6 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ─── CURSOR GLOW ─── */
     #cursor-glow {
       position: fixed; width: 400px; height: 400px;
       border-radius: 50%;
@@ -72,7 +69,6 @@
       transition: left 0.15s, top 0.15s;
     }
 
-    /* ─── NAVBAR ─── */
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 0 clamp(1.5rem, 4vw, 3rem);
@@ -88,10 +84,7 @@
       max-width: 1280px; width: 100%; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo {
-      font-weight: 900; font-size: 1.35rem; letter-spacing: -0.02em;
-      color: var(--text);
-    }
+    .nav-logo { font-weight: 900; font-size: 1.35rem; letter-spacing: -0.02em; color: var(--text); }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 0.25rem; list-style: none; }
     .nav-links li a {
@@ -112,11 +105,10 @@
       background: var(--bg-3); border: 1px solid var(--border-2);
       border-radius: 100px; padding: 0.55rem 1.25rem;
       font-size: 0.875rem; font-weight: 600; color: var(--accent);
-      transition: all 0.25s;
+      transition: all 0.25s; text-decoration: none;
     }
     .nav-phone:hover { border-color: var(--accent); background: var(--accent-glow); }
 
-    /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
       display: flex; align-items: center;
@@ -147,23 +139,18 @@
       border: 1px solid rgba(245,158,11,0.2);
       border-radius: 100px; padding: 0.45rem 1.1rem;
       font-size: 0.8rem; font-weight: 600; color: var(--accent);
-      margin-bottom: 2rem; letter-spacing: 0.08em;
-      text-transform: uppercase;
+      margin-bottom: 2rem; letter-spacing: 0.08em; text-transform: uppercase;
     }
     .hero-label::before {
       content: ''; width: 7px; height: 7px;
       background: var(--accent); border-radius: 50%;
       animation: pulse-dot 2s infinite;
     }
-    @keyframes pulse-dot {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
-    }
+    @keyframes pulse-dot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
     .hero h1 {
       font-size: clamp(3rem, 7vw, 5.5rem);
       font-weight: 900; line-height: 1.05;
-      letter-spacing: -0.03em; margin-bottom: 1.5rem;
-      max-width: 750px;
+      letter-spacing: -0.03em; margin-bottom: 1.5rem; max-width: 750px;
     }
     .hero h1 .highlight { color: var(--accent); position: relative; }
     .hero h1 .highlight::after {
@@ -172,11 +159,7 @@
       background: linear-gradient(90deg, var(--accent), var(--accent-dim));
       border-radius: 4px;
     }
-    .hero-sub {
-      font-size: 1.15rem; color: var(--text-2);
-      max-width: 480px; margin-bottom: 2.5rem;
-      line-height: 1.7;
-    }
+    .hero-sub { font-size: 1.15rem; color: var(--text-2); max-width: 480px; margin-bottom: 2.5rem; line-height: 1.7; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
@@ -186,74 +169,27 @@
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       text-decoration: none;
     }
-    .btn-primary {
-      background: var(--accent); color: #000;
-      box-shadow: 0 0 24px rgba(245,158,11,0.25);
-    }
-    .btn-primary:hover {
-      background: #fbbf24;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 32px rgba(245,158,11,0.4);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid var(--border-2);
-      color: var(--text);
-    }
-    .btn-outline:hover {
-      border-color: var(--text-3); color: var(--accent);
-      background: var(--accent-glow);
-      transform: translateY(-3px);
-    }
+    .btn-primary { background: var(--accent); color: #000; box-shadow: 0 0 24px rgba(245,158,11,0.25); }
+    .btn-primary:hover { background: #fbbf24; transform: translateY(-3px); box-shadow: 0 8px 32px rgba(245,158,11,0.4); }
+    .btn-outline { background: transparent; border: 1.5px solid var(--border-2); color: var(--text); }
+    .btn-outline:hover { border-color: var(--text-3); color: var(--accent); background: var(--accent-glow); transform: translateY(-3px); }
     .hero-stats {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; margin-top: 5rem;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden; max-width: 640px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; max-width: 640px;
     }
-    .stat {
-      background: var(--bg-2); padding: 1.75rem 2rem;
-      text-align: center;
-    }
-    .stat-num {
-      font-size: 2.2rem; font-weight: 900; color: var(--accent);
-      display: block; letter-spacing: -0.03em;
-      font-family: 'Inter', sans-serif;
-    }
-    .stat-label {
-      font-size: 0.78rem; color: var(--text-3);
-      text-transform: uppercase; letter-spacing: 0.1em;
-      margin-top: 0.25rem;
-    }
+    .stat { background: var(--bg-2); padding: 1.75rem 2rem; text-align: center; }
+    .stat-num { font-size: 2.2rem; font-weight: 900; color: var(--accent); display: block; letter-spacing: -0.03em; }
+    .stat-label { font-size: 0.78rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.25rem; }
 
-    /* ─── SECTIONS ─── */
-    .section {
-      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem);
-    }
+    .section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 4vw, 3rem); }
     .section-inner { max-width: 1280px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.2em; color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 900; letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-    .section-sub {
-      color: var(--text-2); max-width: 480px;
-      margin-bottom: 3.5rem; line-height: 1.7;
-    }
+    .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .section-sub { color: var(--text-2); max-width: 480px; margin-bottom: 3.5rem; line-height: 1.7; }
 
-    /* ─── REVEAL ANIMATION ─── */
-    .reveal {
-      opacity: 0; transform: translateY(40px);
-      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s, transform 0.7s; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
@@ -261,17 +197,10 @@
     .reveal-delay-4 { transition-delay: 0.4s; }
     .reveal-delay-5 { transition-delay: 0.5s; }
 
-    /* ─── SERVICES ─── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
     .service-card {
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
+      background: var(--bg-2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
       transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       position: relative; overflow: hidden;
     }
@@ -281,223 +210,116 @@
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
       opacity: 0; transition: opacity 0.35s;
     }
-    .service-card:hover {
-      border-color: var(--accent);
-      background: var(--bg-3);
-      transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(245,158,11,0.1);
-    }
+    .service-card:hover { border-color: var(--accent); background: var(--bg-3); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(245,158,11,0.1); }
     .service-card:hover::before { opacity: 1; }
     .service-icon {
-      width: 54px; height: 54px;
-      background: var(--accent-glow);
-      border: 1px solid rgba(245,158,11,0.15);
-      border-radius: 14px;
+      width: 54px; height: 54px; background: var(--accent-glow);
+      border: 1px solid rgba(245,158,11,0.15); border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.5rem; margin-bottom: 1.5rem;
     }
-    .service-card h3 {
-      font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem;
-    }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
     .service-card p { color: var(--text-2); font-size: 0.9rem; line-height: 1.6; }
 
-    /* ─── FLEET ─── */
-    .fleet-section { background: var(--bg-2); }
-    .fleet-grid {
+    .gallery-section { background: var(--bg-2); }
+    .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
     }
-    .fleet-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
+    .gallery-item {
       border-radius: var(--radius);
       overflow: hidden;
-      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .fleet-card:hover { border-color: rgba(245,158,11,0.3); transform: translateY(-4px); }
-    .fleet-visual {
-      height: 200px;
-      background: linear-gradient(135deg, var(--bg-3) 0%, var(--bg-2) 100%);
-      position: relative; overflow: hidden;
-    }
-    .fleet-visual::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 50%, var(--bg) 100%);
-    }
-    .fleet-illustration {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 4.5rem;
-      filter: drop-shadow(0 4px 16px rgba(245,158,11,0.15));
-    }
-    .fleet-body { padding: 1.75rem; }
-    .fleet-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .fleet-body p { color: var(--text-2); font-size: 0.875rem; margin-bottom: 1.25rem; }
-    .fleet-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .tag {
-      background: rgba(245,158,11,0.07);
-      border: 1px solid rgba(245,158,11,0.15);
-      color: var(--accent);
-      font-size: 0.72rem; font-weight: 600;
-      padding: 0.3rem 0.75rem;
-      border-radius: 100px;
-      text-transform: uppercase; letter-spacing: 0.06em;
-    }
-
-    /* ─── AREAS ─── */
-    .areas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 0.75rem;
-    }
-    .area-chip {
-      background: var(--bg-2);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 0.75rem 1.5rem;
-      text-align: center;
-      font-weight: 600; font-size: 0.875rem;
-      transition: all 0.25s;
-      cursor: default;
-    }
-    .area-chip:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-glow);
-    }
-
-    /* ─── CONTACT ─── */
-    .contact-section { background: var(--bg-2); }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 4rem;
-    }
-    .contact-item {
-      display: flex; gap: 1.25rem;
-      margin-bottom: 1.75rem; align-items: flex-start;
-    }
-    .contact-item .icon {
-      width: 50px; height: 50px; flex-shrink: 0;
-      background: rgba(245,158,11,0.07);
-      border: 1px solid rgba(245,158,11,0.12);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-    }
-    .contact-item strong {
-      display: block;
-      font-size: 0.75rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--text-3); margin-bottom: 0.25rem;
-    }
-    .contact-item span { font-size: 1.05rem; font-weight: 500; }
-
-    .contact-form {
-      display: flex; flex-direction: column; gap: 1rem;
+      aspect-ratio: 4/3;
       background: var(--bg-3);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s, filter 0.4s;
+      filter: brightness(0.9);
+    }
+    .gallery-item:hover img { transform: scale(1.06); filter: brightness(1); }
+
+    .areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; }
+    .area-chip {
+      background: var(--bg-2); border: 1px solid var(--border);
+      border-radius: 100px; padding: 0.75rem 1.5rem;
+      text-align: center; font-weight: 600; font-size: 0.875rem;
+      transition: all 0.25s; cursor: default;
+    }
+    .area-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+
+    .contact-section { background: var(--bg-2); }
+    .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; }
+    .contact-item { display: flex; gap: 1.25rem; margin-bottom: 1.75rem; align-items: flex-start; }
+    .contact-item .icon {
+      width: 50px; height: 50px; flex-shrink: 0;
+      background: rgba(245,158,11,0.07); border: 1px solid rgba(245,158,11,0.12);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .contact-item strong { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-3); margin-bottom: 0.25rem; }
+    .contact-item span { font-size: 1.05rem; font-weight: 500; }
+    .contact-form {
+      display: flex; flex-direction: column; gap: 1rem;
+      background: var(--bg-3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
     }
     .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-    .form-group label {
-      font-size: 0.8rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.06em;
-      color: var(--text-2);
+    .form-group label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-2); }
+    .form-group input, .form-group textarea, .form-group select {
+      background: var(--bg-2); border: 1px solid var(--border-2);
+      border-radius: var(--radius-sm); padding: 0.85rem 1rem;
+      color: var(--text); font-family: 'Inter', sans-serif;
+      font-size: 0.95rem; transition: border-color 0.25s, box-shadow 0.25s;
+      resize: vertical; -webkit-appearance: none;
     }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      background: var(--bg-2);
-      border: 1px solid var(--border-2);
-      border-radius: var(--radius-sm);
-      padding: 0.85rem 1rem;
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      transition: border-color 0.25s, box-shadow 0.25s;
-      resize: vertical;
-      -webkit-appearance: none;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
     }
     .form-group textarea { min-height: 110px; }
     .form-submit {
-      background: var(--accent);
-      color: #000; font-weight: 700;
-      border: none; border-radius: 100px;
-      padding: 1rem 2rem;
-      font-size: 0.95rem; cursor: pointer;
-      width: 100%;
-      transition: all 0.3s;
-      box-shadow: 0 0 24px rgba(245,158,11,0.2);
+      background: var(--accent); color: #000; font-weight: 700;
+      border: none; border-radius: 100px; padding: 1rem 2rem;
+      font-size: 0.95rem; cursor: pointer; width: 100%;
+      transition: all 0.3s; box-shadow: 0 0 24px rgba(245,158,11,0.2);
     }
-    .form-submit:hover {
-      background: #fbbf24;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(245,158,11,0.35);
-    }
+    .form-submit:hover { background: #fbbf24; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(245,158,11,0.35); }
 
-    /* ─── FOOTER ─── */
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 2.5rem clamp(1.5rem, 4vw, 3rem);
-    }
-    .footer-inner {
-      max-width: 1280px; margin: 0 auto;
-      display: flex; justify-content: space-between;
-      align-items: center; flex-wrap: wrap; gap: 1rem;
-    }
+    .footer { border-top: 1px solid var(--border); padding: 2.5rem clamp(1.5rem, 4vw, 3rem); }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-weight: 900; font-size: 1.15rem; }
     .footer-logo span { color: var(--accent); }
     .footer-copy { color: var(--text-3); font-size: 0.85rem; }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .hero-stats { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2.4rem; }
-    }
+    @media (max-width: 900px) { .nav-links { display: none; } .contact-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .hero-stats { grid-template-columns: 1fr; } .hero h1 { font-size: 2.4rem; } }
+    @media (max-width: 480px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
   </style>
 </head>
 <body>
 
-  <!-- LOADER -->
   <div id="loader">
     <div class="loader-ring"></div>
     <div class="loader-text">ARAZ VİNÇ</div>
   </div>
-
-  <!-- CURSOR GLOW -->
   <div id="cursor-glow"></div>
 
-  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="#" class="nav-logo">ARAZ<span>VİNÇ</span></a>
       <ul class="nav-links">
         <li><a href="#hizmetler">Hizmetler</a></li>
-        <li><a href="#filo">Filo</a></li>
+        <li><a href="#galeri">Galeri</a></li>
         <li><a href="#hizmet-alani">Hizmet Alanı</a></li>
         <li><a href="#iletisim">İletişim</a></li>
       </ul>
-      <a href="tel:+905321234567" class="nav-phone">
-        <span>📞</span> 0532 123 45 67
-      </a>
+      <a href="tel:+905321234567" class="nav-phone">📞 0532 123 45 67</a>
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
@@ -510,23 +332,13 @@
         <a href="#iletisim" class="btn btn-outline">Teklif Al</a>
       </div>
       <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">7/24</span>
-          <span class="stat-label">Aktif Hizmet</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">500+</span>
-          <span class="stat-label">Başarılı İş</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">15+</span>
-          <span class="stat-label">Yıllık Deneyim</span>
-        </div>
+        <div class="stat"><span class="stat-num">7/24</span><span class="stat-label">Aktif Hizmet</span></div>
+        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Başarılı İş</span></div>
+        <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Yıllık Deneyim</span></div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="section" id="hizmetler">
     <div class="section-inner">
       <div class="section-label reveal">Hizmetlerimiz</div>
@@ -567,83 +379,59 @@
     </div>
   </section>
 
-  <!-- FLEET -->
-  <section class="section fleet-section" id="filo">
+  <section class="section gallery-section" id="galeri">
     <div class="section-inner">
-      <div class="section-label reveal">Vinç Filomuz</div>
-      <h2 class="section-title reveal reveal-delay-1">Ekipmanlarımız</h2>
-      <p class="section-sub reveal reveal-delay-2">Farklı kapasitelerde araç ve vinçlerimizle her ölçekte işinizi çözüyoruz.</p>
-      <div class="fleet-grid">
-        <div class="fleet-card reveal reveal-delay-1">
-          <div class="fleet-visual">
-            <div class="fleet-illustration">🚛</div>
-          </div>
-          <div class="fleet-body">
-            <h3>Hiab Vinç 5 Ton</h3>
-            <p>Kompakt alanlarda yükleme ve kaldırma işleri için ideal. Şehir içi kullanıma uygun.</p>
-            <div class="fleet-tags">
-              <span class="tag">5 Ton</span>
-              <span class="tag">Hiab</span>
-              <span class="tag">Şehir İçi</span>
-            </div>
-          </div>
-        </div>
-        <div class="fleet-card reveal reveal-delay-2">
-          <div class="fleet-visual">
-            <div class="fleet-illustration">🏗️</div>
-          </div>
-          <div class="fleet-body">
-            <h3>Mobil Vinç 25 Ton</h3>
-            <p>Orta ölçekli montaj ve nakliye işleri için güçlü mobil vinç. 25 ton kapasite.</p>
-            <div class="fleet-tags">
-              <span class="tag">25 Ton</span>
-              <span class="tag">Mobil</span>
-              <span class="tag">Montaj</span>
-            </div>
-          </div>
-        </div>
-        <div class="fleet-card reveal reveal-delay-3">
-          <div class="fleet-visual">
-            <div class="fleet-illustration">🏭</div>
-          </div>
-          <div class="fleet-body">
-            <h3>Mobil Vinç 50 Ton</h3>
-            <p>Ağır sanayi ve büyük montaj işleri için yüksek kapasiteli vinç.</p>
-            <div class="fleet-tags">
-              <span class="tag">50 Ton</span>
-              <span class="tag">Mobil</span>
-              <span class="tag">Ağır İş</span>
-            </div>
-          </div>
-        </div>
+      <div class="section-label reveal">Referanslarımız</div>
+      <h2 class="section-title reveal reveal-delay-1">Yaptığımız İşler</h2>
+      <p class="section-sub reveal reveal-delay-2">Saha çalışmalarımızdan kareler.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal reveal-delay-1"><img src="assets/beton-kosk-indirme.jpg" alt="Beton köşk indirme" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-2"><img src="assets/beton-kosk-montaj-1.jpg" alt="Beton köşk montaj" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-3"><img src="assets/beton-kosk-montaj-2.jpg" alt="Beton köşk montaj" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-1"><img src="assets/beton-kosk-montaj-3.jpg" alt="Beton köşk montaj" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-2"><img src="assets/cati-malzemesi-cikarma-1.jpg" alt="Çatı malzemesi çıkarma" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-3"><img src="assets/cati-malzemesi-cikarma-2.jpg" alt="Çatı malzemesi çıkarma" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-1"><img src="assets/celik-konstruksiyon-1.jpg" alt="Çelik konstrüksiyon" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-2"><img src="assets/celik-konstruksiyon-2.jpg" alt="Çelik konstrüksiyon" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-3"><img src="assets/damperli-kamyon-kurtarma-1.jpg" alt="Damperli kamyon kurtarma" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-1"><img src="assets/damperli-kamyon-kurtarma-2.jpg" alt="Damperli kamyon kurtarma" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-2"><img src="assets/dorse-kurtarma.jpg" alt="Dorse kurtarma" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-3"><img src="assets/enjeksiyon-makinasi-indirme.jpg" alt="Enjeksiyon makinası indirme" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-1"><img src="assets/foseptik-deposu-1.jpg" alt="Foseptik deposu" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-2"><img src="assets/foseptik-deposu-2.jpg" alt="Foseptik deposu" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-3"><img src="assets/grayder-kurtarma-1.jpg" alt="Grayder kurtarma" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-1"><img src="assets/grayder-kurtarma-2.jpg" alt="Grayder kurtarma" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-2"><img src="assets/prefabrik-beton-kosk.jpeg" alt="Prefabrik beton köşk" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-3"><img src="assets/tunel-beton-mikseri-1.jpg" alt="Tünel beton mikseri" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-1"><img src="assets/tunel-beton-mikseri-2.jpg" alt="Tünel beton mikseri" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-2"><img src="assets/tunel-makina-montaji-1.jpg" alt="Tünel makina montajı" loading="lazy"></div>
+        <div class="gallery-item reveal reveal-delay-3"><img src="assets/tunel-makina-montaji-2.jpg" alt="Tünel makina montajı" loading="lazy"></div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICE AREAS -->
   <section class="section" id="hizmet-alani">
     <div class="section-inner">
       <div class="section-label reveal">Hizmet Bölgemiz</div>
       <h2 class="section-title reveal reveal-delay-1">Nerelerde Hizmet Veriyoruz?</h2>
       <p class="section-sub reveal reveal-delay-2">Salihli başta olmak üzere geniş bir bölgede 7/24 vinç hizmeti sunuyoruz.</p>
-      <div class="areas-grid reveal reveal-delay-3">
-        <div class="area-chip">Salihli</div>
-        <div class="area-chip">İzmir</div>
-        <div class="area-chip">Manisa</div>
-        <div class="area-chip">Alaşehir</div>
-        <div class="area-chip">Kırkağaç</div>
-        <div class="area-chip">Gördes</div>
-        <div class="area-chip">Ahmetli</div>
-        <div class="area-chip">Turgutlu</div>
-        <div class="area-chip">Saruhanlı</div>
-        <div class="area-chip">Selendi</div>
-        <div class="area-chip">Demirci</div>
-        <div class="area-chip">Soma</div>
+      <div class="areas-grid">
+        <div class="area-chip reveal">Salihli</div>
+        <div class="area-chip reveal reveal-delay-1">İzmir</div>
+        <div class="area-chip reveal reveal-delay-2">Manisa</div>
+        <div class="area-chip reveal reveal-delay-3">Alaşehir</div>
+        <div class="area-chip reveal">Kırkağaç</div>
+        <div class="area-chip reveal reveal-delay-1">Gördes</div>
+        <div class="area-chip reveal reveal-delay-2">Ahmetli</div>
+        <div class="area-chip reveal reveal-delay-3">Turgutlu</div>
+        <div class="area-chip reveal">Saruhanlı</div>
+        <div class="area-chip reveal reveal-delay-1">Selendi</div>
+        <div class="area-chip reveal reveal-delay-2">Demirci</div>
+        <div class="area-chip reveal reveal-delay-3">Soma</div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="section contact-section" id="iletisim">
     <div class="section-inner">
       <div class="contact-grid">
@@ -652,31 +440,19 @@
           <h2 class="section-title reveal reveal-delay-1">Bizimle İletişime Geçin</h2>
           <div class="contact-item reveal reveal-delay-2">
             <div class="icon">📞</div>
-            <div>
-              <strong>Telefon</strong>
-              <span>0532 123 45 67</span>
-            </div>
+            <div><strong>Telefon</strong><span>0532 123 45 67</span></div>
           </div>
           <div class="contact-item reveal reveal-delay-3">
             <div class="icon">📧</div>
-            <div>
-              <strong>E-posta</strong>
-              <span>info@arazvincsalihli.com</span>
-            </div>
+            <div><strong>E-posta</strong><span>info@arazvincsalihli.com</span></div>
           </div>
           <div class="contact-item reveal reveal-delay-4">
             <div class="icon">📍</div>
-            <div>
-              <strong>Adres</strong>
-              <span>Salihli, Manisa</span>
-            </div>
+            <div><strong>Adres</strong><span>Salihli, Manisa</span></div>
           </div>
           <div class="contact-item reveal">
             <div class="icon">🕐</div>
-            <div>
-              <strong>Çalışma Saatleri</strong>
-              <span>7/24 — Her gün</span>
-            </div>
+            <div><strong>Çalışma Saatleri</strong><span>7/24 — Her gün</span></div>
           </div>
         </div>
         <form class="contact-form reveal reveal-delay-2" action="https://formspree.io/f/XXXXX" method="POST">
@@ -711,7 +487,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">ARAZ<span>VİNÇ</span></div>
@@ -720,37 +495,16 @@
   </footer>
 
   <script>
-    // ─── LOADER ───
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loader').classList.add('done');
-      }, 600);
-    });
-
-    // ─── CURSOR GLOW ───
+    window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').classList.add('done'); }, 600); });
     const glow = document.getElementById('cursor-glow');
-    document.addEventListener('mousemove', (e) => {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
-    });
-
-    // ─── SCROLL REVEAL ───
+    document.addEventListener('mousemove', (e) => { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; });
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          io.unobserve(e.target);
-        }
-      });
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
     }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
     reveals.forEach(el => io.observe(el));
-
-    // ─── NAVBAR SCROLL ───
     const nav = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
   </script>
 </body>
 </html>
