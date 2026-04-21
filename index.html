@@ -264,13 +264,21 @@
     .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
     .service-card p { color: var(--text-2); font-size: 0.9rem; line-height: 1.6; }
 
-    .gallery-preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
+    .gallery-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
     .gallery-preview-item { border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 4/3; background: var(--bg-3); border: 1px solid var(--border); }
     .gallery-preview-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s, filter 0.4s; filter: brightness(0.85); }
     .gallery-preview-item:hover img { transform: scale(1.06); filter: brightness(1); }
 
     .areas-section { background: var(--bg-2); }
-    .areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.75rem; }
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
     .area-chip { display:block; background: var(--bg-3); border: 1px solid var(--border); border-radius: 100px; padding: 0.7rem 1.5rem; text-align: center; font-weight: 600; font-size: 0.875rem; transition: all 0.25s; }
     .area-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
 
@@ -334,11 +342,14 @@
       .mobile-menu-btn { display: block; }
       .cta-inner, .seo-grid { grid-template-columns: 1fr; }
       .hero-stats { grid-template-columns: 1fr; }
+      .areas-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-preview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 640px) {
       .services-grid-4 { grid-template-columns: 1fr; }
       .services-grid-2 { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.2rem; }
+      .gallery-preview-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -445,7 +456,7 @@
           <div class="gallery-preview-item reveal reveal-d3"><img src="assets/silo-montaj-3.jpeg" alt="Sepetli platform ve vinç ile sanayi montajı" loading="lazy"></div>
           <div class="gallery-preview-item reveal"><img src="assets/grayder-kurtarma-1.jpg" alt="Grayder kurtarma operasyonu" loading="lazy"></div>
           <div class="gallery-preview-item reveal reveal-d1"><img src="assets/foseptik-deposu-1.jpg" alt="Foseptik deposu yerleştirme vinç hizmeti" loading="lazy"></div>
-           </div>
+        </div>
         <div style="text-align:center; margin-top:2.5rem;">
           <a href="galeri.html" class="btn-call-lg reveal" style="display:inline-flex;">Tüm Çalışmalarımız →</a>
         </div>
