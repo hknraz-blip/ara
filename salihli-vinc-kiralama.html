@@ -41,12 +41,13 @@
     .nav-inner{max-width:1200px;width:100%;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:1rem}
     .nav-logo{font-family:'Inter',sans-serif;font-weight:900;font-size:1.3rem}.nav-logo span{color:var(--accent)}
     .nav-links{display:flex;gap:.8rem;list-style:none}.nav-links a{color:var(--text-2);font-size:.92rem}.nav-links a:hover,.nav-links a.active{color:var(--text)}
-    .hero,.section{padding:5rem 1.5rem}.hero-inner,.section-inner,.footer-inner{max-width:1200px;margin:0 auto}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:700;margin-bottom:1rem}.hero h1,.section h2{font-family:'Inter',sans-serif;letter-spacing:-.04em}.hero h1{font-size:clamp(2.3rem,6vw,4.5rem);max-width:780px;margin-bottom:1rem}.hero p.lead{max-width:760px;color:var(--text-2);font-size:1.06rem}
+    .hero,.section{padding:5rem 1.5rem}.hero-inner,.section-inner,.footer-inner{max-width:1200px;margin:0 auto}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:700;margin-bottom:1rem}.hero h1,.section h2{font-family:'Inter',sans-serif;letter-spacing:-.04em}.hero h1{font-size:clamp(2.3rem,6vw,4.5rem);max-width:780px;margin-bottom:1rem}.hero p.lead,.card p,.card li,.faq-item p,.link-card p{color:var(--text-2);font-size:1.06rem}
     .cta-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.9rem 1.35rem;font-weight:700}.btn-primary{background:rgba(255,107,0,.12);color:var(--accent);border:1px solid rgba(255,107,0,.25)}.btn-secondary{background:rgba(37,211,102,.12);color:#25d366;border:1px solid rgba(37,211,102,.25)}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1.5rem}.card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem}.card p,.card li{color:var(--text-2)}.card ul{padding-left:1.2rem;display:grid;gap:.6rem}
-    .faq{display:grid;gap:1rem}.faq-item{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:1.3rem}.faq-item p{color:var(--text-2);margin-top:.45rem}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1.5rem}.card,.link-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem}.card ul{padding-left:1.2rem;display:grid;gap:.6rem}
+    .faq{display:grid;gap:1rem}.faq-item{background:var(--bg-2);border:1px solid var(--border);border-radius:16px;padding:1.3rem}.faq-item p{margin-top:.45rem}
+    .related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.link-card:hover{border-color:rgba(255,107,0,.28);transform:translateY(-2px)}
     .footer{border-top:1px solid var(--border);padding:2rem 1.5rem}.footer-inner{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.footer-copy{color:var(--text-3);font-size:.88rem}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}.nav-links{display:none}}
+    @media (max-width:900px){.grid,.related-grid{grid-template-columns:1fr}.nav-links{display:none}}
   </style>
 </head>
 <body>
@@ -78,7 +79,7 @@
         <article class="card">
           <h2>Salihli'de hangi vinç hizmetlerini sunuyoruz?</h2>
           <p>Salihli vinç kiralama hizmetimiz; inşaat sahaları, sanayi tesisleri, fabrika taşımaları, konteyner yerleştirme, makine indirme, montaj ve demontaj gibi birçok alanda tercih edilmektedir. Mobil vinç filomuz farklı kapasitelere uygun çözümler sunar.</p>
-          <p>Yerinde keşif yaparak işinize uygun ekipman planlaması gerçekleştiriyor, güvenlik ve zaman yönetimi odaklı bir operasyon sunuyoruz. Özellikle Salihli'deki hızlı müdahale gerektiren işler için 7/24 destek sağlıyoruz.</p>
+          <p>Yerinde keşif yaparak işinize uygun ekipman planlaması gerçekleştiriyor, güvenlik ve zaman yönetimi odaklı bir operasyon sunuyoruz. Özellikle Salihli'deki hızlı müdahale gerektiren işler için 7/24 destek sağlıyoruz. Daha detaylı hizmet kapsamı için <a href="mobil-vinc-kiralama.html">mobil vinç kiralama</a> ve <a href="sepetli-platform-kiralama.html">sepetli platform kiralama</a> sayfalarımıza da göz atabilirsiniz.</p>
         </article>
         <aside class="card">
           <h2>Neden Araz Vinç?</h2>
@@ -99,6 +100,16 @@
           <div class="faq-item"><h2>Salihli vinç kiralama fiyatları nasıl belirlenir?</h2><p>İşin süresi, yük ağırlığı, erişim zorluğu, kullanılacak vinç tipi ve çalışma saatleri fiyatı etkiler. Net teklif için keşif veya kısa bir proje bilgisi yeterlidir.</p></div>
           <div class="faq-item"><h2>Acil vinç hizmeti veriyor musunuz?</h2><p>Evet. Salihli ve yakın çevresinde acil vinç ihtiyaçları için 7/24 destek sağlıyoruz.</p></div>
           <div class="faq-item"><h2>Hangi işlerde mobil vinç kullanılır?</h2><p>Makine indirme, çelik konstrüksiyon montajı, konteyner yerleştirme, inşaat malzemesi kaldırma ve fabrika içi taşıma gibi pek çok işte kullanılır.</p></div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-inner">
+        <h2>İlgili hizmet ve bölge sayfaları</h2>
+        <div class="related-grid">
+          <a class="link-card" href="mobil-vinc-kiralama.html"><strong>Mobil Vinç Kiralama</strong><p>Salihli ve çevresindeki kaldırma, taşıma ve montaj işleri için detaylı hizmet sayfamız.</p></a>
+          <a class="link-card" href="alasehir-vinc-kiralama.html"><strong>Alaşehir Vinç Kiralama</strong><p>Yakın bölgede yürüttüğümüz benzer vinç operasyonlarını ve hizmet kapsamını inceleyin.</p></a>
+          <a class="link-card" href="demirci-vinc-kiralama.html"><strong>Demirci Vinç Kiralama</strong><p>Diğer bölge sayfalarımızla hizmet ağımızı ve operasyon kabiliyetimizi görün.</p></a>
         </div>
       </div>
     </section>
