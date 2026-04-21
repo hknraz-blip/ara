@@ -3,30 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hizmetler | Araz Vinç Salihli — Hiab & Mobil Vinç Kiralama</title>
-  <meta name="description" content="Araz Vinç Salihli hizmetleri: Hiab vinç kiralama, mobil vinç, yükleme-boşaltma, montaj ve nakliye.">
+  <title>Hizmetler | Araz Vinç Salihli — Vinç Kiralama</title>
+  <meta name="description" content="Araz Vinç hizmetleri: Mobil vinç kiralama, güvenli taşıma, 7/24 hizmet, inşaat projeleri ve sanayi taşımacılığı. Salihli, Alaşehir, Kula ve Demirci.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #080810; --bg-2: #0e0e1a; --bg-3: #13131f;
-      --accent: #ff6b00; --accent-light: #ff8534; --accent-glow: rgba(255,107,0,0.12);
-      --text: #f5f5f7; --text-2: #9999b0; --text-3: #555570;
-      --border: #1c1c2e; --border-2: #252540; --green: #25d366;
-      --radius: 20px; --radius-sm: 12px;
-    }
+    :root { --bg: #080810; --bg-2: #0e0e1a; --bg-3: #13131f; --accent: #ff6b00; --accent-light: #ff8534; --accent-glow: rgba(255,107,0,0.12); --text: #f5f5f7; --text-2: #9999b0; --text-3: #555570; --border: #1c1c2e; --border-2: #252540; --green: #25d366; --radius: 20px; --radius-sm: 12px; }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
 
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 76px;
-      display: flex; align-items: center;
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      background: rgba(8,8,16,0.85); backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border);
-    }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 76px; display: flex; align-items: center; padding: 0 clamp(1.5rem, 5vw, 4rem); background: rgba(8,8,16,0.85); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
     .nav-inner { max-width: 1280px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: -0.04em; }
     .nav-logo span { color: var(--accent); }
@@ -39,11 +27,7 @@
     .btn-call { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,107,0,0.1); color: var(--accent); border: 1px solid rgba(255,107,0,0.25); border-radius: 100px; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; transition: all 0.3s; }
     .btn-call:hover { background: rgba(255,107,0,0.18); transform: translateY(-1px); }
 
-    .page-header {
-      padding: 8rem clamp(1.5rem, 5vw, 4rem) 4rem;
-      background: var(--bg-2);
-      border-bottom: 1px solid var(--border);
-    }
+    .page-header { padding: 8rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--bg-2); border-bottom: 1px solid var(--border); }
     .page-header-inner { max-width: 1280px; margin: 0 auto; }
     .page-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; }
     .page-title { font-family: 'Inter', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 1rem; }
@@ -53,13 +37,7 @@
     .section-inner { max-width: 1280px; margin: 0 auto; }
 
     .services-list { display: flex; flex-direction: column; gap: 1.5rem; }
-    .service-row {
-      background: var(--bg-2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2.5rem;
-      display: grid; grid-template-columns: 60px 1fr auto; gap: 2rem;
-      align-items: start;
-      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
+    .service-row { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; display: grid; grid-template-columns: 60px 1fr auto; gap: 2rem; align-items: start; transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
     .service-row:hover { border-color: rgba(255,107,0,0.3); background: var(--bg-3); transform: translateX(4px); }
     .service-row-icon { width: 60px; height: 60px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
     .service-row h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
@@ -70,10 +48,7 @@
     .btn-sm-call { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,107,0,0.08); color: var(--accent); border: 1px solid rgba(255,107,0,0.2); border-radius: 100px; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; transition: all 0.3s; }
     .btn-sm-call:hover { background: rgba(255,107,0,0.15); transform: translateY(-1px); }
 
-    .cta-row {
-      background: var(--bg-2); border-top: 1px solid var(--border);
-      padding: 3rem clamp(1.5rem, 5vw, 4rem);
-    }
+    .cta-row { background: var(--bg-2); border-top: 1px solid var(--border); padding: 3rem clamp(1.5rem, 5vw, 4rem); }
     .cta-row-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
     .cta-row h3 { font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; }
     .cta-row p { color: var(--text-2); margin-top: 0.3rem; }
@@ -98,11 +73,7 @@
     .reveal-d2 { transition-delay: 0.3s; }
     .reveal-d3 { transition-delay: 0.45s; }
 
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .service-row { grid-template-columns: 1fr; }
-      .service-row-actions { flex-direction: row; }
-    }
+    @media (max-width: 900px) { .nav-links { display: none; } .service-row { grid-template-columns: 1fr; } .service-row-actions { flex-direction: row; } }
   </style>
 </head>
 <body>
@@ -117,8 +88,8 @@
         <li><a href="iletisim.html">İletişim</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://wa.me/905321234567?text=Merhaba,%20hizmet%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-wa" target="_blank">💬 WhatsApp</a>
-        <a href="tel:+905321234567" class="btn-call">📞 Ara</a>
+        <a href="https://wa.me/9054445113341?text=Merhaba,%20hizmet%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-wa" target="_blank">💬 WhatsApp</a>
+        <a href="tel:+9054445113341" class="btn-call">📞</span> Ara</a>
       </div>
     </div>
   </nav>
@@ -127,7 +98,7 @@
     <div class="page-header-inner">
       <div class="page-label">Hizmetlerimiz</div>
       <h1 class="page-title">Profesyonel Vinç Hizmetleri</h1>
-      <p class="page-sub">Salihli ve çevresinde her türlü ağır yük ve vinç ihtiyacınız için tek adres. Hiab, mobil vinç, montaj, nakliye ve acil vinç hizmetleri.</p>
+      <p class="page-sub">İnşaat, sanayi ve ticari projeleriniz için kapsamlı vinç kiralama çözümleri. Salihli, Alaşehir, Kula ve Demirci bölgesinde 7/24 hizmetinizdeyiz.</p>
     </div>
   </div>
 
@@ -137,72 +108,72 @@
         <div class="service-row reveal">
           <div class="service-row-icon">🚛</div>
           <div>
-            <h3>Hiab Vinç Kiralama</h3>
-            <p>Şantiye, fabrika ve açık alanlarda kamyon üstü Hiab vinç ile yükleme ve boşaltma işlemleri. Kompakt yapısı sayesinde dar alanlarda da kolayca manevra yapar. 5 tondan 20 tona kadar farklı kapasitelerde araçlarımız mevcuttur. İnşaat sahaları, fabrikalar, depolama alanları ve tarım arazileri için idealdir.</p>
+            <h3>Mobil Vinç Kiralama</h3>
+            <p>Farklı tonajlarda mobil vinç kiralama hizmetleri ile her türlü yükleme ve indirme işlemlerinizi güvenle gerçekleştirin. İnşaat sahaları, fabrikalar ve açık alanlar için ideal çözümler sunuyoruz. Modern vinç filomuz ile her ölçekteprojeye uygun ekipman sağlıyoruz.</p>
           </div>
           <div class="service-row-actions">
-            <a href="https://wa.me/905321234567?text=Merhaba,%20Hiab%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
-            <a href="tel:+905321234567" class="btn-sm-call">📞 Ara</a>
+            <a href="https://wa.me/9054445113341?text=Merhaba,%20mobil%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
+            <a href="tel:+9054445113341" class="btn-sm-call">📞</span> Ara</a>
           </div>
         </div>
 
         <div class="service-row reveal reveal-d1">
-          <div class="service-row-icon">🏗️</div>
+          <div class="service-row-icon">🛡️</div>
           <div>
-            <h3>Mobil Vinç Kiralama</h3>
-            <p>50 tona kadar yük kaldırma kapasiteli mobil vinçlerimizle montaj ve nakliye işleriniz. Büyük çaplı endüstriyel projeler, fabrika taşımacılığı, ağır makine montajı ve inşaat projeleri için güçlü ve güvenilir ekipmanlar. Şehir içi ve şehirler arası tüm operasyonlarda hizmetinizdeyiz.</p>
+            <h3>Güvenli Taşıma</h3>
+            <p>Deneyimli operatörlerimiz ve modern ekipmanlarımızla yüklerinizi en güvenli şekilde taşıyoruz. İş güvenliği standartlarına tam uyumlu çalışarak, yüklerinizin zarar görmemesini garantiliyoruz. Ağır sanayi ekipmanları için özel güvenlik önlemleri alıyoruz.</p>
           </div>
           <div class="service-row-actions">
-            <a href="https://wa.me/905321234567?text=Merhaba,%20mobil%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
-            <a href="tel:+905321234567" class="btn-sm-call">📞 Ara</a>
+            <a href="https://wa.me/9054445113341?text=Merhaba,%20g%C3%BCvenli%20ta%C5%9F%C4%B1ma%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
+            <a href="tel:+9054445113341" class="btn-sm-call">📞</span> Ara</a>
           </div>
         </div>
 
         <div class="service-row reveal reveal-d2">
-          <div class="service-row-icon">📦</div>
+          <div class="service-row-icon">⏱️</div>
           <div>
-            <h3>Yükleme & Boşaltma</h3>
-            <p>Makine, malzeme ve ekipmanların hızlı ve güvenli yükleme-boşaltma işlemleri. Fabrika üretim hatları, ambar, depo ve antrepo sahalarında profesyonel yükleme operasyonları. Paletli ve paletsiz yükler, ağır konteynerler, inşaat malzemeleri ve tarım ürünleri için uygun ekipmanlar.</p>
+            <h3>7/24 Hizmet</h3>
+            <p>Acil durumlarınızda yanınızdayız. Hafta sonu ve tatil günleri dahil kesintisiz hizmet sunuyoruz. Gece gündüz demeden, 7 gün 24 saat her an ulaşılabilir durumdayız. Acil vinç ihtiyaçlarınız için hızlı müdahale garantisi veriyoruz.</p>
           </div>
           <div class="service-row-actions">
-            <a href="https://wa.me/905321234567?text=Merhaba,%20y%C3%BCkleme%20bo%C5%9Faltma%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
-            <a href="tel:+905321234567" class="btn-sm-call">📞 Ara</a>
+            <a href="https://wa.me/9054445113341?text=AC%C4%B0L%20vin%C3%A7%20ihtiyac%C4%B1m%20var!" class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
+            <a href="tel:+9054445113341" class="btn-sm-call">📞</span> Ara</a>
           </div>
         </div>
 
         <div class="service-row reveal reveal-d3">
-          <div class="service-row-icon">🏭</div>
+          <div class="service-row-icon">🏗️</div>
           <div>
-            <h3>Montaj İşleri</h3>
-            <p>Prefabrik yapı, makine montajı ve endüstriyel ekipman kurulumları. Çelik konstrüksiyon, prefabrik ev, konteyner, fabrika makinesi ve tüm endüstriyel ekipmanların montajı. Deneyimli operatör kadromuz ve modern ekipmanlarımızla montaj süreçlerinizi hızlandırıyoruz.</p>
+            <h3>İnşaat Projeleri</h3>
+            <p>İnşaat sahalarında malzeme taşıma, montaj ve demonte işlemleriniz için özel çözümler sunuyoruz. Çelik konstrüksiyon, beton köşk montajı, prefabrik yapı kurulumu ve tüm inşaat vinç operasyonlarında deneyimli ekibimizle yanınızdayız.</p>
           </div>
           <div class="service-row-actions">
-            <a href="https://wa.me/905321234567?text=Merhaba,%20montaj%20i%C5%9Fi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
-            <a href="tel:+905321234567" class="btn-sm-call">📞 Ara</a>
+            <a href="https://wa.me/9054445113341?text=Merhaba,%20in%C5%9Faat%20projesi%20i%C3%A7in%20vin%C3%A7%20hizmeti%20almak%20istiyorum." class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
+            <a href="tel:+9054445113341" class="btn-sm-call">📞</span> Ara</a>
           </div>
         </div>
 
         <div class="service-row reveal">
-          <div class="service-row-icon">🚚</div>
+          <div class="service-row-icon">🏭</div>
           <div>
-            <h3>Nakliye Hizmeti</h3>
-            <p>Ağır ve boyutlu yüklerin güvenli taşınması ve nakliyesi. İnşaat malzemeleri, zırhlı yükler, makine parçaları, köprü kirişleri, prefabrik elemanlar ve tüm ağır nakliye işleriniz için özel ekipmanlar ve deneyimli personel.</p>
+            <h3>Sanayi Taşımacılığı</h3>
+            <p>Ağır sanayi ekipmanlarının taşınması ve yerleştirilmesi için profesyonel vinç hizmetleri. Fabrika makinesi montajı, endüstriyel ekipman nakliyesi ve tüm sanayi vinç operasyonlarında güvenilir çözüm ortağınızız.</p>
           </div>
           <div class="service-row-actions">
-            <a href="https://wa.me/905321234567?text=Merhaba,%20nakliye%20hizmeti%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
-            <a href="tel:+905321234567" class="btn-sm-call">📞 Ara</a>
+            <a href="https://wa.me/9054445113341?text=Merhaba,%20sanayi%20ta%C5%9F%C4%B1mac%C4%B1l%C4%B1%C4%9F%C4%B1%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
+            <a href="tel:+9054445113341" class="btn-sm-call">📞</span> Ara</a>
           </div>
         </div>
 
         <div class="service-row reveal reveal-d1">
-          <div class="service-row-icon">⚡</div>
+          <div class="service-row-icon">🔧</div>
           <div>
-            <h3>Acil Vinç Hizmeti</h3>
-            <p>7/24 acil durumlar için hızlı müdahale ve vinç operasyonu. Kaza durumları, yolda kalan araçlar, ani oluşan ihtiyaçlar ve tüm acil vinç operasyonları için 7 gün 24 saat hizmetinizdeyiz. En kısa sürede saha konumuna ulaşıyor, işinizi hallediyoruz.</p>
+            <h3>Uzman Ekip</h3>
+            <p>Sertifikalı ve deneyimli operatörlerimiz ile işlerinizi profesyonel bir şekilde tamamlıyoruz. 25 yılı aşkın sektör deneyimimizle, her türlü karmaşık vinç operasyonunu başarıyla gerçekleştiriyoruz. Müşteri memnuniyeti odaklı çalışma prensibiyle hareket ediyoruz.</p>
           </div>
           <div class="service-row-actions">
-            <a href="https://wa.me/905321234567?text=AC%C4%B0L%20vin%C3%A7%20ihtiyac%C4%B1m%20var!" class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
-            <a href="tel:+905321234567" class="btn-sm-call">📞 Ara</a>
+            <a href="https://wa.me/9054445113341?text=Merhaba,%20uzman%20ekip%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-sm-wa" target="_blank">💬 WhatsApp</a>
+            <a href="tel:+9054445113341" class="btn-sm-call">📞</span> Ara</a>
           </div>
         </div>
       </div>
@@ -216,8 +187,8 @@
         <p>7/24 bizi arayın veya WhatsApp'tan yazın.</p>
       </div>
       <div class="cta-row-buttons">
-        <a href="https://wa.me/905321234567?text=Merhaba,%20vin%C3%A7%20hizmeti%20almak%20istiyorum." class="btn-wa-lg" target="_blank">💬 WhatsApp ile Ulaş</a>
-        <a href="tel:+905321234567" class="btn-call-lg">📞 0532 123 45 67</a>
+        <a href="https://wa.me/9054445113341?text=Merhaba,%20vin%C3%A7%20hizmeti%20almak%20istiyorum." class="btn-wa-lg" target="_blank">💬 WhatsApp ile Ulaş</a>
+        <a href="tel:+9054445113341" class="btn-call-lg">📞</span> 0544 451 33 41</a>
       </div>
     </div>
   </div>

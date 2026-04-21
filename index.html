@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Araz Vinç Salihli | Hiab & Mobil Vinç Kiralama – 7/24</title>
-  <meta name="description" content="Salihli ve çevresinde Hiab ve mobil vinç kiralama hizmeti. 7/24 vinç operasyonları, makine yükleme, nakliye ve montaj işleri.">
+  <title>Araz Vinç Salihli | Vinç Kiralama – 7/24</title>
+  <meta name="description" content="Salihli, Alaşehir, Kula ve Demirci bölgesinde 7/24 profesyonel vinç kiralama hizmetleri. Hiab vinç, mobil vinç, yükleme, nakliye ve montaj işleriniz için bizi arayın.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -36,7 +36,6 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    /* LOADER */
     #loader {
       position: fixed; inset: 0; z-index: 9999;
       background: var(--bg);
@@ -67,7 +66,6 @@
       100% { transform: translateX(350%); }
     }
 
-    /* NAVBAR */
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: 76px;
@@ -88,37 +86,19 @@
     }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 0.3rem; list-style: none; }
-    .nav-links a {
+    .nav-links li a {
       font-size: 0.875rem; font-weight: 600; color: var(--text-2);
       padding: 0.5rem 1.1rem; border-radius: 10px;
       transition: all 0.25s;
     }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--bg-3); }
+    .nav-links li a:hover, .nav-links li a.active { color: var(--text); background: var(--bg-3); }
     .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
-    .btn-wa {
-      display: flex; align-items: center; gap: 0.5rem;
-      background: rgba(37,211,102,0.1); color: #25d366;
-      border: 1px solid rgba(37,211,102,0.25); border-radius: 100px; padding: 0.5rem 1rem;
-      font-size: 0.8rem; font-weight: 600;
-      transition: all 0.3s;
-    }
+    .btn-wa { display: flex; align-items: center; gap: 0.4rem; background: rgba(37,211,102,0.1); color: #25d366; border: 1px solid rgba(37,211,102,0.25); border-radius: 100px; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; transition: all 0.3s; }
     .btn-wa:hover { background: rgba(37,211,102,0.18); transform: translateY(-1px); }
-    .btn-call {
-      display: flex; align-items: center; gap: 0.5rem;
-      background: rgba(255,107,0,0.1); color: var(--accent);
-      border: 1px solid rgba(255,107,0,0.25); border-radius: 100px; padding: 0.5rem 1rem;
-      font-size: 0.8rem; font-weight: 600;
-      transition: all 0.3s;
-    }
+    .btn-call { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,107,0,0.1); color: var(--accent); border: 1px solid rgba(255,107,0,0.25); border-radius: 100px; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; transition: all 0.3s; }
     .btn-call:hover { background: rgba(255,107,0,0.18); transform: translateY(-1px); }
-    .mobile-menu-btn {
-      display: none; background: var(--bg-3);
-      border: 1px solid var(--border-2);
-      border-radius: 10px; padding: 0.6rem;
-      color: var(--text); cursor: pointer; font-size: 1.2rem;
-    }
+    .mobile-menu-btn { display: none; background: var(--bg-3); border: 1px solid var(--border-2); border-radius: 10px; padding: 0.6rem; color: var(--text); cursor: pointer; font-size: 1.2rem; }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex; align-items: center;
@@ -166,65 +146,31 @@
     .hero h1 .accent { color: var(--accent); }
     .hero-sub {
       font-size: 1.15rem; color: var(--text-2);
-      max-width: 500px; margin-bottom: 2.5rem;
+      max-width: 520px; margin-bottom: 2.5rem;
     }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-hero-wa {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      background: var(--green); color: #fff;
-      border-radius: 100px; padding: 1rem 2rem;
-      font-weight: 700; font-size: 1rem;
-      transition: all 0.3s;
-      box-shadow: 0 6px 28px rgba(37,211,102,0.35);
-    }
-    .btn-hero-wa:hover { background: #20bd5a; transform: translateY(-3px); }
-    .btn-hero-call {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      background: var(--accent); color: #fff;
-      border-radius: 100px; padding: 1rem 2rem;
-      font-weight: 700; font-size: 1rem;
-      transition: all 0.3s;
-      box-shadow: 0 6px 28px rgba(255,107,0,0.35);
-    }
-    .btn-hero-call:hover { background: var(--accent-light); transform: translateY(-3px); }
+    .btn-hero-wa { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(37,211,102,0.08); color: #25d366; border: 1px solid rgba(37,211,102,0.2); border-radius: 100px; padding: 0.9rem 1.8rem; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; }
+    .btn-hero-wa:hover { background: rgba(37,211,102,0.15); transform: translateY(-2px); }
+    .btn-hero-call { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(255,107,0,0.1); color: var(--accent); border: 1.5px solid rgba(255,107,0,0.3); border-radius: 100px; padding: 0.9rem 1.8rem; font-weight: 700; font-size: 0.9rem; transition: all 0.3s; }
+    .btn-hero-call:hover { background: rgba(255,107,0,0.18); transform: translateY(-2px); }
 
-    /* STATS */
     .hero-stats {
-      display: grid; grid-template-columns: repeat(3, 1fr);
+      display: grid; grid-template-columns: repeat(4, 1fr);
       gap: 1px; margin-top: 5rem;
       background: var(--border); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden; max-width: 620px;
+      border-radius: var(--radius); overflow: hidden; max-width: 700px;
     }
-    .stat { background: var(--bg-2); padding: 2rem; text-align: center; }
-    .stat-num {
-      font-family: 'Inter', sans-serif;
-      font-size: 2.5rem; font-weight: 900;
-      color: var(--accent); letter-spacing: -0.04em; display: block;
-    }
-    .stat-label {
-      font-size: 0.8rem; color: var(--text-3);
-      text-transform: uppercase; letter-spacing: 0.1em;
-      margin-top: 0.3rem;
-    }
+    .stat { background: var(--bg-2); padding: 1.75rem 2rem; text-align: center; }
+    .stat-num { font-family: 'Inter', sans-serif; font-size: 2.2rem; font-weight: 900; color: var(--accent); letter-spacing: -0.04em; display: block; }
+    .stat-label { font-size: 0.78rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.3rem; }
 
-    /* SECTIONS */
     .section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem); }
     .section-inner { max-width: 1280px; margin: 0 auto; }
-    .section-label {
-      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem;
-    }
-    .section-title {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1rem;
-    }
-    .section-sub { color: var(--text-2); max-width: 500px; margin-bottom: 3rem; }
+    .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; }
+    .section-title { font-family: 'Inter', sans-serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .section-sub { color: var(--text-2); max-width: 520px; margin-bottom: 3rem; }
 
-    /* SERVICES GRID */
-    .services-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem;
-    }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
     .service-card {
       background: var(--bg-2); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 2rem;
@@ -232,80 +178,32 @@
       position: relative; overflow: hidden;
     }
     .service-card:hover { border-color: rgba(255,107,0,0.3); background: var(--bg-3); transform: translateY(-5px); }
-    .service-icon {
-      width: 56px; height: 56px;
-      background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.15);
-      border-radius: 14px; display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; margin-bottom: 1.5rem;
-    }
+    .service-icon { width: 56px; height: 56px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.15); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; }
     .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
     .service-card p { color: var(--text-2); font-size: 0.9rem; line-height: 1.6; }
-    .service-card .card-link {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      color: var(--accent); font-size: 0.85rem; font-weight: 600;
-      margin-top: 1rem; opacity: 0; transition: opacity 0.3s;
-    }
-    .service-card:hover .card-link { opacity: 1; }
 
-    /* AREAS */
+    .gallery-preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
+    .gallery-preview-item { border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 4/3; background: var(--bg-3); border: 1px solid var(--border); }
+    .gallery-preview-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s, filter 0.4s; filter: brightness(0.85); }
+    .gallery-preview-item:hover img { transform: scale(1.06); filter: brightness(1); }
+
+    .areas-section { background: var(--bg-2); }
     .areas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.75rem; }
-    .area-chip {
-      background: var(--bg-2); border: 1px solid var(--border);
-      border-radius: 100px; padding: 0.7rem 1.5rem;
-      text-align: center; font-weight: 600; font-size: 0.875rem;
-      transition: all 0.25s; cursor: default;
-    }
+    .area-chip { background: var(--bg-3); border: 1px solid var(--border); border-radius: 100px; padding: 0.7rem 1.5rem; text-align: center; font-weight: 600; font-size: 0.875rem; transition: all 0.25s; cursor: default; }
     .area-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
 
-    /* AREAS SECTION DARK */
-    .areas-section { background: var(--bg-2); }
-
-    /* CTA SECTION */
-    .cta-section {
-      background: var(--bg-2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .cta-inner {
-      max-width: 1280px; margin: 0 auto;
-      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
-      display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem;
-      align-items: center;
-    }
-    .cta-text h2 {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      font-weight: 900; letter-spacing: -0.03em;
-      margin-bottom: 0.75rem;
-    }
+    .cta-section { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .cta-inner { max-width: 1280px; margin: 0 auto; padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem); display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: center; }
+    .cta-text h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
     .cta-text p { color: var(--text-2); }
     .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-wa-lg {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(37,211,102,0.08); color: #25d366;
-      border: 1px solid rgba(37,211,102,0.2); border-radius: 100px;
-      padding: 0.75rem 1.5rem; font-weight: 600; font-size: 0.875rem;
-      transition: all 0.3s;
-    }
+    .btn-wa-lg { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(37,211,102,0.08); color: #25d366; border: 1px solid rgba(37,211,102,0.2); border-radius: 100px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 0.875rem; transition: all 0.3s; }
     .btn-wa-lg:hover { background: rgba(37,211,102,0.15); transform: translateY(-2px); }
-    .btn-call-lg {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(255,107,0,0.08); color: var(--accent);
-      border: 1px solid rgba(255,107,0,0.2); border-radius: 100px;
-      padding: 0.75rem 1.5rem; font-weight: 600; font-size: 0.875rem;
-      transition: all 0.3s;
-    }
+    .btn-call-lg { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,107,0,0.08); color: var(--accent); border: 1px solid rgba(255,107,0,0.2); border-radius: 100px; padding: 0.75rem 1.5rem; font-weight: 600; font-size: 0.875rem; transition: all 0.3s; }
     .btn-call-lg:hover { background: rgba(255,107,0,0.15); transform: translateY(-2px); }
 
-    /* FOOTER */
-    .footer {
-      border-top: 1px solid var(--border);
-      padding: 2.5rem clamp(1.5rem, 5vw, 4rem);
-    }
-    .footer-inner {
-      max-width: 1280px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-    }
+    .footer { border-top: 1px solid var(--border); padding: 2.5rem clamp(1.5rem, 5vw, 4rem); }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.15rem; }
     .footer-logo span { color: var(--accent); }
     .footer-copy { color: var(--text-3); font-size: 0.85rem; }
@@ -313,23 +211,14 @@
     .footer-links a { color: var(--text-3); font-size: 0.85rem; transition: color 0.25s; }
     .footer-links a:hover { color: var(--text); }
 
-    /* REVEAL */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-d1 { transition-delay: 0.1s; }
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-      .cta-inner { grid-template-columns: 1fr; }
-      .hero-stats { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      .hero h1 { font-size: 2.2rem; }
-    }
+    @media (max-width: 900px) { .nav-links { display: none; } .mobile-menu-btn { display: block; } .cta-inner { grid-template-columns: 1fr; } .hero-stats { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .hero h1 { font-size: 2.2rem; } }
   </style>
 </head>
 <body>
@@ -349,10 +238,8 @@
         <li><a href="iletisim.html">İletişim</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://wa.me/905321234567?text=Merhaba,%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-wa" target="_blank">
-          <span>💬</span> WhatsApp
-        </a>
-        <a href="tel:+905321234567" class="btn-call">📞</span> Ara</a>
+        <a href="https://wa.me/9054445113341?text=Merhaba,%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-wa" target="_blank">💬 WhatsApp</a>
+        <a href="tel:+9054445113341" class="btn-call">📞</span> Ara</a>
       </div>
       <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">☰</button>
     </div>
@@ -363,20 +250,17 @@
     <div class="hero-grid"></div>
     <div class="hero-inner">
       <div class="hero-badge">7 / 24 Hizmetinizdeyiz</div>
-      <h1>Güçlü Vinç Gücü,<br><span class="accent">Güvenilir Hizmet</span></h1>
-      <p class="hero-sub">Salihli ve çevresinde Hiab ve mobil vinç kiralama. Yükleme, nakliye, montaj ve tüm ağır işleriniz için 7/24 yanınızdayız.</p>
+      <h1>Güvenilir <span class="accent">Vinç</span> Kiralama</h1>
+      <p class="hero-sub">Salihli, Alaşehir, Kula ve Demirci bölgesinde 7/24 profesyonel vinç kiralama hizmetleri. Deneyimli ekibimiz ve modern ekipmanlarımızla her türlü yükleme ve taşıma ihtiyacınıza çözüm sunuyoruz.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/905321234567?text=Merhaba,%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-hero-wa" target="_blank">
-          💬 WhatsApp ile Ulaşın
-        </a>
-        <a href="tel:+905321234567" class="btn-hero-call">
-          📞 Hemen Ara
-        </a>
+        <a href="https://wa.me/9054445113341?text=Merhaba,%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-hero-wa" target="_blank">💬 WhatsApp ile Ulaşın</a>
+        <a href="tel:+9054445113341" class="btn-hero-call">📞</span> 0544 451 33 41</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><span class="stat-num">7/24</span><span class="stat-label">Aktif Hizmet</span></div>
-        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Başarılı İş</span></div>
-        <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Yıllık Deneyim</span></div>
+        <div class="stat"><span class="stat-num">7/24</span><span class="stat-label">Kesintisiz Hizmet</span></div>
+        <div class="stat"><span class="stat-num">25+</span><span class="stat-label">Yıl Deneyim</span></div>
+        <div class="stat"><span class="stat-num">1000+</span><span class="stat-label">Başarılı Proje</span></div>
+        <div class="stat"><span class="stat-num">%100</span><span class="stat-label">Müşteri Memnuniyeti</span></div>
       </div>
     </div>
   </section>
@@ -384,67 +268,82 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">Hizmetlerimiz</div>
-      <h2 class="section-title reveal reveal-d1">Neler Yapıyoruz?</h2>
-      <p class="section-sub reveal reveal-d2">Her türlü ağır yük ve vinç ihtiyacınız için profesyonel çözümler sunuyoruz.</p>
+      <h2 class="section-title reveal reveal-d1">Profesyonel Vinç Hizmetleri</h2>
+      <p class="section-sub reveal reveal-d2">İnşaat, sanayi ve ticari projeleriniz için kapsamlı vinç kiralama çözümleri.</p>
       <div class="services-grid">
         <div class="service-card reveal">
           <div class="service-icon">🚛</div>
-          <h3>Hiab Vinç Kiralama</h3>
-          <p>Şantiye, fabrika ve açık alanlarda kamyon üstü Hiab vinç ile yükleme ve boşaltma işlemleri.</p>
-          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
+          <h3>Mobil Vinç Kiralama</h3>
+          <p>Farklı tonajlarda mobil vinç kiralama hizmetleri ile her türlü yükleme ve indirme işlemlerinizi güvenle gerçekleştirin.</p>
         </div>
         <div class="service-card reveal reveal-d1">
-          <div class="service-icon">🏗️</div>
-          <h3>Mobil Vinç Kiralama</h3>
-          <p>50 tona kadar yük kaldırma kapasiteli mobil vinçlerimizle montaj ve nakliye işleriniz.</p>
-          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
+          <div class="service-icon">🛡️</div>
+          <h3>Güvenli Taşıma</h3>
+          <p>Deneyimli operatörlerimiz ve modern ekipmanlarımızla yüklerinizi en güvenli şekilde taşıyoruz.</p>
         </div>
         <div class="service-card reveal reveal-d2">
-          <div class="service-icon">📦</div>
-          <h3>Yükleme & Boşaltma</h3>
-          <p>Makine, malzeme ve ekipmanların hızlı ve güvenli yükleme-boşaltma işlemleri.</p>
-          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
+          <div class="service-icon">⏱️</div>
+          <h3>7/24 Hizmet</h3>
+          <p>Acil durumlarınızda yanınızdayız. Hafta sonu ve tatil günleri dahil kesintisiz hizmet sunuyoruz.</p>
         </div>
         <div class="service-card reveal">
-          <div class="service-icon">🏭</div>
-          <h3>Montaj İşleri</h3>
-          <p>Prefabrik yapı, makine montajı ve endüstriyel ekipman kurulumları.</p>
-          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
+          <div class="service-icon">🏗️</div>
+          <h3>İnşaat Projeleri</h3>
+          <p>İnşaat sahalarında malzeme taşıma, montaj ve demonte işlemleriniz için özel çözümler sunuyoruz.</p>
         </div>
         <div class="service-card reveal reveal-d1">
-          <div class="service-icon">🚚</div>
-          <h3>Nakliye Hizmeti</h3>
-          <p>Ağır ve boyutlu yüklerin güvenli taşınması ve nakliyesi.</p>
-          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
+          <div class="service-icon">🏭</div>
+          <h3>Sanayi Taşımacılığı</h3>
+          <p>Ağır sanayi ekipmanlarının taşınması ve yerleştirilmesi için profesyonel vinç hizmetleri.</p>
         </div>
         <div class="service-card reveal reveal-d2">
-          <div class="service-icon">⚡</div>
-          <h3>Acil Vinç Hizmeti</h3>
-          <p>7/24 acil durumlar için hızlı müdahale ve vinç operasyonu.</p>
-          <a href="hizmetler.html" class="card-link">Detaylı Bilgi →</a>
+          <div class="service-icon">🔧</div>
+          <h3>Uzman Ekip</h3>
+          <p>Sertifikalı ve deneyimli operatörlerimiz ile işlerinizi profesyonel bir şekilde tamamlıyoruz.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section areas-section">
+  <section class="section" style="padding-top:0">
+    <div class="section-inner">
+      <div class="section-label reveal">Çalışmalarımız</div>
+      <h2 class="section-title reveal reveal-d1">Son Projelerimiz</h2>
+      <p class="section-sub reveal reveal-d2">Salihli, Alaşehir, Kula ve Demirci genelinde gerçekleştirdiğimiz başarılı projelerden kareler.</p>
+      <div class="gallery-preview-grid">
+        <div class="gallery-preview-item reveal"><img src="assets/beton-kosk-montaj-1.jpg" alt="Beton köşk montaj" loading="lazy"></div>
+        <div class="gallery-preview-item reveal reveal-d1"><img src="assets/celik-konstruksiyon-1.jpg" alt="Çelik konstrüksiyon" loading="lazy"></div>
+        <div class="gallery-preview-item reveal reveal-d2"><img src="assets/damperli-kamyon-kurtarma-1.jpg" alt="Kamyon kurtarma" loading="lazy"></div>
+        <div class="gallery-preview-item reveal reveal-d3"><img src="assets/enjeksiyon-makinasi-indirme.jpg" alt="Enjeksiyon makinası" loading="lazy"></div>
+        <div class="gallery-preview-item reveal"><img src="assets/grayder-kurtarma-1.jpg" alt="Grayder kurtarma" loading="lazy"></div>
+        <div class="gallery-preview-item reveal reveal-d1"><img src="assets/foseptik-deposu-1.jpg" alt="Foseptik deposu" loading="lazy"></div>
+        <div class="gallery-preview-item reveal reveal-d2"><img src="assets/tunel-makina-montaji-1.jpg" alt="Tünel makina montajı" loading="lazy"></div>
+        <div class="gallery-preview-item reveal reveal-d3"><img src="assets/prefabrik-beton-kosk.jpeg" alt="Prefabrik beton köşk" loading="lazy"></div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="galeri.html" class="btn-call-lg reveal" style="display:inline-flex;">Tüm Çalışmalarımız →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section areas-section" id="hizmet-alani">
     <div class="section-inner">
       <div class="section-label reveal">Hizmet Bölgemiz</div>
       <h2 class="section-title reveal reveal-d1">Nerelerde Hizmet Veriyoruz?</h2>
-      <p class="section-sub reveal reveal-d2">Salihli başta olmak üzere geniş bir bölgede 7/24 vinç hizmeti sunuyoruz.</p>
+      <p class="section-sub reveal reveal-d2">Salihli, Alaşehir, Kula, Demirci ve çevre ilçelerde geniş bir hizmet ağı ile yanınızdayız.</p>
       <div class="areas-grid">
         <div class="area-chip reveal">Salihli</div>
+        <div class="area-chip reveal reveal-d1">Alaşehir</div>
+        <div class="area-chip reveal reveal-d2">Kula</div>
+        <div class="area-chip reveal reveal-d3">Demirci</div>
+        <div class="area-chip reveal">Manisa</div>
         <div class="area-chip reveal reveal-d1">İzmir</div>
-        <div class="area-chip reveal reveal-d2">Manisa</div>
-        <div class="area-chip reveal">Alaşehir</div>
-        <div class="area-chip reveal reveal-d1">Kırkağaç</div>
-        <div class="area-chip reveal reveal-d2">Gördes</div>
+        <div class="area-chip reveal reveal-d2">Kırkağaç</div>
+        <div class="area-chip reveal reveal-d3">Gördes</div>
         <div class="area-chip reveal">Ahmetli</div>
         <div class="area-chip reveal reveal-d1">Turgutlu</div>
         <div class="area-chip reveal reveal-d2">Saruhanlı</div>
-        <div class="area-chip reveal">Selendi</div>
-        <div class="area-chip reveal reveal-d1">Demirci</div>
-        <div class="area-chip reveal reveal-d2">Soma</div>
+        <div class="area-chip reveal reveal-d3">Selendi</div>
       </div>
     </div>
   </section>
@@ -452,16 +351,12 @@
   <section class="cta-section">
     <div class="cta-inner">
       <div class="cta-text">
-        <h2>Hemen Ulaşın, İşinizi Hallederiz!</h2>
-        <p>Vinç ihtiyacınız mı var? 7/24 bizi arayabilir veya WhatsApp'tan yazabilirsiniz.</p>
+        <h2>Projeniz için ücretsiz keşif ve fiyat teklifi alın!</h2>
+        <p>Hemen ulaşın, işinizi en kısa sürede halledelim.</p>
       </div>
       <div class="cta-buttons">
-        <a href="https://wa.me/905321234567?text=Merhaba,%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-wa-lg" target="_blank">
-          💬 WhatsApp
-        </a>
-        <a href="tel:+905321234567" class="btn-call-lg">
-          📞 Ara
-        </a>
+        <a href="https://wa.me/9054445113341?text=Merhaba,%20vin%C3%A7%20kiralama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-wa-lg" target="_blank">💬 WhatsApp</a>
+        <a href="tel:+9054445113341" class="btn-call-lg">📞</span> Ara</a>
       </div>
     </div>
   </section>

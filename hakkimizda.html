@@ -3,30 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hakkımızda | Araz Vinç Salihli — Hiab & Mobil Vinç Kiralama</title>
-  <meta name="description" content="Araz Vinç Salihli hakkında. 15 yılı aşkın deneyimle Salihli ve çevresinde vinç kiralama hizmeti.">
+  <title>Hakkımızda | Araz Vinç Salihli — Vinç Kiralama</title>
+  <meta name="description" content="Araz Vinç Salihli hakkında. 25 yılı aşkın deneyimle Salihli, Alaşehir, Kula ve Demirci bölgesinde vinç kiralama hizmetleri.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #080810; --bg-2: #0e0e1a; --bg-3: #13131f;
-      --accent: #ff6b00; --accent-light: #ff8534; --accent-glow: rgba(255,107,0,0.12);
-      --text: #f5f5f7; --text-2: #9999b0; --text-3: #555570;
-      --border: #1c1c2e; --border-2: #252540; --green: #25d366;
-      --radius: 20px; --radius-sm: 12px;
-    }
+    :root { --bg: #080810; --bg-2: #0e0e1a; --bg-3: #13131f; --accent: #ff6b00; --accent-light: #ff8534; --accent-glow: rgba(255,107,0,0.12); --text: #f5f5f7; --text-2: #9999b0; --text-3: #555570; --border: #1c1c2e; --border-2: #252540; --green: #25d366; --radius: 20px; --radius-sm: 12px; }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
 
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 76px;
-      display: flex; align-items: center;
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      background: rgba(8,8,16,0.85); backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border);
-    }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 76px; display: flex; align-items: center; padding: 0 clamp(1.5rem, 5vw, 4rem); background: rgba(8,8,16,0.85); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
     .nav-inner { max-width: 1280px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: -0.04em; }
     .nav-logo span { color: var(--accent); }
@@ -39,19 +27,12 @@
     .btn-call { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,107,0,0.1); color: var(--accent); border: 1px solid rgba(255,107,0,0.25); border-radius: 100px; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; transition: all 0.3s; }
     .btn-call:hover { background: rgba(255,107,0,0.18); transform: translateY(-1px); }
 
-    .page-header {
-      padding: 8rem clamp(1.5rem, 5vw, 4rem) 4rem;
-      background: var(--bg-2);
-      border-bottom: 1px solid var(--border);
-    }
+    .page-header { padding: 8rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--bg-2); border-bottom: 1px solid var(--border); }
     .page-header-inner { max-width: 1280px; margin: 0 auto; }
     .page-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; }
     .page-title { font-family: 'Inter', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 1rem; }
 
-    .about-story {
-      padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
-      background: var(--bg-2);
-    }
+    .about-story { padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem); background: var(--bg-2); }
     .about-story-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     .about-story-text h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1.25rem; }
     .about-story-text p { color: var(--text-2); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1rem; }
@@ -64,11 +45,7 @@
     .why-section-inner { max-width: 1280px; margin: 0 auto; }
     .why-title { font-family: 'Inter', sans-serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 2.5rem; }
     .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; }
-    .why-card {
-      background: var(--bg-2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2rem;
-      transition: all 0.3s;
-    }
+    .why-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; transition: all 0.3s; }
     .why-card:hover { border-color: rgba(255,107,0,0.3); transform: translateY(-4px); }
     .why-card-icon { width: 50px; height: 50px; background: rgba(255,107,0,0.1); border: 1px solid rgba(255,107,0,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.25rem; }
     .why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
@@ -114,8 +91,8 @@
         <li><a href="iletisim.html">İletişim</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://wa.me/905321234567" class="btn-wa" target="_blank">💬 WhatsApp</a>
-        <a href="tel:+905321234567" class="btn-call">📞 Ara</a>
+        <a href="https://wa.me/9054445113341" class="btn-wa" target="_blank">💬 WhatsApp</a>
+        <a href="tel:+9054445113341" class="btn-call">📞</span> Ara</a>
       </div>
     </div>
   </nav>
@@ -123,7 +100,7 @@
   <div class="page-header">
     <div class="page-header-inner">
       <div class="page-label">Hakkımızda</div>
-      <h1 class="page-title">Güvenilir Vinç Hizmeti</h1>
+      <h1 class="page-title">Deneyim ve Güvenilirlik</h1>
     </div>
   </div>
 
@@ -131,15 +108,15 @@
     <div class="about-story-inner">
       <div class="about-story-text">
         <h2>Salihli'nin Güvenilir Vinç Ortağı</h2>
-        <p>Araz Vinç Salihli olarak, 15 yılı aşkın deneyimimizle Salihli ve çevresinde vinç kiralama sektörünün öncülerinden biriyiz. Müşteri memnuniyetini her şeyin üstünde tutarak, güvenli ve hızlı vinç operasyonları sunuyoruz.</p>
-        <p>Filomuzdaki modern Hiab ve mobil vinçlerimizle her ölçekteki işinizi, küçük yükleme-boşaltma işlerinden büyük endüstriyel montaj projelerine kadar güvenle hallediyoruz. Deneyimli operatör kadromuz, iş güvenliği standartlarına tam uyumlu çalışarak projelerinizi zamanında ve sorunsuz tamamlıyor.</p>
-        <p>7/24 hizmet anlayışımızla, acil vinç ihtiyaçlarınızda da yanınızdayız. Gece gündüz demeden, hafta sonu bayram demeden tüm vinç operasyonlarınızda güvenilir çözüm ortağınızız.</p>
+        <p>Araz Vinç olarak Salihli, Alaşehir, Kula ve Demirci bölgesinde 25 yılı aşkın süredir profesyonel vinç kiralama hizmetleri sunmaktayız. Müşteri memnuniyetini ön planda tutarak, güvenli ve hızlı çözümler üretiyoruz.</p>
+        <p>Modern vinç filomuz ve deneyimli ekibimizle her türlü yükleme, indirme ve taşıma işlemlerinizi en yüksek güvenlik standartlarında gerçekleştiriyoruz.</p>
+        <p>Sertifikalı operatörlerimiz ve bakımlı ekipmanlarımızla, 7 gün 24 saat kesintisiz hizmet anlayışıyla çalışıyoruz. Her projeye aynı özen ve profesyonellikle yaklaşıyor, zamanında teslimat garantisi veriyoruz.</p>
       </div>
       <div class="about-story-stats">
-        <div class="about-stat"><span class="about-stat-num">15+</span><span class="about-stat-label">Yıllık Deneyim</span></div>
-        <div class="about-stat"><span class="about-stat-num">500+</span><span class="about-stat-label">Başarılı İş</span></div>
-        <div class="about-stat"><span class="about-stat-num">7/24</span><span class="about-stat-label">Aktif Hizmet</span></div>
-        <div class="about-stat"><span class="about-stat-num">100%</span><span class="about-stat-label">Müşteri Memnuniyeti</span></div>
+        <div class="about-stat"><span class="about-stat-num">25+</span><span class="about-stat-label">Yıl Deneyim</span></div>
+        <div class="about-stat"><span class="about-stat-num">1000+</span><span class="about-stat-label">Başarılı Proje</span></div>
+        <div class="about-stat"><span class="about-stat-num">7/24</span><span class="about-stat-label">Kesintisiz Hizmet</span></div>
+        <div class="about-stat"><span class="about-stat-num">%100</span><span class="about-stat-label">Müşteri Memnuniyeti</span></div>
       </div>
     </div>
   </section>
@@ -151,12 +128,12 @@
         <div class="why-card reveal">
           <div class="why-card-icon">⏱️</div>
           <h3>7/24 Hizmet</h3>
-          <p>Gece gündüz, hafta sonu veya bayram fark etmez. Her an ulaşılabilir ve hızlı müdahale garantisi.</p>
+          <p>Gece gündüz, hafta sonu ve tatil fark etmez. Her an ulaşılabilir ve hızlı müdahale garantisi.</p>
         </div>
         <div class="why-card reveal reveal-d1">
           <div class="why-card-icon">🛡️</div>
           <h3>Güvenli Operasyon</h3>
-          <p>İş güvenliği standartlarına tam uyumlu çalışma prensibi. Tüm operatörlerimiz sertifikalı ve deneyimli.</p>
+          <p>İş güvenliği standartlarına tam uyumlu çalışma prensibi. Tüm operatörlerimiz sertifikalı.</p>
         </div>
         <div class="why-card reveal reveal-d2">
           <div class="why-card-icon">🔧</div>
@@ -171,7 +148,7 @@
         <div class="why-card reveal">
           <div class="why-card-icon">📍</div>
           <h3>Geniş Hizmet Ağı</h3>
-          <p>Salihli, Manisa, İzmir ve çevre illerde geniş bir hizmet alanı ile yanınızdayız.</p>
+          <p>Salihli, Alaşehir, Kula, Demirci ve çevre ilçelerde geniş bir hizmet alanı ile yanınızdayız.</p>
         </div>
         <div class="why-card reveal reveal-d1">
           <div class="why-card-icon">🤝</div>
@@ -189,8 +166,8 @@
         <p>Hemen ulaşın, ücretsiz keşif ve teklif verelim.</p>
       </div>
       <div class="cta-row-buttons">
-        <a href="https://wa.me/905321234567?text=Merhaba,%20vin%C3%A7%20hizmeti%20almak%20istiyorum." class="btn-wa-lg" target="_blank">💬 WhatsApp</a>
-        <a href="tel:+905321234567" class="btn-call-lg">📞 Ara</a>
+        <a href="https://wa.me/9054445113341?text=Merhaba,%20vin%C3%A7%20hizmeti%20almak%20istiyorum." class="btn-wa-lg" target="_blank">💬 WhatsApp</a>
+        <a href="tel:+9054445113341" class="btn-call-lg">📞</span> Ara</a>
       </div>
     </div>
   </div>

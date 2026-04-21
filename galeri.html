@@ -3,30 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeri | Araz Vinç Salihli — Referans Çalışmalarımız</title>
-  <meta name="description" content="Araz Vinç Salihli referans çalışmaları. Vinç operasyonları, montaj, nakliye ve kurtarma işlerinden görseller.">
+  <title>Galeri | Araz Vinç Salihli — Çalışmalarımız</title>
+  <meta name="description" content="Araz Vinç Salihli referans çalışmaları. Vinç operasyonları, montaj, nakliye ve kurtarma işlerinden görseller. Salihli, Alaşehir, Kula ve Demirci.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #080810; --bg-2: #0e0e1a; --bg-3: #13131f;
-      --accent: #ff6b00; --accent-light: #ff8534; --accent-glow: rgba(255,107,0,0.12);
-      --text: #f5f5f7; --text-2: #9999b0; --text-3: #555570;
-      --border: #1c1c2e; --border-2: #252540; --green: #25d366;
-      --radius: 20px; --radius-sm: 12px;
-    }
+    :root { --bg: #080810; --bg-2: #0e0e1a; --bg-3: #13131f; --accent: #ff6b00; --accent-light: #ff8534; --accent-glow: rgba(255,107,0,0.12); --text: #f5f5f7; --text-2: #9999b0; --text-3: #555570; --border: #1c1c2e; --border-2: #252540; --green: #25d366; --radius: 20px; --radius-sm: 12px; }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
 
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 76px;
-      display: flex; align-items: center;
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
-      background: rgba(8,8,16,0.85); backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border);
-    }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 76px; display: flex; align-items: center; padding: 0 clamp(1.5rem, 5vw, 4rem); background: rgba(8,8,16,0.85); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
     .nav-inner { max-width: 1280px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: -0.04em; }
     .nav-logo span { color: var(--accent); }
@@ -39,11 +27,7 @@
     .btn-call { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,107,0,0.1); color: var(--accent); border: 1px solid rgba(255,107,0,0.25); border-radius: 100px; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; transition: all 0.3s; }
     .btn-call:hover { background: rgba(255,107,0,0.18); transform: translateY(-1px); }
 
-    .page-header {
-      padding: 8rem clamp(1.5rem, 5vw, 4rem) 4rem;
-      background: var(--bg-2);
-      border-bottom: 1px solid var(--border);
-    }
+    .page-header { padding: 8rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--bg-2); border-bottom: 1px solid var(--border); }
     .page-header-inner { max-width: 1280px; margin: 0 auto; }
     .page-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; }
     .page-title { font-family: 'Inter', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 1rem; }
@@ -51,46 +35,15 @@
 
     .gallery-section { padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem); }
     .gallery-inner { max-width: 1280px; margin: 0 auto; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1rem;
-    }
-    .gallery-item {
-      border-radius: var(--radius);
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      background: var(--bg-3);
-      border: 1px solid var(--border);
-      position: relative;
-      cursor: pointer;
-    }
-    .gallery-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  filter 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      filter: brightness(0.88) saturate(0.9);
-    }
-    .gallery-item:hover img {
-      transform: scale(1.08);
-      filter: brightness(1) saturate(1);
-    }
-    .gallery-item .item-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 1rem 1.25rem;
-      background: linear-gradient(transparent, rgba(8,8,16,0.95));
-      font-size: 0.85rem; font-weight: 600;
-      color: var(--text-2);
-      transform: translateY(100%);
-      transition: transform 0.35s;
-    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .gallery-item { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; background: var(--bg-3); border: 1px solid var(--border); position: relative; cursor: pointer; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s, filter 0.5s; filter: brightness(0.88) saturate(0.9); }
+    .gallery-item:hover img { transform: scale(1.08); filter: brightness(1) saturate(1); }
+    .gallery-item .item-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem 1.25rem; background: linear-gradient(transparent, rgba(8,8,16,0.95)); font-size: 0.85rem; font-weight: 600; color: var(--text-2); transform: translateY(100%); transition: transform 0.35s; }
     .gallery-item:hover .item-label { transform: translateY(0); }
+    .gallery-item .item-cat { position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(8,8,16,0.6); backdrop-filter: blur(8px); padding: 0.25rem 0.75rem; border-radius: 100px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
 
-    .cta-row {
-      background: var(--bg-2); border-top: 1px solid var(--border);
-      padding: 3rem clamp(1.5rem, 5vw, 4rem);
-    }
+    .cta-row { background: var(--bg-2); border-top: 1px solid var(--border); padding: 3rem clamp(1.5rem, 5vw, 4rem); }
     .cta-row-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
     .cta-row h3 { font-family: 'Inter', sans-serif; font-size: 1.5rem; font-weight: 800; }
     .cta-row p { color: var(--text-2); margin-top: 0.3rem; }
@@ -125,8 +78,8 @@
         <li><a href="iletisim.html">İletişim</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://wa.me/905321234567" class="btn-wa" target="_blank">💬 WhatsApp</a>
-        <a href="tel:+905321234567" class="btn-call">📞 Ara</a>
+        <a href="https://wa.me/9054445113341" class="btn-wa" target="_blank">💬 WhatsApp</a>
+        <a href="tel:+9054445113341" class="btn-call">📞</span> Ara</a>
       </div>
     </div>
   </nav>
@@ -134,35 +87,119 @@
   <div class="page-header">
     <div class="page-header-inner">
       <div class="page-label">Referanslarımız</div>
-      <h1 class="page-title">Yaptığımız İşler</h1>
-      <p class="page-sub">Saha çalışmalarımızdan kareler. Salihli ve çevresinde yüzlerce başarılı projeye imza attık.</p>
+      <h1 class="page-title">Çalışmalarımız</h1>
+      <p class="page-sub">Salihli, Alaşehir, Kula ve Demirci genelinde gerçekleştirdiğimiz başarılı projelerden kareler.</p>
     </div>
   </div>
 
   <section class="gallery-section">
     <div class="gallery-inner">
       <div class="gallery-grid">
-        <div class="gallery-item"><img src="assets/beton-kosk-indirme.jpg" alt="Beton köşk indirme" loading="lazy"><span class="item-label">Beton Köşk İndirme</span></div>
-        <div class="gallery-item"><img src="assets/beton-kosk-montaj-1.jpg" alt="Beton köşk montaj" loading="lazy"><span class="item-label">Beton Köşk Montaj</span></div>
-        <div class="gallery-item"><img src="assets/beton-kosk-montaj-2.jpg" alt="Beton köşk montaj" loading="lazy"><span class="item-label">Beton Köşk Montaj</span></div>
-        <div class="gallery-item"><img src="assets/beton-kosk-montaj-3.jpg" alt="Beton köşk montaj" loading="lazy"><span class="item-label">Beton Köşk Montaj</span></div>
-        <div class="gallery-item"><img src="assets/cati-malzemesi-cikarma-1.jpg" alt="Çatı malzemesi çıkarma" loading="lazy"><span class="item-label">Çatı Malzemesi Çıkarma</span></div>
-        <div class="gallery-item"><img src="assets/cati-malzemesi-cikarma-2.jpg" alt="Çatı malzemesi çıkarma" loading="lazy"><span class="item-label">Çatı Malzemesi Çıkarma</span></div>
-        <div class="gallery-item"><img src="assets/celik-konstruksiyon-1.jpg" alt="Çelik konstrüksiyon" loading="lazy"><span class="item-label">Çelik Konstrüksiyon</span></div>
-        <div class="gallery-item"><img src="assets/celik-konstruksiyon-2.jpg" alt="Çelik konstrüksiyon" loading="lazy"><span class="item-label">Çelik Konstrüksiyon</span></div>
-        <div class="gallery-item"><img src="assets/damperli-kamyon-kurtarma-1.jpg" alt="Damperli kamyon kurtarma" loading="lazy"><span class="item-label">Damperli Kamyon Kurtarma</span></div>
-        <div class="gallery-item"><img src="assets/damperli-kamyon-kurtarma-2.jpg" alt="Damperli kamyon kurtarma" loading="lazy"><span class="item-label">Damperli Kamyon Kurtarma</span></div>
-        <div class="gallery-item"><img src="assets/dorse-kurtarma.jpg" alt="Dorse kurtarma" loading="lazy"><span class="item-label">Dorse Kurtarma</span></div>
-        <div class="gallery-item"><img src="assets/enjeksiyon-makinasi-indirme.jpg" alt="Enjeksiyon makinası indirme" loading="lazy"><span class="item-label">Enjeksiyon Makinası İndirme</span></div>
-        <div class="gallery-item"><img src="assets/foseptik-deposu-1.jpg" alt="Foseptik deposu" loading="lazy"><span class="item-label">Foseptik Deposu</span></div>
-        <div class="gallery-item"><img src="assets/foseptik-deposu-2.jpg" alt="Foseptik deposu" loading="lazy"><span class="item-label">Foseptik Deposu</span></div>
-        <div class="gallery-item"><img src="assets/grayder-kurtarma-1.jpg" alt="Grayder kurtarma" loading="lazy"><span class="item-label">Grayder Kurtarma</span></div>
-        <div class="gallery-item"><img src="assets/grayder-kurtarma-2.jpg" alt="Grayder kurtarma" loading="lazy"><span class="item-label">Grayder Kurtarma</span></div>
-        <div class="gallery-item"><img src="assets/prefabrik-beton-kosk.jpeg" alt="Prefabrik beton köşk" loading="lazy"><span class="item-label">Prefabrik Beton Köşk</span></div>
-        <div class="gallery-item"><img src="assets/tunel-beton-mikseri-1.jpg" alt="Tünel beton mikseri" loading="lazy"><span class="item-label">Tünel Beton Mikseri</span></div>
-        <div class="gallery-item"><img src="assets/tunel-beton-mikseri-2.jpg" alt="Tünel beton mikseri" loading="lazy"><span class="item-label">Tünel Beton Mikseri</span></div>
-        <div class="gallery-item"><img src="assets/tunel-makina-montaji-1.jpg" alt="Tünel makina montajı" loading="lazy"><span class="item-label">Tünel Makina Montajı</span></div>
-        <div class="gallery-item"><img src="assets/tunel-makina-montaji-2.jpg" alt="Tünel makina montajı" loading="lazy"><span class="item-label">Tünel Makina Montajı</span></div>
+        <div class="gallery-item">
+          <img src="assets/beton-kosk-indirme.jpg" alt="Beton köşk indirme" loading="lazy">
+          <span class="item-cat">İnşaat</span>
+          <span class="item-label">Beton Köşk İndirme</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/beton-kosk-montaj-1.jpg" alt="Beton köşk montaj" loading="lazy">
+          <span class="item-cat">Sanayi</span>
+          <span class="item-label">Beton Trafo Köşkü Montajı</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/beton-kosk-montaj-2.jpg" alt="Beton köşk montaj" loading="lazy">
+          <span class="item-cat">Sanayi</span>
+          <span class="item-label">Beton Köşk Yerleştirme</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/beton-kosk-montaj-3.jpg" alt="Beton köşk montaj" loading="lazy">
+          <span class="item-cat">Sanayi</span>
+          <span class="item-label">Beton Köşk İndirme Operasyonu</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/cati-malzemesi-cikarma-1.jpg" alt="Çatı malzemesi çıkarma" loading="lazy">
+          <span class="item-cat">Hiab Vinç</span>
+          <span class="item-label">Çatı Malzemesi Vinçle Çıkarma</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/cati-malzemesi-cikarma-2.jpg" alt="Çatı malzemesi çıkarma" loading="lazy">
+          <span class="item-cat">Hiab Vinç</span>
+          <span class="item-label">Çatı Malzemesi Kaldırma</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/celik-konstruksiyon-1.jpg" alt="Çelik konstrüksiyon" loading="lazy">
+          <span class="item-cat">İnşaat</span>
+          <span class="item-label">Çelik Konstrüksiyon Montajı</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/celik-konstruksiyon-2.jpg" alt="Çelik konstrüksiyon" loading="lazy">
+          <span class="item-cat">İnşaat</span>
+          <span class="item-label">Çelik Yapı Montajı</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/damperli-kamyon-kurtarma-1.jpg" alt="Damperli kamyon kurtarma" loading="lazy">
+          <span class="item-cat">Acil Hizmet</span>
+          <span class="item-label">Damperli Kamyon Kurtarma</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/damperli-kamyon-kurtarma-2.jpg" alt="Damperli kamyon kurtarma" loading="lazy">
+          <span class="item-cat">Acil Hizmet</span>
+          <span class="item-label">Kamyon Kurtarma Operasyonu</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/dorse-kurtarma.jpg" alt="Dorse kurtarma" loading="lazy">
+          <span class="item-cat">Acil Hizmet</span>
+          <span class="item-label">Dorse Kurtarma ve Tahliye</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/enjeksiyon-makinasi-indirme.jpg" alt="Enjeksiyon makinası indirme" loading="lazy">
+          <span class="item-cat">Sanayi</span>
+          <span class="item-label">Enjeksiyon Makinesi İndirme</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/foseptik-deposu-1.jpg" alt="Foseptik deposu" loading="lazy">
+          <span class="item-cat">İnşaat</span>
+          <span class="item-label">Foseptik Deposu Montajı</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/foseptik-deposu-2.jpg" alt="Foseptik deposu" loading="lazy">
+          <span class="item-cat">İnşaat</span>
+          <span class="item-label">Foseptik Depo Yerleştirme</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/grayder-kurtarma-1.jpg" alt="Grayder kurtarma" loading="lazy">
+          <span class="item-cat">Acil Hizmet</span>
+          <span class="item-label">Grayder Kurtarma</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/grayder-kurtarma-2.jpg" alt="Grayder kurtarma" loading="lazy">
+          <span class="item-cat">Acil Hizmet</span>
+          <span class="item-label">İş Makinesi Kurtarma</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/prefabrik-beton-kosk.jpeg" alt="Prefabrik beton köşk" loading="lazy">
+          <span class="item-cat">Sanayi</span>
+          <span class="item-label">Prefabrik Beton Köşk Montajı</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/tunel-beton-mikseri-1.jpg" alt="Tünel beton mikseri" loading="lazy">
+          <span class="item-cat">Acil Hizmet</span>
+          <span class="item-label">Tünel Beton Mikseri Kurtarma</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/tunel-beton-mikseri-2.jpg" alt="Tünel beton mikseri" loading="lazy">
+          <span class="item-cat">Acil Hizmet</span>
+          <span class="item-label">Tünel İçi Kurtarma</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/tunel-makina-montaji-1.jpg" alt="Tünel makina montajı" loading="lazy">
+          <span class="item-cat">İnşaat</span>
+          <span class="item-label">Tünel Makina Montajı</span>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/tunel-makina-montaji-2.jpg" alt="Tünel makina montajı" loading="lazy">
+          <span class="item-cat">İnşaat</span>
+          <span class="item-label">Tünel Ekipman Yerleştirme</span>
+        </div>
       </div>
     </div>
   </section>
@@ -174,8 +211,8 @@
         <p>Hemen ulaşın, işinizi en kısa sürede halledelim.</p>
       </div>
       <div class="cta-row-buttons">
-        <a href="https://wa.me/905321234567?text=Merhaba,%20projemiz%20i%C3%A7in%20vin%C3%A7%20hizmeti%20almak%20istiyorum." class="btn-wa-lg" target="_blank">💬 WhatsApp</a>
-        <a href="tel:+905321234567" class="btn-call-lg">📞 Ara</a>
+        <a href="https://wa.me/9054445113341?text=Merhaba,%20projemiz%20i%C3%A7in%20vin%C3%A7%20hizmeti%20almak%20istiyorum." class="btn-wa-lg" target="_blank">💬 WhatsApp</a>
+        <a href="tel:+9054445113341" class="btn-call-lg">📞</span> Ara</a>
       </div>
     </div>
   </div>
