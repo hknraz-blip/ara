@@ -42,11 +42,11 @@
     .nav-inner{display:flex;justify-content:space-between;align-items:center;gap:1rem}
     .nav-logo{font-family:'Inter',sans-serif;font-weight:900;font-size:1.3rem}.nav-logo span{color:var(--accent)}
     .nav-links{display:flex;gap:.8rem;list-style:none}.nav-links a{color:var(--text-2);font-size:.92rem}.nav-links a:hover,.nav-links a.active{color:var(--text)}
-    .hero,.section{padding:5rem 1.5rem}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:700;margin-bottom:1rem}.hero h1,.section h2{font-family:'Inter',sans-serif;letter-spacing:-.04em}.hero h1{font-size:clamp(2.3rem,6vw,4.5rem);max-width:780px;margin-bottom:1rem}.lead,.card p,.card li,.faq-item p{color:var(--text-2)}
+    .hero,.section{padding:5rem 1.5rem}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:700;margin-bottom:1rem}.hero h1,.section h2{font-family:'Inter',sans-serif;letter-spacing:-.04em}.hero h1{font-size:clamp(2.3rem,6vw,4.5rem);max-width:780px;margin-bottom:1rem}.lead,.card p,.card li,.faq-item p,.link-card p{color:var(--text-2)}
     .cta-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}.btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.9rem 1.35rem;font-weight:700}.btn-primary{background:rgba(255,107,0,.12);color:var(--accent);border:1px solid rgba(255,107,0,.25)}.btn-secondary{background:rgba(37,211,102,.12);color:#25d366;border:1px solid rgba(37,211,102,.25)}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1.5rem}.card,.faq-item{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem}.card ul{padding-left:1.2rem;display:grid;gap:.6rem}.faq{display:grid;gap:1rem}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1.5rem}.card,.faq-item,.link-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem}.card ul{padding-left:1.2rem;display:grid;gap:.6rem}.faq{display:grid;gap:1rem}.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.link-card:hover{border-color:rgba(255,107,0,.28);transform:translateY(-2px)}
     .footer{border-top:1px solid var(--border);padding:2rem 1.5rem}.footer-inner{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.footer-copy{color:var(--text-3)}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}.nav-links{display:none}}
+    @media (max-width:900px){.grid,.related-grid{grid-template-columns:1fr}.nav-links{display:none}}
   </style>
 </head>
 <body>
@@ -78,7 +78,7 @@
         <article class="card">
           <h2>Kula vinç kiralama hizmetimiz neleri kapsar?</h2>
           <p>Kula vinç kiralama hizmetimiz; inşaat sahaları, fabrika taşımaları, makine indirme, çelik konstrüksiyon montajı, konteyner yerleştirme ve ağır ekipman taşıma gibi işler için tercih edilmektedir. İşin türüne göre doğru ekipman ve planlama ile güvenli operasyon sağlıyoruz.</p>
-          <p>Kula bölgesindeki işletmeler, şantiyeler ve acil operasyon ihtiyaçları için 7/24 destek sunuyor, hızlı teklif ve planlama ile süreci kolaylaştırıyoruz.</p>
+          <p>Kula bölgesindeki işletmeler, şantiyeler ve acil operasyon ihtiyaçları için 7/24 destek sunuyor, hızlı teklif ve planlama ile süreci kolaylaştırıyoruz. Daha geniş hizmet detayları için <a href="mobil-vinc-kiralama.html">mobil vinç kiralama</a> ve <a href="sepetli-platform-kiralama.html">sepetli platform kiralama</a> sayfalarımızı da inceleyebilirsiniz.</p>
         </article>
         <aside class="card">
           <h2>Öne çıkan avantajlar</h2>
@@ -107,6 +107,16 @@
             <h2>Hangi işlerde mobil vinç kullanılır?</h2>
             <p>Makine indirme, çelik konstrüksiyon montajı, konteyner yerleştirme, inşaat malzemesi kaldırma ve fabrika içi taşıma gibi pek çok işte mobil vinç kullanılır.</p>
           </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-inner">
+        <h2>İlgili hizmet ve bölge sayfaları</h2>
+        <div class="related-grid">
+          <a class="link-card" href="mobil-vinc-kiralama.html"><strong>Mobil Vinç Kiralama</strong><p>Kula ve çevresindeki kaldırma, taşıma ve montaj işleri için detaylı hizmet sayfamız.</p></a>
+          <a class="link-card" href="alasehir-vinc-kiralama.html"><strong>Alaşehir Vinç Kiralama</strong><p>Yakın bölgede yürüttüğümüz benzer operasyonları ve hizmet kapsamını inceleyin.</p></a>
+          <a class="link-card" href="demirci-vinc-kiralama.html"><strong>Demirci Vinç Kiralama</strong><p>Diğer bölge sayfalarımızla hizmet ağımızı ve operasyon kabiliyetimizi görün.</p></a>
         </div>
       </div>
     </section>
