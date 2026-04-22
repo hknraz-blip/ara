@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Araz Vinç Salihli - Vinç Kiralama Rehberleri</title>
+  <meta name="description" content="Salihli vinç kiralama, sepetli platform kullanımı ve güvenli ağır yük kaldırma hakkında SEO odaklı blog yazıları. Araz Vinç uzmanlığını blog sayfasında keşfedin.">
+  <meta name="keywords" content="Salihli vinç kiralama blog, sepetli platform rehberi, mobil vinç kiralama ipuçları, ağır yük kaldırma güvenliği, Araz Vinç blog">
+  <link rel="canonical" href="https://ara-gamma.vercel.app/blog.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #080810; --bg-2: #0e0e1a; --bg-3: #13131f; --accent: #ff6b00; --text: #f5f5f7; --text-2: #9999b0; --text-3: #555570; --border: #1c1c2e; --radius: 20px; --radius-sm: 12px; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.75; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 76px; display: flex; align-items: center; padding: 0 clamp(1.5rem, 5vw, 4rem); background: rgba(8,8,16,0.85); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1280px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: -0.04em; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 0.3rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 600; color: var(--text-2); padding: 0.5rem 1.1rem; border-radius: 10px; transition: all 0.25s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--bg-3); }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .btn-wa { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; background: rgba(37,211,102,0.1); color: #25d366; border: 1px solid rgba(37,211,102,0.25); border-radius: 999px; font-size: 1.1rem; }
+    .btn-call { display: flex; align-items: center; gap: 0.4rem; background: rgba(255,107,0,0.1); color: var(--accent); border: 1px solid rgba(255,107,0,0.25); border-radius: 100px; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; }
+    .page-header { padding: 8rem clamp(1.5rem, 5vw, 4rem) 4rem; background: var(--bg-2); border-bottom: 1px solid var(--border); }
+    .page-header-inner, .content-inner, .footer-inner { max-width: 1180px; margin: 0 auto; }
+    .page-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; }
+    .page-title { font-family: 'Inter', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 1rem; }
+    .page-sub { color: var(--text-2); max-width: 760px; font-size: 1.05rem; }
+    .content-section { padding: 3rem clamp(1.5rem, 5vw, 4rem) 5rem; }
+    .toc { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .toc a { display:block; background: var(--bg-2); border:1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; transition: all .25s; }
+    .toc a:hover { border-color: rgba(255,107,0,.35); transform: translateY(-2px); }
+    .toc strong { display:block; margin-bottom: .45rem; }
+    .toc span { color: var(--text-2); font-size: .92rem; }
+    .post { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-bottom: 1.5rem; }
+    .post h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: .75rem; letter-spacing: -0.03em; }
+    .post-meta { color: var(--text-3); font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 1rem; }
+    .post p { color: var(--text-2); margin-bottom: 1rem; }
+    .post ul { padding-left: 1.2rem; color: var(--text-2); margin-bottom: 1rem; }
+    .post li { margin-bottom: .45rem; }
+    .footer { border-top: 1px solid var(--border); padding: 2.5rem clamp(1.5rem, 5vw, 4rem); }
+    .footer-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.15rem; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display:flex; gap:1.25rem; }
+    .footer-links a, .footer-copy { color: var(--text-3); font-size: .85rem; }
+    @media (max-width: 900px) { .nav-links { display:none; } .toc { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">ARAZ<span>VİNÇ</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="hizmetler.html">Hizmetler</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://wa.me/9054445113341" class="btn-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geç">💬</a>
+        <a href="tel:+9054445113341" class="btn-call">📞 Ara</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="page-label">Araz Vinç Blog</div>
+      <h1 class="page-title">Vinç Kiralama ve Platform Kullanımı Rehberleri</h1>
+      <p class="page-sub">Salihli ve çevresinde vinç kiralama planlayan işletmeler için hazırladığımız üç SEO odaklı rehber. Doğru ekipman seçimi, güvenli çalışma ve hızlı teklif süreçleri hakkında pratik bilgiler burada.</p>
+    </div>
+  </header>
+
+  <section class="content-section">
+    <div class="content-inner">
+      <div class="toc">
+        <a href="#post-1"><strong>Salihli vinç kiralama rehberi</strong><span>Doğru vinç seçimi ve teklif alırken dikkat edilmesi gerekenler.</span></a>
+        <a href="#post-2"><strong>Sepetli platform ne zaman gerekir?</strong><span>Yüksek çalışma işlerinde güvenli erişim için kullanım senaryoları.</span></a>
+        <a href="#post-3"><strong>Ağır yük kaldırmada güvenlik</strong><span>Sanayi ve inşaat projelerinde riskleri azaltan temel adımlar.</span></a>
+      </div>
+
+      <article class="post" id="post-1">
+        <div class="post-meta">Blog Yazısı 1</div>
+        <h2>Salihli Vinç Kiralama Yaparken Doğru Vinç Nasıl Seçilir?</h2>
+        <p>Salihli vinç kiralama hizmeti alırken en önemli konu, işe uygun kapasitede ve erişimde vinç seçmektir. Küçük çaplı bir yükleme işinde gereğinden büyük vinç tercih etmek maliyeti artırırken, düşük kapasiteli ekipman seçmek de operasyonun durmasına neden olabilir. Bu yüzden işin yapılacağı alan, kaldırılacak yükün ağırlığı, kaldırma mesafesi ve çalışma zemini mutlaka önceden değerlendirilmelidir.</p>
+        <p>Mobil vinç kiralama sürecinde teklif almadan önce fotoğraf, yaklaşık ölçü ve konum bilgisi paylaşmak hem hızlı fiyat almanızı sağlar hem de yanlış ekipman riskini azaltır. Özellikle fabrika taşımacılığı, beton köşk montajı, çelik konstrüksiyon kurulumu ve makine indirme işlemlerinde saha bilgisi kritik önemdedir.</p>
+        <ul>
+          <li>Yükün ağırlığını ve ölçüsünü mümkün olduğunca net paylaşın.</li>
+          <li>Dar sokak, eğimli zemin veya kapalı alan varsa önceden belirtin.</li>
+          <li>İşin gündüz mü gece mi yapılacağını söyleyin.</li>
+          <li>Tek seferlik kaldırma mı, uzun süreli çalışma mı olacağını belirtin.</li>
+        </ul>
+        <p>Araz Vinç olarak Salihli, Alaşehir, Kula ve Demirci çevresinde her işe uygun çözüm önermeye çalışıyoruz. Böylece hem güvenlik korunuyor hem de gereksiz maliyet çıkmıyor.</p>
+      </article>
+
+      <article class="post" id="post-2">
+        <div class="post-meta">Blog Yazısı 2</div>
+        <h2>Sepetli Platform Kiralama Hangi İşlerde Daha Güvenlidir?</h2>
+        <p>Sepetli platform kiralama, yüksek noktada insan çalışmasının gerektiği işlerde klasik merdiven veya iskeleye göre çok daha güvenli bir yöntemdir. Özellikle dış cephe boya işleri, tabela montajı, klima dış ünite kurulumu, bakım-onarım ve aydınlatma direği çalışmaları için sepetli platform ciddi zaman kazandırır.</p>
+        <p>Salihli sepetli platform hizmeti alırken çalışma yüksekliği kadar, platformun yatay erişimi ve zemine uyumu da değerlendirilmelidir. Yalnızca yüksekliğe bakmak yeterli değildir. Örneğin bina önü araç parkı, elektrik hattı veya dar sokak gibi detaylar ekipman seçimini doğrudan etkiler.</p>
+        <ul>
+          <li>Personelin güvenli erişimi için platform kapasitesi kontrol edilmelidir.</li>
+          <li>Çalışma alanında elektrik hattı varsa ek önlem planlanmalıdır.</li>
+          <li>Kısa süreli bakım işleri için hızlı kurulum önemli avantaj sağlar.</li>
+          <li>İskele kurulumuna göre daha temiz ve kontrollü bir çözüm sunar.</li>
+        </ul>
+        <p>İnsan yükseltme gerektiren işlerde doğru platform seçimi iş güvenliğini yükseltir, işi hızlandırır ve çevreye verilen rahatsızlığı azaltır. Bu nedenle sepetli platform birçok işletme için en mantıklı çözümlerden biridir.</p>
+      </article>
+
+      <article class="post" id="post-3">
+        <div class="post-meta">Blog Yazısı 3</div>
+        <h2>Ağır Yük Kaldırma İşlerinde Güvenliği Artıran 5 Temel Adım</h2>
+        <p>Ağır yük kaldırma operasyonlarında güvenlik, yalnızca vinç operatörünün tecrübesine bırakılmamalıdır. Başarılı bir kaldırma işi; doğru planlama, saha kontrolü, ekipman uygunluğu ve açık iletişimle mümkün olur. Özellikle sanayi taşımacılığı ve inşaat projelerinde küçük bir ihmal büyük zaman ve maliyet kaybına yol açabilir.</p>
+        <ul>
+          <li>Kaldırma öncesi saha keşfi yapılmalı ve riskler not edilmelidir.</li>
+          <li>Yükün bağlantı noktaları ve ağırlık merkezi doğru hesaplanmalıdır.</li>
+          <li>Zemin taşıma kapasitesi kontrol edilmeden vinç kurulumu yapılmamalıdır.</li>
+          <li>Operasyon alanında gereksiz personel ve araç trafiği sınırlandırılmalıdır.</li>
+          <li>İletişim tek bir sorumlu üzerinden yürütülmelidir.</li>
+        </ul>
+        <p>Güvenlik odaklı yaklaşım sadece kazaları önlemez, aynı zamanda işin daha hızlı ve düzenli tamamlanmasını sağlar. Bu nedenle ağır yük taşıma ve kaldırma operasyonlarında deneyimli ekip, bakımlı ekipman ve net operasyon planı üçlüsü birlikte düşünülmelidir.</p>
+        <p>Araz Vinç, Salihli ve çevresindeki kaldırma operasyonlarında bu adımları standart hale getirerek daha güvenli ve verimli hizmet sunmayı hedefler.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">ARAZ<span>VİNÇ</span></div>
+      <div class="footer-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="iletisim.html">İletişim</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer-copy">© 2026 Araz Vinç Salihli. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+</body>
+</html>
