@@ -86,23 +86,26 @@
     .page-sub { color: var(--text-2); max-width: 760px; font-size: 1.05rem; }
     .content-section { padding: 3rem clamp(1.5rem, 5vw, 4rem) 5rem; }
     .toc { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin-bottom: 2rem; }
-    .toc a { display:block; background: var(--bg-2); border:1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; transition: all .25s; }
-    .toc a:hover { border-color: rgba(255,107,0,.35); transform: translateY(-2px); }
-    .toc strong { display:block; margin-bottom: .45rem; }
-    .toc span { color: var(--text-2); font-size: .92rem; }
+    .toc a, .related-links a { display:block; background: var(--bg-2); border:1px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; transition: all .25s; }
+    .toc a:hover, .related-links a:hover { border-color: rgba(255,107,0,.35); transform: translateY(-2px); }
+    .toc strong, .related-links strong { display:block; margin-bottom: .45rem; }
+    .toc span, .related-links span { color: var(--text-2); font-size: .92rem; }
     .post { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-bottom: 1.5rem; }
     .post h2 { font-family: 'Inter', sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: .75rem; letter-spacing: -0.03em; }
     .post-meta { color: var(--text-3); font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 1rem; }
     .post p { color: var(--text-2); margin-bottom: 1rem; }
+    .post p a, .post li a { color: #ffd2b3; text-decoration: underline; text-underline-offset: 3px; }
     .post ul { padding-left: 1.2rem; color: var(--text-2); margin-bottom: 1rem; }
     .post li { margin-bottom: .45rem; }
+    .related-section-title { font-family: 'Inter', sans-serif; font-size: 1.5rem; margin: 2rem 0 1rem; }
+    .related-links { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
     .footer { border-top: 1px solid var(--border); padding: 2.5rem clamp(1.5rem, 5vw, 4rem); }
     .footer-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
     .footer-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.15rem; }
     .footer-logo span { color: var(--accent); }
     .footer-links { display:flex; gap:1.25rem; }
     .footer-links a, .footer-copy { color: var(--text-3); font-size: .85rem; }
-    @media (max-width: 900px) { .nav-links { display:none; } .toc { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .nav-links { display:none; } .toc, .related-links { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -144,28 +147,28 @@
         <div class="post-meta">Blog Yazısı 1</div>
         <h2>Salihli Vinç Kiralama Yaparken Doğru Vinç Nasıl Seçilir?</h2>
         <p>Salihli vinç kiralama hizmeti alırken en önemli konu, işe uygun kapasitede ve erişimde vinç seçmektir. Küçük çaplı bir yükleme işinde gereğinden büyük vinç tercih etmek maliyeti artırırken, düşük kapasiteli ekipman seçmek de operasyonun durmasına neden olabilir. Bu yüzden işin yapılacağı alan, kaldırılacak yükün ağırlığı, kaldırma mesafesi ve çalışma zemini mutlaka önceden değerlendirilmelidir.</p>
-        <p>Mobil vinç kiralama sürecinde teklif almadan önce fotoğraf, yaklaşık ölçü ve konum bilgisi paylaşmak hem hızlı fiyat almanızı sağlar hem de yanlış ekipman riskini azaltır. Özellikle fabrika taşımacılığı, beton köşk montajı, çelik konstrüksiyon kurulumu ve makine indirme işlemlerinde saha bilgisi kritik önemdedir.</p>
+        <p>Mobil vinç kiralama sürecinde teklif almadan önce fotoğraf, yaklaşık ölçü ve konum bilgisi paylaşmak hem hızlı fiyat almanızı sağlar hem de yanlış ekipman riskini azaltır. Özellikle fabrika taşımacılığı, beton köşk montajı, çelik konstrüksiyon kurulumu ve makine indirme işlemlerinde saha bilgisi kritik önemdedir. Konuya daha detaylı bakmak isterseniz <a href="salihli-vinc-kiralama.html">Salihli vinç kiralama</a> sayfamız ve <a href="mobil-vinc-kiralama.html">mobil vinç kiralama</a> hizmet sayfamız doğru ekipman seçimi konusunda iyi bir başlangıç sunar.</p>
         <ul>
           <li>Yükün ağırlığını ve ölçüsünü mümkün olduğunca net paylaşın.</li>
           <li>Dar sokak, eğimli zemin veya kapalı alan varsa önceden belirtin.</li>
           <li>İşin gündüz mü gece mi yapılacağını söyleyin.</li>
           <li>Tek seferlik kaldırma mı, uzun süreli çalışma mı olacağını belirtin.</li>
         </ul>
-        <p>Araz Vinç olarak Salihli, Alaşehir, Kula ve Demirci çevresinde her işe uygun çözüm önermeye çalışıyoruz. Böylece hem güvenlik korunuyor hem de gereksiz maliyet çıkmıyor.</p>
+        <p>Araz Vinç olarak Salihli, Alaşehir, Kula ve Demirci çevresinde her işe uygun çözüm önermeye çalışıyoruz. Böylece hem güvenlik korunuyor hem de gereksiz maliyet çıkmıyor. Referans işlerden örnek görmek için <a href="galeri.html">galeri sayfamıza</a> da göz atabilirsiniz.</p>
       </article>
 
       <article class="post" id="post-2">
         <div class="post-meta">Blog Yazısı 2</div>
         <h2>Sepetli Platform Kiralama Hangi İşlerde Daha Güvenlidir?</h2>
         <p>Sepetli platform kiralama, yüksek noktada insan çalışmasının gerektiği işlerde klasik merdiven veya iskeleye göre çok daha güvenli bir yöntemdir. Özellikle dış cephe boya işleri, tabela montajı, klima dış ünite kurulumu, bakım-onarım ve aydınlatma direği çalışmaları için sepetli platform ciddi zaman kazandırır.</p>
-        <p>Salihli sepetli platform hizmeti alırken çalışma yüksekliği kadar, platformun yatay erişimi ve zemine uyumu da değerlendirilmelidir. Yalnızca yüksekliğe bakmak yeterli değildir. Örneğin bina önü araç parkı, elektrik hattı veya dar sokak gibi detaylar ekipman seçimini doğrudan etkiler.</p>
+        <p>Salihli sepetli platform hizmeti alırken çalışma yüksekliği kadar, platformun yatay erişimi ve zemine uyumu da değerlendirilmelidir. Yalnızca yüksekliğe bakmak yeterli değildir. Örneğin bina önü araç parkı, elektrik hattı veya dar sokak gibi detaylar ekipman seçimini doğrudan etkiler. Bu konuda daha özel bilgi için <a href="sepetli-platform-kiralama.html">sepetli platform kiralama</a> sayfamızdan kullanım alanlarını inceleyebilirsiniz.</p>
         <ul>
           <li>Personelin güvenli erişimi için platform kapasitesi kontrol edilmelidir.</li>
           <li>Çalışma alanında elektrik hattı varsa ek önlem planlanmalıdır.</li>
           <li>Kısa süreli bakım işleri için hızlı kurulum önemli avantaj sağlar.</li>
           <li>İskele kurulumuna göre daha temiz ve kontrollü bir çözüm sunar.</li>
         </ul>
-        <p>İnsan yükseltme gerektiren işlerde doğru platform seçimi iş güvenliğini yükseltir, işi hızlandırır ve çevreye verilen rahatsızlığı azaltır. Bu nedenle sepetli platform birçok işletme için en mantıklı çözümlerden biridir.</p>
+        <p>İnsan yükseltme gerektiren işlerde doğru platform seçimi iş güvenliğini yükseltir, işi hızlandırır ve çevreye verilen rahatsızlığı azaltır. Bu nedenle sepetli platform birçok işletme için en mantıklı çözümlerden biridir. Bizimle doğrudan iletişim kurmak için <a href="iletisim.html">iletişim sayfasına</a> geçebilirsiniz.</p>
       </article>
 
       <article class="post" id="post-3">
@@ -179,9 +182,18 @@
           <li>Operasyon alanında gereksiz personel ve araç trafiği sınırlandırılmalıdır.</li>
           <li>İletişim tek bir sorumlu üzerinden yürütülmelidir.</li>
         </ul>
-        <p>Güvenlik odaklı yaklaşım sadece kazaları önlemez, aynı zamanda işin daha hızlı ve düzenli tamamlanmasını sağlar. Bu nedenle ağır yük taşıma ve kaldırma operasyonlarında deneyimli ekip, bakımlı ekipman ve net operasyon planı üçlüsü birlikte düşünülmelidir.</p>
+        <p>Güvenlik odaklı yaklaşım sadece kazaları önlemez, aynı zamanda işin daha hızlı ve düzenli tamamlanmasını sağlar. Bu nedenle ağır yük taşıma ve kaldırma operasyonlarında deneyimli ekip, bakımlı ekipman ve net operasyon planı üçlüsü birlikte düşünülmelidir. Hizmet detaylarını <a href="hizmetler.html">hizmetler sayfasında</a>, yerel odaklı çözümü ise <a href="salihli-vinc-kiralama.html">Salihli vinç kiralama</a> sayfasında görebilirsiniz.</p>
         <p>Araz Vinç, Salihli ve çevresindeki kaldırma operasyonlarında bu adımları standart hale getirerek daha güvenli ve verimli hizmet sunmayı hedefler.</p>
       </article>
+
+      <h3 class="related-section-title">Öne çıkan bağlantılar</h3>
+      <div class="related-links">
+        <a href="salihli-vinc-kiralama.html"><strong>Salihli Vinç Kiralama</strong><span>Yerel arama yapan kullanıcılar için ana hizmet sayfamız.</span></a>
+        <a href="mobil-vinc-kiralama.html"><strong>Mobil Vinç Kiralama</strong><span>Yük kaldırma ve taşıma operasyonları için detaylı hizmet anlatımı.</span></a>
+        <a href="sepetli-platform-kiralama.html"><strong>Sepetli Platform Kiralama</strong><span>Yüksek çalışma gerektiren işler için güvenli erişim rehberi.</span></a>
+        <a href="hizmetler.html"><strong>Hizmetler</strong><span>Tüm vinç ve platform çözümlerini tek sayfada görün.</span></a>
+        <a href="galeri.html"><strong>Galeri</strong><span>Gerçek proje görselleri ve referans çalışmalarımız.</span></a>
+      </div>
     </div>
   </section>
 
