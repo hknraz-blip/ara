@@ -62,11 +62,11 @@
     .map-card p { color: var(--text-2); }
 
     .footer { border-top: 1px solid var(--border); padding: 2.5rem clamp(1.5rem, 5vw, 4rem); }
-    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 1.15rem; }
     .footer-logo span { color: var(--accent); }
     .footer-copy { color: var(--text-3); font-size: 0.85rem; }
-    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links { display: flex; gap: 1rem 1.5rem; flex-wrap: wrap; max-width: 760px; }
     .footer-links a { color: var(--text-3); font-size: 0.85rem; transition: color 0.25s; }
     .footer-links a:hover { color: var(--text); }
 
@@ -88,6 +88,7 @@
         <li><a href="galeri.html">Galeri</a></li>
         <li><a href="hakkimizda.html">Hakkımızda</a></li>
         <li><a href="iletisim.html" class="active">İletişim</a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
       <div class="nav-actions">
         <a href="https://wa.me/9054445113341" class="btn-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geç">
@@ -185,15 +186,24 @@
 
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-logo">ARAZ<span>VİNÇ</span></div>
+      <div>
+        <div class="footer-logo">ARAZ<span>VİNÇ</span></div>
+        <div class="footer-copy">© 2026 Araz Vinç Salihli. Tüm hakları saklıdır.</div>
+      </div>
       <div class="footer-links">
         <a href="index.html">Ana Sayfa</a>
         <a href="hizmetler.html">Hizmetler</a>
         <a href="galeri.html">Galeri</a>
+        <a href="blog.html">Blog</a>
         <a href="hakkimizda.html">Hakkımızda</a>
         <a href="iletisim.html">İletişim</a>
+        <a href="salihli-vinc-kiralama.html">Salihli Vinç Kiralama</a>
+        <a href="mobil-vinc-kiralama.html">Mobil Vinç Kiralama</a>
+        <a href="sepetli-platform-kiralama.html">Sepetli Platform Kiralama</a>
+        <a href="alasehir-vinc-kiralama.html">Alaşehir Vinç Kiralama</a>
+        <a href="kula-vinc-kiralama.html">Kula Vinç Kiralama</a>
+        <a href="demirci-vinc-kiralama.html">Demirci Vinç Kiralama</a>
       </div>
-      <div class="footer-copy">© 2026 Araz Vinç Salihli. Tüm hakları saklıdır.</div>
     </div>
   </footer>
 
